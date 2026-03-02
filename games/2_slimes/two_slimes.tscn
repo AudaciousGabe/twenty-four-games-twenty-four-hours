@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://d37xaxnli47f2" path="res://games/2_slimes/assets/blanket-export2.png" id="7_rs7ct"]
 [ext_resource type="Texture2D" uid="uid://ch4h2t4o5tgoj" path="res://games/2_slimes/assets/blanket-export3.png" id="8_gudgh"]
 [ext_resource type="Texture2D" uid="uid://bomo0njy4ts36" path="res://games/2_slimes/assets/slimey-export3.png" id="8_rs7ct"]
+[ext_resource type="Texture2D" uid="uid://bitl7reswni3b" path="res://games/2_slimes/assets/two-export1.png" id="13_gudgh"]
+[ext_resource type="Texture2D" uid="uid://b0nldv2t6u7hh" path="res://games/2_slimes/assets/two-export2.png" id="14_xnlg7"]
+[ext_resource type="Texture2D" uid="uid://cm3lqy3ns4pdq" path="res://games/2_slimes/assets/two-export3.png" id="15_oqyri"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_xnlg7"]
 frames = 3
@@ -42,7 +45,15 @@ frame_1/duration = 1.0
 frame_2/texture = ExtResource("8_gudgh")
 frame_2/duration = 1.0
 
-[node name="TwoSlimes" type="Control" unique_id=1937447497 node_paths=PackedStringArray("left_slime_margin_container", "right_slime_margin_container", "timer", "timer_label", "left_slime_button", "right_slime_button", "blanket_control", "start_button")]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_g13c8"]
+frames = 3
+frame_0/texture = ExtResource("13_gudgh")
+frame_1/texture = ExtResource("14_xnlg7")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("15_oqyri")
+frame_2/duration = 1.0
+
+[node name="TwoSlimes" type="Control" unique_id=1937447497 node_paths=PackedStringArray("left_slime_margin_container", "right_slime_margin_container", "timer", "timer_label", "left_slime_button", "right_slime_button", "blanket_control", "start_button", "you_win_rich_text_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,11 +65,12 @@ script = ExtResource("2_t6ghc")
 left_slime_margin_container = NodePath("LeftSlimeMarginContainer")
 right_slime_margin_container = NodePath("RightSlimeMarginContainer")
 timer = NodePath("Timer")
-timer_label = NodePath("MarginContainer/VBoxContainer/TimerLabel")
+timer_label = NodePath("TimerLabel")
 left_slime_button = NodePath("LeftSlimeMarginContainer/VBoxContainer/LeftSlimeButton")
 right_slime_button = NodePath("RightSlimeMarginContainer/VBoxContainer/RightSlimeButton")
 blanket_control = NodePath("LeftSlimeMarginContainer/BlanketControl")
 start_button = NodePath("StartButton")
+you_win_rich_text_label = NodePath("YouWinRichTextLabel")
 
 [node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=304724475]
 layout_mode = 1
@@ -69,7 +81,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.16470589, 0.18431373, 0.30588236, 1)
 
+[node name="TimerLabel" type="Label" parent="." unique_id=1142181263]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 68.0
+offset_right = 980.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 236
+text = "12"
+horizontal_alignment = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=670111093]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,10 +106,6 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=868663190]
 layout_mode = 2
-
-[node name="TimerLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1142181263]
-layout_mode = 2
-horizontal_alignment = 1
 
 [node name="RightSlimeMarginContainer" type="MarginContainer" parent="." unique_id=445823064]
 layout_mode = 0
@@ -181,13 +200,62 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -58.5
-offset_top = -38.0
-offset_right = 58.5
-offset_bottom = 38.0
+offset_left = 119.0
+offset_top = -128.0
+offset_right = 340.125
+offset_bottom = -17.660004
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start"
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=339346564]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -159.0
+offset_right = 535.23
+offset_bottom = 10.609985
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CuddleRichTextLabel" type="RichTextLabel" parent="." unique_id=993267634]
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -613.0
+offset_top = -46.0
+offset_right = -17.77002
+offset_bottom = 123.609985
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "[wave]Have them cuddle!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TwoTextureRect" type="TextureRect" parent="." unique_id=1960520673]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 86.0
+offset_right = 428.0
+offset_bottom = 347.0
+texture = SubResource("AnimatedTexture_g13c8")
 
 [connection signal="pressed" from="RightSlimeMarginContainer/VBoxContainer/RightSlimeButton" to="." method="_on_right_slime_button_pressed"]
 [connection signal="area_entered" from="RightSlimeMarginContainer/Area2D" to="." method="_on_area_2d_area_entered"]

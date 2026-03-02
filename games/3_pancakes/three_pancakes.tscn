@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://b725wc7pym73k"]
+
+[ext_resource type="Script" uid="uid://cu4exjbaiuc8g" path="res://games/3_pancakes/three_pancakes.gd" id="1_nrmqq"]
+[ext_resource type="PackedScene" uid="uid://cuse2x71wq7jl" path="res://games/3_pancakes/pancake_rigid_body_2d.tscn" id="2_h28ff"]
+
+[sub_resource type="Gradient" id="Gradient_nrmqq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h28ff"]
+gradient = SubResource("Gradient_nrmqq")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h28ff"]
+radius = 23.086792
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nrmqq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h28ff"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bm484"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_bm484"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 76, 167, 0, 0, 0, 0, 1060, 166)
+}
+point_count = 2
+
+[node name="3_pancakes" type="Node" unique_id=486549961 node_paths=PackedStringArray("cursor_collision_animatable_body_2d", "pancakes_container_node_2d", "spawn_path_2d", "spawn_path_follow_2d")]
+script = ExtResource("1_nrmqq")
+cursor_collision_animatable_body_2d = NodePath("CanvasLayer/Node2D/CursorCollisionAnimatableBody2D")
+pancake_rigid_body_2d = ExtResource("2_h28ff")
+pancakes_container_node_2d = NodePath("CanvasLayer/Node2D/PancakesContainerNode2D")
+spawn_path_2d = NodePath("CanvasLayer/Node2D/SpawnPath2D")
+spawn_path_follow_2d = NodePath("CanvasLayer/Node2D/SpawnPath2D/SpawnPathFollow2D")
+pancake_rigid_body_2d_scene = ExtResource("2_h28ff")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2147046496]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1085228252]
+
+[node name="PancakesContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=623751273]
+
+[node name="CursorCollisionAnimatableBody2D" type="AnimatableBody2D" parent="CanvasLayer/Node2D" unique_id=236593408]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/CursorCollisionAnimatableBody2D" unique_id=229554797]
+position = Vector2(-1.0000007, 0.50000095)
+scale = Vector2(0.71875, 0.70312506)
+texture = SubResource("GradientTexture2D_h28ff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/CursorCollisionAnimatableBody2D" unique_id=1336088109]
+shape = SubResource("CircleShape2D_h28ff")
+
+[node name="WorldCollisionsNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=718471493]
+
+[node name="BottomStaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=2146890315]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/BottomStaticBody2D" unique_id=2004854545]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_nrmqq")
+
+[node name="LeftStaticBody2D2" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=1582885752]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/LeftStaticBody2D2" unique_id=1025162869]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_h28ff")
+
+[node name="RightStaticBody2D3" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=1676335887]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/RightStaticBody2D3" unique_id=1318196265]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_bm484")
+
+[node name="SpawnPath2D" type="Path2D" parent="CanvasLayer/Node2D" unique_id=731663763]
+curve = SubResource("Curve2D_bm484")
+
+[node name="SpawnPathFollow2D" type="PathFollow2D" parent="CanvasLayer/Node2D/SpawnPath2D" unique_id=1059692456]
+position = Vector2(76, 167)
+rotation = -0.0010162598
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1909119236]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=774431175]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="CanvasLayer2/Control" unique_id=963620573]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 576.0
+offset_right = 155.0
+offset_bottom = 607.0
+text = "Reset Button"
+
+[node name="CheckIfPancakesAreStackedButton" type="Button" parent="CanvasLayer2/Control" unique_id=880926315]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 582.0
+offset_right = 1105.0
+offset_bottom = 613.0
+text = "Check if Pancakes are Stacked"
+
+[connection signal="pressed" from="CanvasLayer2/Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control/CheckIfPancakesAreStackedButton" to="." method="_on_check_if_pancakes_are_stacked_button_pressed"]

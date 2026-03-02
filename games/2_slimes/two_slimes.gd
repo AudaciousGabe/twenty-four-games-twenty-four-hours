@@ -1,7 +1,7 @@
 extends Control
 
 
-@export var time_to_win: float = 31.0
+@export var time_to_win: float = 21.0
 @export var move_distance: float = 15.0
 
 @export var left_slime_margin_container: MarginContainer
@@ -12,6 +12,7 @@ extends Control
 @export var right_slime_button: Button
 @export var blanket_control: Control
 @export var start_button: Button
+@export var you_win_rich_text_label: RichTextLabel
 
 
 var original_left_slime_position: Vector2
@@ -46,6 +47,7 @@ func start() -> void:
 func win() -> void:
 	timer.stop()
 	timer_label.hide()
+	you_win_rich_text_label.show()
 	print("You Win!")
 
 

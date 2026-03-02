@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cuse2x71wq7jl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d36eb"]
+height = 176.0
+
+[sub_resource type="Gradient" id="Gradient_oyj82"]
+colors = PackedColorArray(0, 0, 0, 1, 0.7338774, 0.2962267, 6.863445e-05, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gy2lo"]
+gradient = SubResource("Gradient_oyj82")
+
+[node name="PancakeRigidBody2D" type="RigidBody2D" unique_id=1446616087]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=850610185]
+rotation = -1.5736566
+shape = SubResource("CapsuleShape2D_d36eb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=440770745]
+scale = Vector2(2.6451693, 0.29134783)
+texture = SubResource("GradientTexture2D_gy2lo")
