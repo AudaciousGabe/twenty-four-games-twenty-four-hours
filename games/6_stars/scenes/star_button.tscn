@@ -1,8 +1,40 @@
 [gd_scene format=3 uid="uid://inp1flwca5lw"]
 
 [ext_resource type="Script" uid="uid://bvyn8nyf6wro7" path="res://games/6_stars/scenes/star_button.gd" id="1_0mmse"]
+[ext_resource type="Texture2D" uid="uid://cnlpnq57wivyn" path="res://games/6_stars/assets/star-export-filled1.png" id="2_ugrv6"]
+[ext_resource type="Texture2D" uid="uid://b5wf1qpxmi1pc" path="res://games/6_stars/assets/star-export-filled2.png" id="3_jsnp2"]
+[ext_resource type="Texture2D" uid="uid://lgimm48adxpy" path="res://games/6_stars/assets/star-export-filled3.png" id="4_3s1y0"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7fmf1"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("2_ugrv6")
+frame_1/texture = ExtResource("3_jsnp2")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_3s1y0")
+frame_2/duration = 1.0
 
 [node name="StarButton" type="Button" unique_id=1514253327]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 132.0
+offset_bottom = 104.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+flat = true
 script = ExtResource("1_0mmse")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=669788988]
+position = Vector2(65, 51)
+amount = 80
+gravity = Vector2(0, 0)
+orbit_velocity_max = 1.0
+scale_amount_max = 17.89
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=205274779]
+modulate = Color(1.6153606, 1.6153606, 1.6153606, 1)
+layout_mode = 0
+offset_left = -65.0
+offset_top = -35.0
+offset_right = 290.0
+offset_bottom = 226.0
+scale = Vector2(0.7283864, 0.7283864)
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_7fmf1")

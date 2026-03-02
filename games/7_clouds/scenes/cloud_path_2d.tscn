@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://swwxy3reoca"]
+
+[ext_resource type="Script" uid="uid://xdwtb0iovg6a" path="res://games/7_clouds/scenes/cloud_path_2d.gd" id="1_2lfcg"]
+
+[sub_resource type="Curve2D" id="Curve2D_7l42t"]
+
+[node name="CloudPath2D" type="Path2D" unique_id=16169906 node_paths=PackedStringArray("path_follow_2d")]
+curve = SubResource("Curve2D_7l42t")
+script = ExtResource("1_2lfcg")
+path_follow_2d = NodePath("PathFollow2D")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=690038225]

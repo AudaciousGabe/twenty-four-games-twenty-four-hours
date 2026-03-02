@@ -1,17 +1,66 @@
 [gd_scene format=3 uid="uid://bo6bj863by548"]
 
 [ext_resource type="Script" uid="uid://d3tt2s6lvwp81" path="res://games/6_stars/six_stars.gd" id="1_poofw"]
+[ext_resource type="Theme" uid="uid://d3vsato5b0xuq" path="res://themes/theme.tres" id="1_wy65e"]
+[ext_resource type="PackedScene" uid="uid://inp1flwca5lw" path="res://games/6_stars/scenes/star_button.tscn" id="2_xw7i5"]
+[ext_resource type="Texture2D" uid="uid://xjsve1mefvlm" path="res://games/6_stars/assets/sky-export1.png" id="4_1fxp5"]
+[ext_resource type="Texture2D" uid="uid://dx3ywsnu3dwgp" path="res://games/6_stars/assets/sky-export2.png" id="5_nqi4b"]
+[ext_resource type="Texture2D" uid="uid://c0p137lb7as4h" path="res://games/6_stars/assets/sky-export3.png" id="6_8n7dt"]
+[ext_resource type="Texture2D" uid="uid://baa4pynwwaf1h" path="res://games/6_stars/assets/6-export1.png" id="7_q71q3"]
+[ext_resource type="Texture2D" uid="uid://c13dl0r4i6c6v" path="res://games/6_stars/assets/6-export2.png" id="8_grh0t"]
+[ext_resource type="Texture2D" uid="uid://cldalfi024vt1" path="res://games/6_stars/assets/6-export3.png" id="9_e8kde"]
 
-[node name="SixStars" type="Control" unique_id=779745410]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_q71q3"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("4_1fxp5")
+frame_1/texture = ExtResource("5_nqi4b")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("6_8n7dt")
+frame_2/duration = 1.0
+
+[sub_resource type="Environment" id="Environment_wy65e"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 5.2
+glow_bloom = 0.03
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xrvsp"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("7_q71q3")
+frame_1/texture = ExtResource("8_grh0t")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("9_e8kde")
+frame_2/duration = 1.0
+
+[node name="SixStars" type="Control" unique_id=779745410 node_paths=PackedStringArray("star_control", "spawn_timer", "score_number_rich_text_label", "you_win_rich_text_label", "spawn_reference_rect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_wy65e")
 script = ExtResource("1_poofw")
+star_button_scene = ExtResource("2_xw7i5")
+star_control = NodePath("StarControl")
+spawn_timer = NodePath("SpawnTimer")
+score_number_rich_text_label = NodePath("HBoxContainer/ScoreNumberRichTextLabel")
+you_win_rich_text_label = NodePath("YouWinRichTextLabel")
+spawn_reference_rect = NodePath("SpawnReferenceRect")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1352667813]
+[node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=181927083]
+modulate = Color(1.9790094, 1.9790094, 1.9790094, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_q71q3")
+
+[node name="SpawnReferenceRect" type="ReferenceRect" parent="." unique_id=1352667813]
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 1
 anchors_preset = 4
@@ -23,3 +72,71 @@ offset_right = -99.9
 offset_bottom = 250.0
 grow_vertical = 2
 border_width = 5.0
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=523311046]
+autostart = true
+
+[node name="StarControl" type="Control" parent="." unique_id=1927870595]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=264797843]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 560.0
+offset_right = 1288.0
+offset_bottom = 628.0
+mouse_filter = 2
+
+[node name="ScoreRichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=1328940902]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[wave]Score: "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScoreNumberRichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=1246028431]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "0"
+fit_content = true
+vertical_alignment = 1
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=1908393007]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.805
+offset_right = 297.615
+offset_bottom = 84.805
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=655996582]
+environment = SubResource("Environment_wy65e")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=931314990]
+modulate = Color(1.6153606, 1.6153606, 1.6153606, 1)
+layout_mode = 0
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 320.0
+offset_bottom = 256.0
+texture = SubResource("AnimatedTexture_xrvsp")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

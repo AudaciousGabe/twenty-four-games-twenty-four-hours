@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bo5s3onk2kpka"]
+
+[node name="SevenClouds" type="Node" unique_id=1958868552]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1153025399]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1042975701]
+
+[node name="CloudsContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=1357985634]
+position = Vector2(-1, 0)
