@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://d3vsato5b0xuq"]
+
+[ext_resource type="FontFile" uid="uid://cdrf6hwsilhac" path="res://fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf" id="1_1h68f"]
+
+[resource]
+default_font = ExtResource("1_1h68f")
+default_font_size = 49

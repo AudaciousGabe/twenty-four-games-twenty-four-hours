@@ -1,22 +1,74 @@
 [gd_scene format=3 uid="uid://b184b6hv8m1pa"]
 
-[ext_resource type="FontFile" uid="uid://cdrf6hwsilhac" path="res://fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf" id="1_m0wjo"]
+[ext_resource type="Theme" uid="uid://d3vsato5b0xuq" path="res://themes/theme.tres" id="1_h24oy"]
 [ext_resource type="Script" uid="uid://dcxpayu6ty7n0" path="res://games/1_toast/toast.gd" id="2_ppqhk"]
 [ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="3_mrhtk"]
+[ext_resource type="Texture2D" uid="uid://du7xtk0wgvhnn" path="res://games/1_toast/assets/bread-export1.png" id="3_yp4ne"]
+[ext_resource type="Texture2D" uid="uid://bwmmbb7dxs3x2" path="res://games/1_toast/assets/bread-export2.png" id="4_0le2g"]
+[ext_resource type="Texture2D" uid="uid://brxrb66fdaovf" path="res://games/1_toast/assets/bread-export3.png" id="5_0u8ir"]
+[ext_resource type="Texture2D" uid="uid://b3at0p1oa24oe" path="res://games/1_toast/assets/toaster-export1.png" id="6_bi7y8"]
+[ext_resource type="Texture2D" uid="uid://b0u57mtajkk55" path="res://games/1_toast/assets/toaster-export2.png" id="7_yo6fw"]
+[ext_resource type="Texture2D" uid="uid://dudovdqqt7wym" path="res://games/1_toast/assets/toaster-export3.png" id="8_24883"]
+[ext_resource type="Texture2D" uid="uid://cjlwtueqowujc" path="res://games/1_toast/assets/final-toaster1.png" id="9_bi7y8"]
+[ext_resource type="Texture2D" uid="uid://bqs4j8ypdmcdy" path="res://games/1_toast/assets/final-toaster2.png" id="10_yo6fw"]
+[ext_resource type="Texture2D" uid="uid://dyh1t4dqhvsuk" path="res://games/1_toast/assets/final-toaster3.png" id="11_24883"]
+[ext_resource type="Texture2D" uid="uid://ciheqxkhwc3xt" path="res://games/1_toast/assets/one-export1.png" id="13_h24oy"]
+[ext_resource type="Texture2D" uid="uid://p4cfc3lkgm5s" path="res://games/1_toast/assets/one-export2.png" id="14_uptb8"]
+[ext_resource type="Texture2D" uid="uid://cyd63adg81edp" path="res://games/1_toast/assets/one-export3.png" id="15_247wh"]
 
-[sub_resource type="Theme" id="Theme_hy1q5"]
-default_font = ExtResource("1_m0wjo")
-default_font_size = 49
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uptb8"]
 
-[node name="Toast" type="Control" unique_id=1207773897]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_247wh"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("6_bi7y8")
+frame_1/texture = ExtResource("7_yo6fw")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_24883")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_h24oy"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("3_yp4ne")
+frame_1/texture = ExtResource("4_0le2g")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_0u8ir")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_uptb8"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("9_bi7y8")
+frame_1/texture = ExtResource("10_yo6fw")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("11_24883")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_4v4dn"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("13_h24oy")
+frame_1/texture = ExtResource("14_uptb8")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("15_247wh")
+frame_2/duration = 1.0
+
+[node name="Toast" type="Control" unique_id=1207773897 node_paths=PackedStringArray("toast_texture_rect", "you_win_panel", "start_toasting_button", "eject_button", "toasting_progress_bar", "toasting_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_hy1q5")
+theme = ExtResource("1_h24oy")
 script = ExtResource("2_ppqhk")
+toast_texture_rect = NodePath("ToastTextureRect")
+you_win_panel = NodePath("MarginContainer/VBoxContainer/ButtonsMarginContainer/YouWinPanel")
+start_toasting_button = NodePath("MarginContainer/VBoxContainer/ButtonsMarginContainer/StartToastingButton")
+eject_button = NodePath("MarginContainer/VBoxContainer/ButtonsMarginContainer/EjectButton")
+toasting_progress_bar = NodePath("MarginContainer/VBoxContainer/MarginContainer/ToastingProgressBar")
+toasting_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/ToastingLabel")
 
 [node name="Background" type="ColorRect" parent="." unique_id=749783588]
 layout_mode = 1
@@ -30,6 +82,44 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.3647059, 0.17254902, 0.15686275, 1)
+
+[node name="ToasterBackTextureRect" type="TextureRect" parent="." unique_id=381217419]
+material = SubResource("CanvasItemMaterial_uptb8")
+layout_mode = 0
+offset_left = 20.0
+offset_top = 189.0
+offset_right = 1132.0
+offset_bottom = 637.0
+size_flags_vertical = 3
+texture = SubResource("AnimatedTexture_247wh")
+stretch_mode = 5
+
+[node name="ToastTextureRect" type="TextureRect" parent="." unique_id=1264560670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 313.0
+offset_top = 89.00001
+offset_right = 313.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4117645, 0.4117645)
+size_flags_vertical = 3
+texture = SubResource("AnimatedTexture_h24oy")
+stretch_mode = 5
+
+[node name="ToasterFrontTextureRect" type="TextureRect" parent="." unique_id=495845877]
+material = SubResource("CanvasItemMaterial_uptb8")
+layout_mode = 0
+offset_left = 20.0
+offset_top = 189.0
+offset_right = 1132.0
+offset_bottom = 637.0
+size_flags_vertical = 3
+texture = SubResource("AnimatedTexture_uptb8")
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=511923486]
 layout_mode = 1
@@ -46,14 +136,25 @@ theme_override_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1435444655]
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1827972866]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=752813921]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1264560670]
+[node name="ToastingProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1827972866]
+layout_mode = 2
+size_flags_vertical = 1
+show_percentage = false
+
+[node name="ToastingLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=83647919]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1982483090]
 layout_mode = 2
 size_flags_vertical = 3
+metadata/_edit_lock_ = true
 
 [node name="ButtonsMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=653245361]
+custom_minimum_size = Vector2(0, 75.1)
 layout_mode = 2
 
 [node name="StartToastingButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsMarginContainer" unique_id=1698486679]
@@ -65,8 +166,43 @@ visible = false
 layout_mode = 2
 text = "Eject Da Toast"
 
+[node name="YouWinPanel" type="Panel" parent="MarginContainer/VBoxContainer/ButtonsMarginContainer" unique_id=2088709278]
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ButtonsMarginContainer/YouWinPanel" unique_id=876010457]
+layout_mode = 0
+offset_right = 1112.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("3_mrhtk")]
 position = Vector2(551.00006, 811.00024)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=946767230]
+layout_mode = 0
+offset_left = 657.0
+offset_top = 467.0
+offset_right = 1244.0
+offset_bottom = 540.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[wave] We need 69% Toastness"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OneTextureRect" type="TextureRect" parent="." unique_id=480193799]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 113.0
+offset_right = 413.68967
+offset_bottom = 437.0
+texture = SubResource("AnimatedTexture_4v4dn")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsMarginContainer/StartToastingButton" to="." method="_on_start_toasting_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsMarginContainer/EjectButton" to="." method="_on_eject_button_pressed"]
