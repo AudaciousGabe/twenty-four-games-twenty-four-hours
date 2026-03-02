@@ -10,6 +10,7 @@ extends Node
 @export var spawn_path_2d: Path2D
 @export var spawn_path_follow_2d: PathFollow2D
 @export var pancake_rigid_body_2d_scene: PackedScene
+@export var you_win_rich_text_label: RichTextLabel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -65,6 +66,7 @@ func check_if_pancakes_are_stacked() -> bool:
 
 
 func win() -> void:
+	you_win_rich_text_label.show()
 	print("You Win!")
 
 

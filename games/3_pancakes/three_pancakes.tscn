@@ -2,14 +2,34 @@
 
 [ext_resource type="Script" uid="uid://cu4exjbaiuc8g" path="res://games/3_pancakes/three_pancakes.gd" id="1_nrmqq"]
 [ext_resource type="PackedScene" uid="uid://cuse2x71wq7jl" path="res://games/3_pancakes/pancake_rigid_body_2d.tscn" id="2_h28ff"]
+[ext_resource type="Texture2D" uid="uid://ddneoibo0va0" path="res://games/3_pancakes/assets/spat-export1.png" id="3_oj8ms"]
+[ext_resource type="Texture2D" uid="uid://k1vbgbaaph7m" path="res://games/3_pancakes/assets/spat-export2.png" id="4_uvojn"]
+[ext_resource type="Texture2D" uid="uid://bpyqhmj36e1l6" path="res://games/3_pancakes/assets/spat-export3.png" id="5_w8wpm"]
+[ext_resource type="Texture2D" uid="uid://b617vvxkhiolo" path="res://games/3_pancakes/assets/3-export1.png" id="6_uidng"]
+[ext_resource type="Texture2D" uid="uid://criuo10odd65u" path="res://games/3_pancakes/assets/3-export2.png" id="7_c6hww"]
+[ext_resource type="Texture2D" uid="uid://qrj7lsrf4ua2" path="res://games/3_pancakes/assets/3-export3.png" id="8_40crv"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="9_10rwa"]
 
-[sub_resource type="Gradient" id="Gradient_nrmqq"]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_vnk63"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("3_oj8ms")
+frame_1/texture = ExtResource("4_uvojn")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_w8wpm")
+frame_2/duration = 1.0
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_h28ff"]
-gradient = SubResource("Gradient_nrmqq")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmdbg"]
+size = Vector2(65.913246, 93.984116)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h28ff"]
-radius = 23.086792
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqvk1"]
+size = Vector2(46.25943, 32.50882)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmsnj"]
+size = Vector2(47.64691, 49.343792)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjklj"]
+size = Vector2(47.64691, 49.343792)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nrmqq"]
 
@@ -25,6 +45,15 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_4aa8n"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("6_uidng")
+frame_1/texture = ExtResource("7_c6hww")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_40crv")
+frame_2/duration = 1.0
+
 [node name="3_pancakes" type="Node" unique_id=486549961 node_paths=PackedStringArray("cursor_collision_animatable_body_2d", "pancakes_container_node_2d", "spawn_path_2d", "spawn_path_follow_2d")]
 script = ExtResource("1_nrmqq")
 cursor_collision_animatable_body_2d = NodePath("CanvasLayer/Node2D/CursorCollisionAnimatableBody2D")
@@ -33,6 +62,14 @@ pancakes_container_node_2d = NodePath("CanvasLayer/Node2D/PancakesContainerNode2
 spawn_path_2d = NodePath("CanvasLayer/Node2D/SpawnPath2D")
 spawn_path_follow_2d = NodePath("CanvasLayer/Node2D/SpawnPath2D/SpawnPathFollow2D")
 pancake_rigid_body_2d_scene = ExtResource("2_h28ff")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1391163150]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25882354, 0.29803923, 0.43137255, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2147046496]
 
@@ -45,10 +82,28 @@ pancake_rigid_body_2d_scene = ExtResource("2_h28ff")
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/CursorCollisionAnimatableBody2D" unique_id=229554797]
 position = Vector2(-1.0000007, 0.50000095)
 scale = Vector2(0.71875, 0.70312506)
-texture = SubResource("GradientTexture2D_h28ff")
+texture = SubResource("AnimatedTexture_vnk63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/CursorCollisionAnimatableBody2D" unique_id=1336088109]
-shape = SubResource("CircleShape2D_h28ff")
+position = Vector2(-15, -34)
+rotation = -1.7013743
+shape = SubResource("RectangleShape2D_jmdbg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/Node2D/CursorCollisionAnimatableBody2D" unique_id=300336112]
+position = Vector2(1.1276886, 19.816364)
+rotation = -1.7013743
+shape = SubResource("RectangleShape2D_kqvk1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CanvasLayer/Node2D/CursorCollisionAnimatableBody2D" unique_id=714847519]
+position = Vector2(6.4361563, 63.591816)
+rotation = -1.7013743
+shape = SubResource("RectangleShape2D_wmsnj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CanvasLayer/Node2D/CursorCollisionAnimatableBody2D" unique_id=379049899]
+position = Vector2(-16.999998, -14.999998)
+rotation = -2.6040423
+scale = Vector2(0.8319676, 1.0954124)
+shape = SubResource("RectangleShape2D_xjklj")
 
 [node name="WorldCollisionsNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=718471493]
 
@@ -102,6 +157,36 @@ offset_top = 582.0
 offset_right = 1105.0
 offset_bottom = 613.0
 text = "Check if Pancakes are Stacked"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Control" unique_id=811777882]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 33.0
+offset_right = 767.0
+offset_bottom = 294.0
+texture = SubResource("AnimatedTexture_4aa8n")
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1579858966]
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.805
+offset_right = 297.615
+offset_bottom = 84.805
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("9_10rwa")]
 
 [connection signal="pressed" from="CanvasLayer2/Control/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Control/CheckIfPancakesAreStackedButton" to="." method="_on_check_if_pancakes_are_stacked_button_pressed"]

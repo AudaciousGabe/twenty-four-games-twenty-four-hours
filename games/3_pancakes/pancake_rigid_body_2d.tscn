@@ -1,20 +1,30 @@
 [gd_scene format=3 uid="uid://cuse2x71wq7jl"]
 
+[ext_resource type="Texture2D" uid="uid://4vmpv2nxnud8" path="res://games/3_pancakes/assets/pancake-export1.png" id="1_oal8j"]
+[ext_resource type="Texture2D" uid="uid://canslbf2gapq4" path="res://games/3_pancakes/assets/pancake-export2.png" id="2_ll5a4"]
+[ext_resource type="Texture2D" uid="uid://dvrxrn5v0spc0" path="res://games/3_pancakes/assets/pancake-export3.png" id="3_f8isu"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_gaysn"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("1_oal8j")
+frame_1/texture = ExtResource("2_ll5a4")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_f8isu")
+frame_2/duration = 1.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d36eb"]
-height = 176.0
-
-[sub_resource type="Gradient" id="Gradient_oyj82"]
-colors = PackedColorArray(0, 0, 0, 1, 0.7338774, 0.2962267, 6.863445e-05, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gy2lo"]
-gradient = SubResource("Gradient_oyj82")
+height = 178.34305
 
 [node name="PancakeRigidBody2D" type="RigidBody2D" unique_id=1446616087]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=850610185]
-rotation = -1.5736566
-shape = SubResource("CapsuleShape2D_d36eb")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=440770745]
-scale = Vector2(2.6451693, 0.29134783)
-texture = SubResource("GradientTexture2D_gy2lo")
+position = Vector2(18, -6.0000005)
+scale = Vector2(1, 0.699)
+texture = SubResource("AnimatedTexture_gaysn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=850610185]
+position = Vector2(-2, -4.656613e-10)
+rotation = -1.5736566
+scale = Vector2(1.0127312, 1.0541439)
+shape = SubResource("CapsuleShape2D_d36eb")
