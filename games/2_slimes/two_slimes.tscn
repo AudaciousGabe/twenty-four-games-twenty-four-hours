@@ -3,10 +3,46 @@
 [ext_resource type="Theme" uid="uid://d3vsato5b0xuq" path="res://themes/theme.tres" id="1_2k4f1"]
 [ext_resource type="Script" uid="uid://q2rljgedjtls" path="res://games/2_slimes/two_slimes.gd" id="2_t6ghc"]
 [ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="2_uv2f5"]
+[ext_resource type="Texture2D" uid="uid://u60b74b6v8nw" path="res://games/2_slimes/assets/slimie-export1.png" id="3_6tbeh"]
+[ext_resource type="Texture2D" uid="uid://d3lx5mxp1jjsk" path="res://games/2_slimes/assets/slimie-export2.png" id="4_675fl"]
+[ext_resource type="Texture2D" uid="uid://bgtn3q5vadtxw" path="res://games/2_slimes/assets/slimie-export3.png" id="5_uxlmg"]
+[ext_resource type="Texture2D" uid="uid://sywmfb1un1fc" path="res://games/2_slimes/assets/blanket-export1.png" id="6_d4s3q"]
+[ext_resource type="Texture2D" uid="uid://5q07dqt4qrfx" path="res://games/2_slimes/assets/slimey-export1.png" id="6_sfoc3"]
+[ext_resource type="Texture2D" uid="uid://6vy2jsrwl1q3" path="res://games/2_slimes/assets/slimey-export2.png" id="7_d4s3q"]
+[ext_resource type="Texture2D" uid="uid://d37xaxnli47f2" path="res://games/2_slimes/assets/blanket-export2.png" id="7_rs7ct"]
+[ext_resource type="Texture2D" uid="uid://ch4h2t4o5tgoj" path="res://games/2_slimes/assets/blanket-export3.png" id="8_gudgh"]
+[ext_resource type="Texture2D" uid="uid://bomo0njy4ts36" path="res://games/2_slimes/assets/slimey-export3.png" id="8_rs7ct"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xnlg7"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("6_sfoc3")
+frame_1/texture = ExtResource("7_d4s3q")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_rs7ct")
+frame_2/duration = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fio12"]
+size = Vector2(40, 40)
 
-[node name="TwoSlimes" type="Control" unique_id=1937447497 node_paths=PackedStringArray("left_slime_margin_container", "timer", "timer_label")]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_gudgh"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("3_6tbeh")
+frame_1/texture = ExtResource("4_675fl")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_uxlmg")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_oqyri"]
+frames = 3
+frame_0/texture = ExtResource("6_d4s3q")
+frame_1/texture = ExtResource("7_rs7ct")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_gudgh")
+frame_2/duration = 1.0
+
+[node name="TwoSlimes" type="Control" unique_id=1937447497 node_paths=PackedStringArray("left_slime_margin_container", "right_slime_margin_container", "timer", "timer_label", "left_slime_button", "right_slime_button", "blanket_control", "start_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,8 +52,13 @@ grow_vertical = 2
 theme = ExtResource("1_2k4f1")
 script = ExtResource("2_t6ghc")
 left_slime_margin_container = NodePath("LeftSlimeMarginContainer")
+right_slime_margin_container = NodePath("RightSlimeMarginContainer")
 timer = NodePath("Timer")
 timer_label = NodePath("MarginContainer/VBoxContainer/TimerLabel")
+left_slime_button = NodePath("LeftSlimeMarginContainer/VBoxContainer/LeftSlimeButton")
+right_slime_button = NodePath("RightSlimeMarginContainer/VBoxContainer/RightSlimeButton")
+blanket_control = NodePath("LeftSlimeMarginContainer/BlanketControl")
+start_button = NodePath("StartButton")
 
 [node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=304724475]
 layout_mode = 1
@@ -45,30 +86,112 @@ layout_mode = 2
 
 [node name="TimerLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1142181263]
 layout_mode = 2
+horizontal_alignment = 1
+
+[node name="RightSlimeMarginContainer" type="MarginContainer" parent="." unique_id=445823064]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 378.0
+offset_right = 1133.0
+offset_bottom = 639.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RightSlimeMarginContainer" unique_id=1181722980]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -76
+
+[node name="TextureRect" type="TextureRect" parent="RightSlimeMarginContainer/VBoxContainer" unique_id=1835248213]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_xnlg7")
+stretch_mode = 5
+
+[node name="RightSlimeButton" type="Button" parent="RightSlimeMarginContainer/VBoxContainer" unique_id=944753432]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "<-"
+
+[node name="Area2D" type="Area2D" parent="RightSlimeMarginContainer" unique_id=1518410386]
+position = Vector2(165, 119)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightSlimeMarginContainer/Area2D" unique_id=2072941536]
+position = Vector2(22, -3)
+shape = SubResource("RectangleShape2D_fio12")
 
 [node name="LeftSlimeMarginContainer" type="MarginContainer" parent="." unique_id=636382353]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 15.0
+offset_top = 377.0
+offset_right = 370.0
+offset_bottom = 638.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LeftSlimeMarginContainer" unique_id=710412702]
 layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -76
 
 [node name="TextureRect" type="TextureRect" parent="LeftSlimeMarginContainer/VBoxContainer" unique_id=850754942]
 layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_gudgh")
+stretch_mode = 5
 
 [node name="LeftSlimeButton" type="Button" parent="LeftSlimeMarginContainer/VBoxContainer" unique_id=1256791760]
+visible = false
 layout_mode = 2
+size_flags_horizontal = 4
 text = "->"
 
 [node name="Area2D" type="Area2D" parent="LeftSlimeMarginContainer" unique_id=601540040]
+position = Vector2(165, 119)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSlimeMarginContainer/Area2D" unique_id=998369754]
+position = Vector2(-2.5, -6)
 shape = SubResource("RectangleShape2D_fio12")
+
+[node name="BlanketControl" type="Control" parent="LeftSlimeMarginContainer" unique_id=1120852760]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="LeftSlimeMarginContainer/BlanketControl" unique_id=182971831]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 17.0
+offset_right = 361.0
+offset_bottom = 278.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_oqyri")
 
 [node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("2_uv2f5")]
 
 [node name="Timer" type="Timer" parent="." unique_id=472494602]
+one_shot = true
 
+[node name="StartButton" type="Button" parent="." unique_id=1517040699]
+custom_minimum_size = Vector2(221.125, 110.34)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -38.0
+offset_right = 58.5
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[connection signal="pressed" from="RightSlimeMarginContainer/VBoxContainer/RightSlimeButton" to="." method="_on_right_slime_button_pressed"]
+[connection signal="area_entered" from="RightSlimeMarginContainer/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="pressed" from="LeftSlimeMarginContainer/VBoxContainer/LeftSlimeButton" to="." method="_on_left_slime_button_pressed"]
 [connection signal="area_entered" from="LeftSlimeMarginContainer/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

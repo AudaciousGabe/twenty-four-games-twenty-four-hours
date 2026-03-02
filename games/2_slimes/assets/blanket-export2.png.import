@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5quqifpt3qg"
-path="res://.godot/imported/slimie-export2.png-3dacb1fea0315c681e01e81e08aff37e.ctex"
+uid="uid://d37xaxnli47f2"
+path="res://.godot/imported/blanket-export2.png-c5c3d7e65a6e1a01395ed398923a9d54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://games/2_slimes/slimie-export2.png"
-dest_files=["res://.godot/imported/slimie-export2.png-3dacb1fea0315c681e01e81e08aff37e.ctex"]
+source_file="res://games/2_slimes/assets/blanket-export2.png"
+dest_files=["res://.godot/imported/blanket-export2.png-c5c3d7e65a6e1a01395ed398923a9d54.ctex"]
 
 [params]
 
