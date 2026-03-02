@@ -3,40 +3,75 @@
 [ext_resource type="Script" uid="uid://dw234cvdti3tp" path="res://games/12_eggs/twelve_eggs.gd" id="1_iwi2v"]
 [ext_resource type="Script" uid="uid://di6ne41wk55qr" path="res://games/12_eggs/character_body_2d.gd" id="2_1fdcq"]
 [ext_resource type="PackedScene" uid="uid://bgt8al0q7oi8q" path="res://games/12_eggs/scenes/egg_area_2d.tscn" id="2_52w54"]
+[ext_resource type="Texture2D" uid="uid://bjxs4j58d45fw" path="res://games/12_egg/assets/raviiii-export1.png" id="4_o2oi3"]
+[ext_resource type="Texture2D" uid="uid://bnuhu3wc1fg0m" path="res://games/12_egg/assets/raviiii-export2.png" id="5_jn5kv"]
+[ext_resource type="Texture2D" uid="uid://by2ej7xumiwg1" path="res://games/12_egg/assets/raviiii-export3.png" id="6_noph2"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="7_jn5kv"]
+[ext_resource type="Theme" uid="uid://d3vsato5b0xuq" path="res://themes/theme.tres" id="7_noph2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2gvb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o2oi3"]
-radius = 79.22752
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_3b318"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("4_o2oi3")
+frame_1/texture = ExtResource("5_jn5kv")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("6_noph2")
+frame_2/duration = 1.0
 
-[node name="TwelveEggs" type="Node" unique_id=1740344964 node_paths=PackedStringArray("character_area_2d", "spawn_reference_rect", "eggs_container_node_2d", "start_button")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2oi3"]
+radius = 7.33542
+
+[node name="TwelveEggs" type="Node" unique_id=1740344964 node_paths=PackedStringArray("character_area_2d", "spawn_reference_rect", "eggs_container_node_2d", "start_button", "detector_color_rect", "timer", "timer_rich_text_label", "no_text_rich_text_label", "you_win_rich_text_label")]
 script = ExtResource("1_iwi2v")
 character_area_2d = NodePath("CanvasLayer/Node2D/CharacterBody2D/CharacterArea2D")
 spawn_reference_rect = NodePath("CanvasLayer2/Control/SpawnReferenceRect")
 egg_area_2d_scene = ExtResource("2_52w54")
 eggs_container_node_2d = NodePath("CanvasLayer/Node2D/EggsContainerNode2D")
 start_button = NodePath("CanvasLayer2/Control/StartButton")
+detector_color_rect = NodePath("CanvasLayer2/Control/DetectorColorRect")
+timer = NodePath("Timer")
+timer_rich_text_label = NodePath("CanvasLayer2/Control/TimerRichTextLabel")
+no_text_rich_text_label = NodePath("CanvasLayer2/Control/NoTextRichTextLabel")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1342708169]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.78039217, 0.8117647, 0.8666667, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1602917968]
 
 [node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=335673147]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="CanvasLayer/Node2D" unique_id=1056134082]
+[node name="CharacterSpawnNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=969069512]
+position = Vector2(576, 324)
+
+[node name="EggsContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=226078391]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="CanvasLayer/Node2D" unique_id=1056134082 node_paths=PackedStringArray("sprite_2d")]
+position = Vector2(593, 408)
 motion_mode = 1
 script = ExtResource("2_1fdcq")
+sprite_2d = NodePath("CharacterArea2D/Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/CharacterBody2D" unique_id=643413885]
 shape = SubResource("RectangleShape2D_t2gvb")
 
 [node name="CharacterArea2D" type="Area2D" parent="CanvasLayer/Node2D/CharacterBody2D" unique_id=603267421]
 
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/CharacterBody2D/CharacterArea2D" unique_id=34951968]
+position = Vector2(-25.08714, -13.892235)
+scale = Vector2(0.31500202, 0.31500202)
+texture = SubResource("AnimatedTexture_3b318")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/CharacterBody2D/CharacterArea2D" unique_id=1410447740]
+position = Vector2(-3.999981, 7.6293945e-06)
 shape = SubResource("CircleShape2D_o2oi3")
-
-[node name="CharacterSpawnNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=969069512]
-position = Vector2(576, 324)
-
-[node name="EggsContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=226078391]
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2011027059]
 
@@ -58,18 +93,90 @@ grow_vertical = 2
 border_width = 9.0
 
 [node name="StartButton" type="Button" parent="CanvasLayer2/Control" unique_id=1854466322]
+custom_minimum_size = Vector2(327.55, 0)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -52.0
-offset_top = -47.0
-offset_right = 52.0
-offset_bottom = -16.0
+offset_left = -163.775
+offset_top = -117.0
+offset_right = 163.77502
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("7_noph2")
 text = "Start Button"
+
+[node name="DetectorColorRect" type="ColorRect" parent="CanvasLayer2/Control" unique_id=196104347]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -20.0
+offset_right = 19.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TimerRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=952796818]
+layout_mode = 0
+offset_top = 555.0
+offset_right = 105.0
+offset_bottom = 640.0
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "[wave amp=40]0"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1113209903]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -213.0
+offset_right = 291.22998
+offset_bottom = -43.390015
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoTextRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=2136841055]
+visible = false
+modulate = Color(0.91764706, 0.19607843, 0.23529412, 1)
+layout_mode = 0
+offset_left = 238.0
+offset_top = 94.0
+offset_right = 853.0
+offset_bottom = 312.0
+mouse_filter = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 123
+bbcode_enabled = true
+text = "[shake level=40]NO."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("7_jn5kv")]
+
+[node name="Timer" type="Timer" parent="." unique_id=1831237076]
 
 [connection signal="pressed" from="CanvasLayer2/Control/StartButton" to="." method="_on_start_button_pressed"]

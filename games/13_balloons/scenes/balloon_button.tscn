@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bu432gcipoe5l"]
+
+[ext_resource type="Script" uid="uid://wiji4chtj0o6" path="res://games/13_balloons/scenes/balloon_button.gd" id="1_5aaft"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7klot"]
+frames = 3
+speed_scale = 3.0
+frame_1/duration = 1.0
+frame_2/duration = 1.0
+
+[node name="BalloonButton" type="Button" unique_id=56073403]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_5aaft")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1918314842]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AnimatedTexture_7klot")
