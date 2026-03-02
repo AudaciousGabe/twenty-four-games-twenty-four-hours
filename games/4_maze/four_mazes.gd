@@ -11,6 +11,7 @@ extends Control
 @export var maze_texture_rect_4: TextureRect
 
 @export var death_audio_stream_player: AudioStreamPlayer
+@export var you_win_rich_text_label: RichTextLabel
 
 var current_maze_index: int = 0
 
@@ -54,15 +55,52 @@ func get_current_maze() -> TextureRect:
 	return maze_texture_rects[current_maze_index]
 
 
+func ban_bee() -> void:
+	cursor_sprite_2d.hide()
+	banned_text_rich_text_label.show()
+	death_audio_stream_player.play()
+
+
+func check_if_bee_reached_hive() -> void:
+	if cursor_sprite_2d.visible:
+		next_maze()
+
+
+func win() -> void:
+	you_win_rich_text_label.show()
+	print("Win!")
+
+
+func next_maze() -> void:
+	cursor_sprite_2d.hide()
+	current_maze_index += 1
+	
+	if current_maze_index == maze_texture_rects.size():
+		win()
+		maze_texture_rects[-1].hide()
+		return
+	
+	for maze: TextureRect in maze_texture_rects:
+		var maze_index: int = maze_texture_rects.find(maze)
+		if current_maze_index == maze_index:
+			maze.show()
+		else:
+			maze.hide()
+
+
 func _on_maze_texture_rect_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		print(is_mouse_position_color_transparent(event.position))
 		
 		if not is_mouse_position_color_transparent(event.position):
-			cursor_sprite_2d.hide()
-			banned_text_rich_text_label.show()
+			ban_bee()
 
 
 func _on_reset_button_pressed() -> void:
 	cursor_sprite_2d.show()
 	banned_text_rich_text_label.hide()
+
+
+func _on_hive_texture_rect_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		check_if_bee_reached_hive()

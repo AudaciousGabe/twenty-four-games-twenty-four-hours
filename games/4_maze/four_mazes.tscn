@@ -1,21 +1,70 @@
 [gd_scene format=3 uid="uid://bvfwabwgeafi7"]
 
-[ext_resource type="Texture2D" uid="uid://cfj7rpj0agiwp" path="res://games/4_maze/assets/ezmaze-export1.png" id="1_cb5eb"]
 [ext_resource type="Script" uid="uid://brn8ql3nh8t60" path="res://games/4_maze/four_mazes.gd" id="1_lutqt"]
-[ext_resource type="Texture2D" uid="uid://b2tkfiu4hfgmu" path="res://games/4_maze/assets/ezmaze-export2.png" id="2_lutqt"]
-[ext_resource type="Texture2D" uid="uid://bbpupo4n1jp6" path="res://games/4_maze/assets/ezmaze-export3.png" id="3_nvxw6"]
+[ext_resource type="Texture2D" uid="uid://cd5msquehocng" path="res://games/4_maze/assets/dumb-export1.png" id="2_dbn8d"]
+[ext_resource type="Texture2D" uid="uid://dplvfvgsxmdei" path="res://games/4_maze/assets/dumb-export2.png" id="3_qtj7t"]
+[ext_resource type="Texture2D" uid="uid://cttel1ia5syrp" path="res://games/4_maze/assets/dumb-export3.png" id="4_jxk44"]
 [ext_resource type="Texture2D" uid="uid://cdhvdyciq5wh8" path="res://games/4_maze/assets/beeeeee-export1.png" id="5_d2yc6"]
+[ext_resource type="Texture2D" uid="uid://b616wdipw20b5" path="res://games/4_maze/assets/medimaze-export1.png" id="5_mt5rq"]
 [ext_resource type="Texture2D" uid="uid://b8ey616cw2ukg" path="res://games/4_maze/assets/beeeeee-export2.png" id="6_fgdib"]
+[ext_resource type="Texture2D" uid="uid://l7ws5xisua5x" path="res://games/4_maze/assets/medimaze-export2.png" id="6_gkhce"]
 [ext_resource type="Texture2D" uid="uid://bg77hfdxbcvmr" path="res://games/4_maze/assets/beeeeee-export3.png" id="7_er71i"]
+[ext_resource type="Texture2D" uid="uid://bunnt6lyev52e" path="res://games/4_maze/assets/medimaze-export3.png" id="7_rb0mh"]
+[ext_resource type="Texture2D" uid="uid://bgphe7nh710wh" path="res://games/4_maze/assets/HARDmaze-export1.png" id="8_2vxei"]
 [ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="8_fgdib"]
+[ext_resource type="AudioStream" uid="uid://b5p26chajmddi" path="res://games/4_maze/assets/sound_effects/impact_1772436932342.wav" id="9_er71i"]
+[ext_resource type="Texture2D" uid="uid://cepb7jdh5e5w7" path="res://games/4_maze/assets/HARDmaze-export2.png" id="9_jx5mk"]
+[ext_resource type="Texture2D" uid="uid://b4bwsl0nlcru0" path="res://games/4_maze/assets/HARDmaze-export3.png" id="10_5wdie"]
+[ext_resource type="Texture2D" uid="uid://igjtdq1rcrh3" path="res://games/4_maze/assets/hive-export1.png" id="16_2vxei"]
+[ext_resource type="Texture2D" uid="uid://ccoks3udbvbai" path="res://games/4_maze/assets/hive-export2.png" id="17_jx5mk"]
+[ext_resource type="Texture2D" uid="uid://lgqooaa68c6v" path="res://games/4_maze/assets/hive-export3.png" id="18_5wdie"]
+[ext_resource type="Texture2D" uid="uid://bgijmkvgd82uu" path="res://games/4_maze/assets/4-export1.png" id="19_mbahp"]
+[ext_resource type="Texture2D" uid="uid://bmh6gamrad14w" path="res://games/4_maze/assets/4-export2.png" id="20_g8j5a"]
+[ext_resource type="Texture2D" uid="uid://cqq45u308kbrk" path="res://games/4_maze/assets/4-export3.png" id="21_073ln"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_51v2q"]
 frames = 3
 speed_scale = 3.0
-frame_0/texture = ExtResource("1_cb5eb")
-frame_1/texture = ExtResource("2_lutqt")
+frame_0/texture = ExtResource("2_dbn8d")
+frame_1/texture = ExtResource("3_qtj7t")
 frame_1/duration = 1.0
-frame_2/texture = ExtResource("3_nvxw6")
+frame_2/texture = ExtResource("4_jxk44")
+frame_2/duration = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mbahp"]
+load_path = "res://.godot/imported/ezmaze-export1.png-d35e02886aaab91978293d37bf55783e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g8j5a"]
+load_path = "res://.godot/imported/ezmaze-export2.png-42a3e3d8659a813697b07206db45bdbf.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_073ln"]
+load_path = "res://.godot/imported/ezmaze-export3.png-fcace859bce25a5b9a0300a0b3dc35c7.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_nak5f"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = SubResource("CompressedTexture2D_mbahp")
+frame_1/texture = SubResource("CompressedTexture2D_g8j5a")
+frame_1/duration = 1.0
+frame_2/texture = SubResource("CompressedTexture2D_073ln")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_makvp"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("5_mt5rq")
+frame_1/texture = ExtResource("6_gkhce")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("7_rb0mh")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wv0xu"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("8_2vxei")
+frame_1/texture = ExtResource("9_jx5mk")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("10_5wdie")
 frame_2/duration = 1.0
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_mhjo4"]
@@ -27,7 +76,25 @@ frame_1/duration = 1.0
 frame_2/texture = ExtResource("7_er71i")
 frame_2/duration = 1.0
 
-[node name="FourMazes" type="Control" unique_id=951413511 node_paths=PackedStringArray("first_maze_texture_rect", "cursor_sprite_2d", "banned_text_rich_text_label")]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1kohb"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("16_2vxei")
+frame_1/texture = ExtResource("17_jx5mk")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("18_5wdie")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_mmwme"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("19_mbahp")
+frame_1/texture = ExtResource("20_g8j5a")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("21_073ln")
+frame_2/duration = 1.0
+
+[node name="FourMazes" type="Control" unique_id=951413511 node_paths=PackedStringArray("cursor_sprite_2d", "banned_text_rich_text_label", "maze_texture_rect", "maze_texture_rect_2", "maze_texture_rect_3", "maze_texture_rect_4", "death_audio_stream_player", "you_win_rich_text_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,11 +102,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lutqt")
-first_maze_texture_rect = NodePath("FirstMazeTextureRect")
 cursor_sprite_2d = NodePath("CursorSprite2D")
 banned_text_rich_text_label = NodePath("BannedTextRichTextLabel")
+maze_texture_rect = NodePath("MazeTextureRect")
+maze_texture_rect_2 = NodePath("MazeTextureRect2")
+maze_texture_rect_3 = NodePath("MazeTextureRect3")
+maze_texture_rect_4 = NodePath("MazeTextureRect4")
+death_audio_stream_player = NodePath("DeathAudioStreamPlayer")
+you_win_rich_text_label = NodePath("YouWinRichTextLabel")
 
-[node name="FirstMazeTextureRect" type="TextureRect" parent="." unique_id=2076561883]
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=76164354]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7490196, 0.43529412, 0.2901961, 1)
+
+[node name="MazeTextureRect" type="TextureRect" parent="." unique_id=2076561883]
 layout_mode = 0
 offset_left = 12.0
 offset_top = -101.0
@@ -47,6 +128,36 @@ offset_right = 367.0
 offset_bottom = 160.0
 scale = Vector2(3, 3)
 texture = SubResource("AnimatedTexture_51v2q")
+
+[node name="MazeTextureRect2" type="TextureRect" parent="." unique_id=2045290949]
+visible = false
+layout_mode = 0
+offset_left = 12.0
+offset_top = -101.0
+offset_right = 367.0
+offset_bottom = 160.0
+scale = Vector2(3, 3)
+texture = SubResource("AnimatedTexture_nak5f")
+
+[node name="MazeTextureRect3" type="TextureRect" parent="." unique_id=1043236990]
+visible = false
+layout_mode = 0
+offset_left = 39.0
+offset_top = -91.0
+offset_right = 394.0
+offset_bottom = 170.0
+scale = Vector2(3, 3)
+texture = SubResource("AnimatedTexture_makvp")
+
+[node name="MazeTextureRect4" type="TextureRect" parent="." unique_id=1886118501]
+visible = false
+layout_mode = 0
+offset_left = 76.0
+offset_top = -99.0
+offset_right = 431.0
+offset_bottom = 162.0
+scale = Vector2(3, 3)
+texture = SubResource("AnimatedTexture_wv0xu")
 
 [node name="CursorSprite2D" type="Sprite2D" parent="." unique_id=1572785817]
 visible = false
@@ -63,6 +174,7 @@ offset_bottom = 340.0
 text = "Reset"
 
 [node name="BannedTextRichTextLabel" type="RichTextLabel" parent="." unique_id=1143854905]
+visible = false
 modulate = Color(0.91764706, 0.19607843, 0.23529412, 1)
 layout_mode = 0
 offset_left = 238.0
@@ -78,5 +190,57 @@ vertical_alignment = 1
 
 [node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("8_fgdib")]
 
-[connection signal="gui_input" from="FirstMazeTextureRect" to="." method="_on_maze_texture_rect_gui_input"]
+[node name="DeathAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=511417788]
+stream = ExtResource("9_er71i")
+
+[node name="HiveTextureRect" type="TextureRect" parent="." unique_id=1766571030]
+layout_mode = 0
+offset_left = 969.0
+offset_top = 225.0
+offset_right = 1203.0
+offset_bottom = 379.0
+
+[node name="HiveTextureRect2" type="TextureRect" parent="." unique_id=285073604]
+layout_mode = 0
+offset_left = 894.0
+offset_top = 177.0
+offset_right = 1249.0
+offset_bottom = 438.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_1kohb")
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=1644391411]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.805
+offset_right = 297.615
+offset_bottom = 84.805
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FourTextureRect" type="TextureRect" parent="." unique_id=1884241055]
+layout_mode = 0
+offset_left = -67.0
+offset_top = -13.0
+offset_right = 288.0
+offset_bottom = 248.0
+texture = SubResource("AnimatedTexture_mmwme")
+
+[connection signal="gui_input" from="MazeTextureRect" to="." method="_on_maze_texture_rect_gui_input"]
+[connection signal="gui_input" from="MazeTextureRect2" to="." method="_on_maze_texture_rect_gui_input"]
+[connection signal="gui_input" from="MazeTextureRect3" to="." method="_on_maze_texture_rect_gui_input"]
+[connection signal="gui_input" from="MazeTextureRect4" to="." method="_on_maze_texture_rect_gui_input"]
 [connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="gui_input" from="HiveTextureRect" to="." method="_on_hive_texture_rect_gui_input"]
