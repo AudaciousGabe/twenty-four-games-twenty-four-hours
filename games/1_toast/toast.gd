@@ -3,6 +3,7 @@ extends Control
 
 @export var start_toasting_button: Button
 @export var eject_button: Button
+@export var toasting_progress_bar: ProgressBar
 
 
 func _ready() -> void:
