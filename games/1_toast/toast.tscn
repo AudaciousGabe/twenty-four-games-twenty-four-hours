@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b184b6hv8m1pa"]
+
+[node name="Toast" type="Control" unique_id=1207773897]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1827972866]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 20.0
+offset_right = 1131.0
+offset_bottom = 47.0
+
+[node name="EjectButton" type="Button" parent="." unique_id=1848501659]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 51.0
+offset_right = 1132.0
+offset_bottom = 82.0
+text = "Eject Da Toast"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1264560670]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 86.0
+offset_right = 1132.0
+offset_bottom = 86.0
