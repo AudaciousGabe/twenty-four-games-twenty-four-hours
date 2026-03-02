@@ -1,11 +1,37 @@
 [gd_scene format=3 uid="uid://bjcdbe66h74cv"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2gek6"]
-radius = 28.0
-height = 102.0
+[ext_resource type="Script" uid="uid://drme45gyswv3b" path="res://games/7_clouds/scenes/cloud_animatable_body_2d.gd" id="1_8rcoc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_idaii"]
+load_path = "res://.godot/imported/cloud-export1.png-60377d011005cc6b30c83e4ed4af2133.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dgsf5"]
+load_path = "res://.godot/imported/cloud-export2.png-14753c75b3a10774763607c8981112f9.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bxejp"]
+load_path = "res://.godot/imported/cloud-export3.png-242555a9f0e9ea76b46dc534bfb71545.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_h2abg"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = SubResource("CompressedTexture2D_idaii")
+frame_1/texture = SubResource("CompressedTexture2D_dgsf5")
+frame_1/duration = 1.0
+frame_2/texture = SubResource("CompressedTexture2D_bxejp")
+frame_2/duration = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idaii"]
+size = Vector2(262.815, 1)
 
 [node name="CloudAnimatableBody2D" type="AnimatableBody2D" unique_id=81820172]
+scale = Vector2(0.3842079, 0.3842079)
+script = ExtResource("1_8rcoc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1132979713]
+position = Vector2(0.5, -38.5)
+texture = SubResource("AnimatedTexture_h2abg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1327022865]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_2gek6")
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_idaii")
+one_way_collision = true

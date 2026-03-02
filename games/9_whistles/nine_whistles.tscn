@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cn0p8qyysu3xt"]
+
+[ext_resource type="Theme" uid="uid://d3vsato5b0xuq" path="res://themes/theme.tres" id="1_7f7os"]
+[ext_resource type="AudioStream" uid="uid://cemlmtnclcac7" path="res://games/9_whistles/assets/sound_effects/whistle_edit.ogg" id="2_6m2jc"]
+[ext_resource type="Script" uid="uid://557h2m47ncb6" path="res://games/9_whistles/nine_whistles.gd" id="2_7cu22"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="3_7cu22"]
+
+[node name="NineWhistles" type="Control" unique_id=628378475 node_paths=PackedStringArray("whistle_song_audio_stream_player", "reset_song_timer", "color_rect_h_box_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7f7os")
+script = ExtResource("2_7cu22")
+whistle_song_audio_stream_player = NodePath("WhistleSongAudioStreamPlayer")
+reset_song_timer = NodePath("ResetSongTimer")
+color_rect_h_box_container = NodePath("ColorRectHBoxContainer")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=1192452422]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7764706, 0.27058825, 0.14117648, 1)
+
+[node name="WhistleButton" type="Button" parent="." unique_id=921926863]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -95.0
+offset_right = 62.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Whistle Button"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1313342310]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -119.0
+offset_top = 32.0
+offset_right = 240.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="ScoreTextRichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=478805254]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Score: "
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreNumberRichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=1226105799]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "0"
+fit_content = true
+vertical_alignment = 1
+
+[node name="WhistleSongAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1576720304]
+stream = ExtResource("2_6m2jc")
+autoplay = true
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("3_7cu22")]
+
+[node name="ResetSongTimer" type="Timer" parent="." unique_id=1985191605]
+wait_time = 5.4
+autostart = true
+
+[node name="ColorRectHBoxContainer" type="HBoxContainer" parent="." unique_id=375392443]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 413.0
+offset_right = 676.0
+offset_bottom = 477.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRectHBoxContainer" unique_id=583801181]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRectHBoxContainer" unique_id=651911726]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRectHBoxContainer" unique_id=1938625480]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[connection signal="timeout" from="ResetSongTimer" to="." method="_on_reset_song_timer_timeout"]

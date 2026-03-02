@@ -22,8 +22,9 @@ frame_2/duration = 1.0
 [sub_resource type="Environment" id="Environment_wy65e"]
 background_mode = 3
 glow_enabled = true
-glow_intensity = 5.2
-glow_bloom = 0.03
+glow_intensity = 4.83
+glow_bloom = 0.06
+glow_hdr_threshold = 0.23
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_xrvsp"]
 frames = 3
@@ -107,6 +108,7 @@ vertical_alignment = 1
 
 [node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=1908393007]
 visible = false
+modulate = Color(1.978422, 1.978422, 1.978422, 1)
 custom_minimum_size = Vector2(595.23, 169.61)
 layout_mode = 1
 anchors_preset = 8
@@ -114,10 +116,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -297.615
-offset_top = -84.805
-offset_right = 297.615
-offset_bottom = 84.805
+offset_left = -298.0
+offset_top = -84.0
+offset_right = 297.22998
+offset_bottom = 85.609985
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

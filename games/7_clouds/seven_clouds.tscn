@@ -1,6 +1,103 @@
 [gd_scene format=3 uid="uid://bo5s3onk2kpka"]
 
-[node name="SevenClouds" type="Node" unique_id=1958868552]
+[ext_resource type="PackedScene" uid="uid://swwxy3reoca" path="res://games/7_clouds/scenes/cloud_path_2d.tscn" id="1_8kg4q"]
+[ext_resource type="Script" uid="uid://1pbiqd834jgu" path="res://games/7_clouds/seven_clouds.gd" id="1_77esi"]
+[ext_resource type="PackedScene" uid="uid://bjcdbe66h74cv" path="res://games/7_clouds/scenes/cloud_animatable_body_2d.tscn" id="2_77esi"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="3_gr0uo"]
+[ext_resource type="Texture2D" uid="uid://d3hb5kfq138q5" path="res://games/7_clouds/assets/ravioli(1)-export1.png" id="4_77esi"]
+[ext_resource type="Script" uid="uid://bppexqjmbvuby" path="res://games/7_clouds/character_body_2d.gd" id="4_xuw8p"]
+[ext_resource type="Texture2D" uid="uid://7doyqptq4sor" path="res://games/7_clouds/assets/ravioli(1)-export2.png" id="5_xuw8p"]
+[ext_resource type="Texture2D" uid="uid://cxrntsfylqayn" path="res://games/7_clouds/assets/ravioli(1)-export3.png" id="6_st8mi"]
+[ext_resource type="Texture2D" uid="uid://dtpcd3i1h4fey" path="res://games/7_clouds/assets/loli-export1.png" id="8_u1qgw"]
+[ext_resource type="Texture2D" uid="uid://mduvwt6ugavh" path="res://games/7_clouds/assets/loli-export2.png" id="9_nsovn"]
+[ext_resource type="Texture2D" uid="uid://bq3u6ra172f5i" path="res://games/7_clouds/assets/loli-export3.png" id="10_gnc2g"]
+[ext_resource type="Texture2D" uid="uid://c5roh5btbcuwo" path="res://games/7_clouds/assets/7.png" id="12_5wdbl"]
+[ext_resource type="Texture2D" uid="uid://cl6rhgwpbd6lt" path="res://games/7_clouds/assets/8.png" id="13_p5tgs"]
+[ext_resource type="Texture2D" uid="uid://dwiq1spoaxnjl" path="res://games/7_clouds/assets/9.png" id="14_hy4m4"]
+[ext_resource type="Texture2D" uid="uid://c36ypqca1bhsd" path="res://games/7_clouds/assets/castle-export1.png" id="15_hy4m4"]
+[ext_resource type="Texture2D" uid="uid://c1t1icetp0yqi" path="res://games/7_clouds/assets/castle-export2.png" id="16_2kxku"]
+[ext_resource type="Texture2D" uid="uid://d1q24ac200qi8" path="res://games/7_clouds/assets/castle-export3.png" id="17_bnitp"]
+
+[sub_resource type="Curve2D" id="Curve2D_u1qgw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 57, 576, 0, 0, 0, 0, 1090, 576)
+}
+point_count = 2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_nsovn"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("4_77esi")
+frame_1/texture = ExtResource("5_xuw8p")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("6_st8mi")
+frame_2/duration = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0316"]
+radius = 21.0
+height = 44.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xuw8p"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_st8mi"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d0316"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_yarqx"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("8_u1qgw")
+frame_1/texture = ExtResource("9_nsovn")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("10_gnc2g")
+frame_2/duration = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gr0uo"]
+radius = 57.0
+height = 176.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_2kxku"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("12_5wdbl")
+frame_1/texture = ExtResource("13_p5tgs")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("14_hy4m4")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_rbrkv"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("15_hy4m4")
+frame_1/texture = ExtResource("16_2kxku")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("17_bnitp")
+frame_2/duration = 1.0
+
+[node name="SevenClouds" type="Node" unique_id=1958868552 node_paths=PackedStringArray("cloud_path_2d", "cloud_path_2d_2", "cloud_path_2d_3", "cloud_path_2d_4", "cloud_path_2d_5", "cloud_path_2d_6", "cloud_path_2d_7", "clouds_container_node_2d", "you_win_rich_text_label")]
+script = ExtResource("1_77esi")
+cloud_path_2d = NodePath("CanvasLayer/Node2D/PathsNode2D/CloudPath2D")
+cloud_path_2d_2 = NodePath("CanvasLayer/Node2D/PathsNode2D/CloudPath2D2")
+cloud_path_2d_3 = NodePath("CanvasLayer/Node2D/PathsNode2D/CloudPath2D3")
+cloud_path_2d_4 = NodePath("CanvasLayer/Node2D/PathsNode2D/CloudPath2D4")
+cloud_path_2d_5 = NodePath("CanvasLayer/Node2D/PathsNode2D/CloudPath2D5")
+cloud_path_2d_6 = NodePath("CanvasLayer/Node2D/PathsNode2D/CloudPath2D6")
+cloud_path_2d_7 = NodePath("CanvasLayer/Node2D/PathsNode2D/CloudPath2D7")
+clouds_container_node_2d = NodePath("CanvasLayer/Node2D/CloudsContainerNode2D")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
+cloud_animatable_body_2d_scene = ExtResource("2_77esi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1641663267]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5803922, 0.99215686, 1, 1)
+
+[node name="PaletteSprite2D" parent="ColorRect" unique_id=556498429 instance=ExtResource("3_gr0uo")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1153025399]
 
@@ -8,3 +105,122 @@
 
 [node name="CloudsContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=1357985634]
 position = Vector2(-1, 0)
+
+[node name="PathsNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=429077795]
+
+[node name="CloudPath2D" parent="CanvasLayer/Node2D/PathsNode2D" unique_id=16169906 instance=ExtResource("1_8kg4q")]
+position = Vector2(0, 16)
+curve = SubResource("Curve2D_u1qgw")
+
+[node name="CloudPath2D2" parent="CanvasLayer/Node2D/PathsNode2D" unique_id=1081281936 instance=ExtResource("1_8kg4q")]
+position = Vector2(0, -44)
+curve = SubResource("Curve2D_u1qgw")
+
+[node name="CloudPath2D3" parent="CanvasLayer/Node2D/PathsNode2D" unique_id=310045409 instance=ExtResource("1_8kg4q")]
+position = Vector2(0, -104)
+curve = SubResource("Curve2D_u1qgw")
+
+[node name="CloudPath2D4" parent="CanvasLayer/Node2D/PathsNode2D" unique_id=970012640 instance=ExtResource("1_8kg4q")]
+position = Vector2(0, -164)
+curve = SubResource("Curve2D_u1qgw")
+
+[node name="CloudPath2D5" parent="CanvasLayer/Node2D/PathsNode2D" unique_id=1600612925 instance=ExtResource("1_8kg4q")]
+position = Vector2(0, -224)
+curve = SubResource("Curve2D_u1qgw")
+
+[node name="CloudPath2D6" parent="CanvasLayer/Node2D/PathsNode2D" unique_id=2090142862 instance=ExtResource("1_8kg4q")]
+position = Vector2(0, -284)
+curve = SubResource("Curve2D_u1qgw")
+
+[node name="CloudPath2D7" parent="CanvasLayer/Node2D/PathsNode2D" unique_id=230870491 instance=ExtResource("1_8kg4q")]
+position = Vector2(0, -344)
+curve = SubResource("Curve2D_u1qgw")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="CanvasLayer/Node2D" unique_id=2064053971]
+position = Vector2(600, 606)
+script = ExtResource("4_xuw8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/CharacterBody2D" unique_id=490834404]
+position = Vector2(2, 0)
+scale = Vector2(0.2199265, 0.2199265)
+texture = SubResource("AnimatedTexture_nsovn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/CharacterBody2D" unique_id=1453184083]
+shape = SubResource("CapsuleShape2D_d0316")
+
+[node name="WorldCollisionsNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=160155133]
+
+[node name="BottomStaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=1550925362]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/BottomStaticBody2D" unique_id=2082192896]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_xuw8p")
+
+[node name="LeftStaticBody2D2" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=1035151694]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/LeftStaticBody2D2" unique_id=862097129]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_st8mi")
+
+[node name="RightStaticBody2D3" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=586309787]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/RightStaticBody2D3" unique_id=885800915]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_d0316")
+
+[node name="LolipopArea2D" type="Area2D" parent="CanvasLayer/Node2D" unique_id=1540059982]
+position = Vector2(576, 68.935)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/LolipopArea2D" unique_id=385039385]
+position = Vector2(14, -17)
+texture = SubResource("AnimatedTexture_yarqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/LolipopArea2D" unique_id=1078495128]
+shape = SubResource("CapsuleShape2D_gr0uo")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=590432635]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=399204428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1256587233]
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 217.0
+offset_top = -263.0
+offset_right = 812.23
+offset_bottom = -93.39
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5720001, 0.5720001)
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2" unique_id=1705415951]
+offset_left = -33.0
+offset_top = 7.0
+offset_right = 322.0
+offset_bottom = 268.0
+texture = SubResource("AnimatedTexture_2kxku")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2055620953]
+offset_left = 56.0
+offset_top = -15.0
+offset_right = 1164.5249
+offset_bottom = 800.0
+texture = SubResource("AnimatedTexture_rbrkv")
+
+[connection signal="body_entered" from="CanvasLayer/Node2D/LolipopArea2D" to="." method="_on_lolipop_area_2d_body_entered"]

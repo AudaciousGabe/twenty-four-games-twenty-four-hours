@@ -1,0 +1,326 @@
+[gd_scene format=3 uid="uid://he6lfhkfxbeo"]
+
+[ext_resource type="Script" uid="uid://bsl2xnmn3hicw" path="res://games/8_laps/eight_laps.gd" id="1_s0kkn"]
+[ext_resource type="Texture2D" uid="uid://csoyguhmo7dan" path="res://games/8_laps/assests/pond-export1.png" id="2_4owxq"]
+[ext_resource type="Script" uid="uid://gbeyw5yxlrym" path="res://games/8_laps/character_body_2d.gd" id="2_py0j3"]
+[ext_resource type="Texture2D" uid="uid://wow2s0xtr5r5" path="res://games/8_laps/assests/pond-export2.png" id="3_y56yo"]
+[ext_resource type="Texture2D" uid="uid://d2ehe53m5jyla" path="res://games/8_laps/assests/pond-export3.png" id="4_ur5jx"]
+[ext_resource type="Texture2D" uid="uid://bx33a6c4px77y" path="res://games/8_laps/assests/skate-export1.png" id="6_drluv"]
+[ext_resource type="Texture2D" uid="uid://5780oechu0xj" path="res://games/8_laps/assests/skate-export2.png" id="7_j24lw"]
+[ext_resource type="Texture2D" uid="uid://di6gpu7wlfqky" path="res://games/8_laps/assests/skate-export3.png" id="8_2a6he"]
+[ext_resource type="Texture2D" uid="uid://blpijhfnj3msx" path="res://games/8_laps/assests/ice-export1.png" id="9_6nuct"]
+[ext_resource type="Texture2D" uid="uid://4r8g1p0rdaqa" path="res://games/8_laps/assests/8-export1.png" id="9_664el"]
+[ext_resource type="Texture2D" uid="uid://dlan1ug4vlvm" path="res://games/8_laps/assests/ice-export2.png" id="10_1emv0"]
+[ext_resource type="Texture2D" uid="uid://d08ym3mpoybpb" path="res://games/8_laps/assests/8-export2.png" id="10_akjbg"]
+[ext_resource type="Texture2D" uid="uid://beaygjc2b01t5" path="res://games/8_laps/assests/8-export3.png" id="11_1xpbn"]
+[ext_resource type="Texture2D" uid="uid://doasewycohbng" path="res://games/8_laps/assests/ice-export3.png" id="11_spw4j"]
+[ext_resource type="Texture2D" uid="uid://xuo6iercgtif" path="res://games/8_laps/assests/snowman(1)-export1.png" id="12_6nuct"]
+[ext_resource type="Texture2D" uid="uid://jdtfplpu8y5n" path="res://games/8_laps/assests/snowman(1)-export2.png" id="13_1emv0"]
+[ext_resource type="Texture2D" uid="uid://cq2rqan6pqw50" path="res://games/8_laps/assests/snowman(1)-export3.png" id="14_spw4j"]
+[ext_resource type="Texture2D" uid="uid://bwbnemvd608i7" path="res://games/8_laps/assests/banner-export1.png" id="15_hm6nr"]
+[ext_resource type="Texture2D" uid="uid://fxvs4ghhsiy8" path="res://games/8_laps/assests/banner-export2.png" id="16_2tx5o"]
+[ext_resource type="Texture2D" uid="uid://dru3drj1ssgpi" path="res://games/8_laps/assests/banner-export3.png" id="17_nclbe"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ksguv"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("2_4owxq")
+frame_1/texture = ExtResource("3_y56yo")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_ur5jx")
+frame_2/duration = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pqgb"]
+size = Vector2(2535, 61)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_kuiqp"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("6_drluv")
+frame_1/texture = ExtResource("7_j24lw")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_2a6he")
+frame_2/duration = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gbvie"]
+radius = 22.0
+height = 84.88867
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4owxq"]
+size = Vector2(137, 764)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_hm6nr"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("9_6nuct")
+frame_1/texture = ExtResource("10_1emv0")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("11_spw4j")
+frame_2/duration = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2tx5o"]
+radius = 13.0
+height = 44.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_k6s83"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("9_664el")
+frame_1/texture = ExtResource("10_akjbg")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("11_1xpbn")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wvpu0"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("12_6nuct")
+frame_1/texture = ExtResource("13_1emv0")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("14_spw4j")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6xfr2"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("15_hm6nr")
+frame_1/texture = ExtResource("16_2tx5o")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("17_nclbe")
+frame_2/duration = 1.0
+
+[node name="EightLaps" type="Node" unique_id=1295748543 node_paths=PackedStringArray("spawn_node_2d", "character_body_2d", "icicle_node_2d", "you_win_rich_text_label")]
+script = ExtResource("1_s0kkn")
+spawn_node_2d = NodePath("CanvasLayer/Node2D/SpawnNode2D")
+character_body_2d = NodePath("CanvasLayer/Node2D/CharacterBody2D")
+icicle_node_2d = NodePath("CanvasLayer/Node2D/IcicleNode2D")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=751124865]
+
+[node name="Control" type="Control" parent="CanvasLayer3" unique_id=1771006729]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1731872774]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1337713622]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D" unique_id=447242511]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/StaticBody2D" unique_id=359379651]
+position = Vector2(588, 476)
+scale = Vector2(3.6609197, 3.6609194)
+texture = SubResource("AnimatedTexture_ksguv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/StaticBody2D" unique_id=1078742116]
+position = Vector2(469.5, 623.5)
+shape = SubResource("RectangleShape2D_4pqgb")
+debug_color = Color(0.97321457, 0, 0.43893534, 0.41960785)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="CanvasLayer/Node2D" unique_id=1981531680]
+position = Vector2(77, 488)
+script = ExtResource("2_py0j3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/CharacterBody2D" unique_id=1878721955]
+position = Vector2(-17.590086, -4.8817134)
+scale = Vector2(0.45301357, 0.45301357)
+texture = SubResource("AnimatedTexture_kuiqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/CharacterBody2D" unique_id=1056816607]
+position = Vector2(-0.5900879, 1.1182861)
+rotation = -0.4197118
+shape = SubResource("CapsuleShape2D_gbvie")
+
+[node name="ResetPositionArea2D" type="Area2D" parent="CanvasLayer/Node2D" unique_id=1982862213]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/ResetPositionArea2D" unique_id=1344607904]
+position = Vector2(1429, 232)
+shape = SubResource("RectangleShape2D_4owxq")
+
+[node name="SpawnNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=355495706]
+position = Vector2(-682, 480)
+
+[node name="IcicleNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=1903388164]
+position = Vector2(-4, 32)
+
+[node name="IcicleArea2D" type="Area2D" parent="CanvasLayer/Node2D/IcicleNode2D" unique_id=780197329]
+visible = false
+position = Vector2(891, 550)
+monitoring = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D" unique_id=2013060966]
+position = Vector2(30, -66)
+texture = SubResource("AnimatedTexture_hm6nr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D" unique_id=316797384]
+shape = SubResource("CapsuleShape2D_2tx5o")
+
+[node name="IcicleArea2D2" type="Area2D" parent="CanvasLayer/Node2D/IcicleNode2D" unique_id=929669501]
+visible = false
+position = Vector2(193, 547)
+rotation = 0.23561946
+monitoring = false
+monitorable = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D2" unique_id=2065585678]
+position = Vector2(30, -66)
+texture = SubResource("AnimatedTexture_hm6nr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D2" unique_id=2130889857]
+shape = SubResource("CapsuleShape2D_2tx5o")
+
+[node name="IcicleArea2D3" type="Area2D" parent="CanvasLayer/Node2D/IcicleNode2D" unique_id=1455834607]
+visible = false
+position = Vector2(293, 548)
+monitoring = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D3" unique_id=1758769992]
+position = Vector2(30, -66)
+texture = SubResource("AnimatedTexture_hm6nr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D3" unique_id=1118383049]
+shape = SubResource("CapsuleShape2D_2tx5o")
+
+[node name="IcicleArea2D4" type="Area2D" parent="CanvasLayer/Node2D/IcicleNode2D" unique_id=962239889]
+visible = false
+position = Vector2(398, 547)
+monitoring = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D4" unique_id=526598541]
+position = Vector2(30, -66)
+texture = SubResource("AnimatedTexture_hm6nr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D4" unique_id=675309722]
+shape = SubResource("CapsuleShape2D_2tx5o")
+
+[node name="IcicleArea2D5" type="Area2D" parent="CanvasLayer/Node2D/IcicleNode2D" unique_id=1373888293]
+visible = false
+position = Vector2(492, 544)
+rotation = -0.1308997
+monitoring = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D5" unique_id=1342344028]
+position = Vector2(30, -66)
+texture = SubResource("AnimatedTexture_hm6nr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D5" unique_id=262849508]
+shape = SubResource("CapsuleShape2D_2tx5o")
+
+[node name="IcicleArea2D6" type="Area2D" parent="CanvasLayer/Node2D/IcicleNode2D" unique_id=1709167841]
+visible = false
+position = Vector2(593, 542)
+monitoring = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D6" unique_id=518076811]
+position = Vector2(30, -66)
+texture = SubResource("AnimatedTexture_hm6nr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D6" unique_id=821558121]
+shape = SubResource("CapsuleShape2D_2tx5o")
+
+[node name="IcicleArea2D7" type="Area2D" parent="CanvasLayer/Node2D/IcicleNode2D" unique_id=359041671]
+visible = false
+position = Vector2(696, 547)
+rotation = 0.23561946
+monitoring = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D7" unique_id=431549455]
+position = Vector2(30, -66)
+texture = SubResource("AnimatedTexture_hm6nr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D7" unique_id=261617404]
+shape = SubResource("CapsuleShape2D_2tx5o")
+
+[node name="IcicleArea2D8" type="Area2D" parent="CanvasLayer/Node2D/IcicleNode2D" unique_id=866112850]
+visible = false
+position = Vector2(799, 546)
+monitoring = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D8" unique_id=695535862]
+position = Vector2(30, -66)
+texture = SubResource("AnimatedTexture_hm6nr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/IcicleNode2D/IcicleArea2D8" unique_id=1055702289]
+shape = SubResource("CapsuleShape2D_2tx5o")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2023284869]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1045035003]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EightTextureRect" type="TextureRect" parent="CanvasLayer2/Control" unique_id=569171533]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 18.0
+offset_right = 390.0
+offset_bottom = 279.0
+texture = SubResource("AnimatedTexture_k6s83")
+
+[node name="SnowmanTextureRect" type="TextureRect" parent="CanvasLayer2/Control" unique_id=1551029755]
+modulate = Color(1, 1, 1, 0.16470589)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 348.0
+offset_right = 398.0
+offset_bottom = 609.0
+texture = SubResource("AnimatedTexture_wvpu0")
+
+[node name="SnowmanTextureRect2" type="TextureRect" parent="CanvasLayer2/Control" unique_id=1603791179]
+modulate = Color(1, 1, 1, 0.16470589)
+layout_mode = 0
+offset_left = 403.0
+offset_top = 451.99997
+offset_right = 758.0
+offset_bottom = 713.0
+rotation = -0.027317371
+scale = Vector2(0.50146496, 0.50146496)
+texture = SubResource("AnimatedTexture_wvpu0")
+
+[node name="SnowmanTextureRect3" type="TextureRect" parent="CanvasLayer2/Control" unique_id=458144088]
+modulate = Color(1, 1, 1, 0.16470589)
+layout_mode = 0
+offset_left = 686.0
+offset_top = 392.0
+offset_right = 1041.0
+offset_bottom = 653.0
+rotation = 0.40045655
+scale = Vector2(0.6351894, 0.6351894)
+texture = SubResource("AnimatedTexture_wvpu0")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Control" unique_id=1455963281]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 139.0
+offset_right = 1311.3334
+offset_bottom = 748.0
+texture = SubResource("AnimatedTexture_6xfr2")
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=696545543]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 264.0
+offset_top = 54.0
+offset_right = 859.23
+offset_bottom = 223.61
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="CanvasLayer/Node2D/ResetPositionArea2D" to="." method="_on_reset_position_area_2d_body_entered"]

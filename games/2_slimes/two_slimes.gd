@@ -39,6 +39,8 @@ func move_right_slime() -> void:
 
 
 func start() -> void:
+	left_slime_margin_container.position = original_left_slime_position
+	right_slime_margin_container.position = original_right_slime_position
 	timer.start(time_to_win)
 	show_random_button()
 	start_button.hide()
