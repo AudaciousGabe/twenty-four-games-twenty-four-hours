@@ -54,7 +54,7 @@ frame_1/duration = 1.0
 frame_2/texture = ExtResource("8_40crv")
 frame_2/duration = 1.0
 
-[node name="3_pancakes" type="Node" unique_id=486549961 node_paths=PackedStringArray("cursor_collision_animatable_body_2d", "pancakes_container_node_2d", "spawn_path_2d", "spawn_path_follow_2d")]
+[node name="3_pancakes" type="Node" unique_id=486549961 node_paths=PackedStringArray("cursor_collision_animatable_body_2d", "pancakes_container_node_2d", "spawn_path_2d", "spawn_path_follow_2d", "you_win_rich_text_label")]
 script = ExtResource("1_nrmqq")
 cursor_collision_animatable_body_2d = NodePath("CanvasLayer/Node2D/CursorCollisionAnimatableBody2D")
 pancake_rigid_body_2d = ExtResource("2_h28ff")
@@ -62,6 +62,7 @@ pancakes_container_node_2d = NodePath("CanvasLayer/Node2D/PancakesContainerNode2
 spawn_path_2d = NodePath("CanvasLayer/Node2D/SpawnPath2D")
 spawn_path_follow_2d = NodePath("CanvasLayer/Node2D/SpawnPath2D/SpawnPathFollow2D")
 pancake_rigid_body_2d_scene = ExtResource("2_h28ff")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1391163150]
 anchors_preset = 15
@@ -69,7 +70,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.25882354, 0.29803923, 0.43137255, 1)
+color = Color(0.16470589, 0.18431373, 0.30588236, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2147046496]
 
@@ -167,6 +168,7 @@ offset_bottom = 294.0
 texture = SubResource("AnimatedTexture_4aa8n")
 
 [node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1579858966]
+visible = false
 custom_minimum_size = Vector2(595.23, 169.61)
 layout_mode = 1
 anchors_preset = 8
@@ -183,6 +185,26 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 90
 bbcode_enabled = true
 text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CuddleRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=251645915]
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -363.0
+offset_right = 293.22998
+offset_bottom = -193.39
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "[wave]Stack the Pancakes!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

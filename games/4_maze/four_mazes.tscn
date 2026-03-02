@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bvfwabwgeafi7"]
+
+[ext_resource type="Texture2D" uid="uid://cfj7rpj0agiwp" path="res://games/4_maze/assets/ezmaze-export1.png" id="1_cb5eb"]
+[ext_resource type="Script" uid="uid://brn8ql3nh8t60" path="res://games/4_maze/four_mazes.gd" id="1_lutqt"]
+[ext_resource type="Texture2D" uid="uid://b2tkfiu4hfgmu" path="res://games/4_maze/assets/ezmaze-export2.png" id="2_lutqt"]
+[ext_resource type="Texture2D" uid="uid://bbpupo4n1jp6" path="res://games/4_maze/assets/ezmaze-export3.png" id="3_nvxw6"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_51v2q"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("1_cb5eb")
+frame_1/texture = ExtResource("2_lutqt")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_nvxw6")
+frame_2/duration = 1.0
+
+[sub_resource type="Gradient" id="Gradient_d2yc6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fgdib"]
+gradient = SubResource("Gradient_d2yc6")
+
+[node name="FourMazes" type="Control" unique_id=951413511 node_paths=PackedStringArray("first_maze_texture_rect", "cursor_sprite_2d")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lutqt")
+first_maze_texture_rect = NodePath("FirstMazeTextureRect")
+cursor_sprite_2d = NodePath("CursorSprite2D")
+
+[node name="FirstMazeTextureRect" type="TextureRect" parent="." unique_id=2076561883]
+layout_mode = 0
+offset_left = 12.0
+offset_top = -101.0
+offset_right = 367.0
+offset_bottom = 160.0
+scale = Vector2(3, 3)
+texture = SubResource("AnimatedTexture_51v2q")
+
+[node name="CursorSprite2D" type="Sprite2D" parent="." unique_id=1572785817]
+position = Vector2(77, 126)
+scale = Vector2(0.275, 0.275)
+texture = SubResource("GradientTexture2D_fgdib")
+
+[node name="ResetButton" type="Button" parent="." unique_id=376614810]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 309.0
+offset_right = 99.0
+offset_bottom = 340.0
+text = "Reset"
+
+[connection signal="gui_input" from="FirstMazeTextureRect" to="." method="_on_maze_texture_rect_gui_input"]
