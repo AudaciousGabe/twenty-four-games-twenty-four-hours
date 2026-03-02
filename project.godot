@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="twenty_four_games_twenty_four_hours"
-run/main_scene="uid://bvfwabwgeafi7"
+run/main_scene="uid://bfduikdi6c8fe"
 config/features=PackedStringArray("4.6", "Mobile")
 
 [debug]
@@ -32,3 +32,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+viewport/hdr_2d=true

@@ -1,14 +1,99 @@
 [gd_scene format=3 uid="uid://bfduikdi6c8fe"]
 
+[ext_resource type="Script" uid="uid://bflddxqmt7ysc" path="res://games/5_pedals/five_petals.gd" id="1_6ro33"]
 [ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="1_u3ytb"]
+[ext_resource type="Texture2D" uid="uid://bi6t6u4o0o074" path="res://games/5_pedals/assets/nakedflower-export1.png" id="3_7kiww"]
+[ext_resource type="Texture2D" uid="uid://diu80m1424aqd" path="res://games/5_pedals/assets/nakedflower-export2.png" id="4_gf6w4"]
+[ext_resource type="Texture2D" uid="uid://bg3lupm8oxkek" path="res://games/5_pedals/assets/nakedflower-export3.png" id="5_mk6bf"]
+[ext_resource type="Texture2D" uid="uid://ux0u1vfxidde" path="res://games/5_pedals/assets/assets/grass-export1.png" id="6_py2to"]
+[ext_resource type="Texture2D" uid="uid://b2fd8hcw2dspo" path="res://games/5_pedals/assets/assets/grass-export2.png" id="7_nj34y"]
+[ext_resource type="Texture2D" uid="uid://8af1e58i5d21" path="res://games/5_pedals/assets/assets/grass-export3.png" id="8_8usqf"]
+[ext_resource type="Texture2D" uid="uid://dif8vyweoueqh" path="res://games/5_pedals/assets/assets/sun-export1.png" id="9_sugml"]
+[ext_resource type="Texture2D" uid="uid://dsx0pk461qmhc" path="res://games/5_pedals/assets/assets/sun-export2.png" id="10_k74km"]
+[ext_resource type="Texture2D" uid="uid://h4fc6t242aqa" path="res://games/5_pedals/assets/assets/sun-export3.png" id="11_qjphu"]
+[ext_resource type="Texture2D" uid="uid://fqdrsuh66ncw" path="res://games/5_pedals/assets/5-export1.png" id="12_k74km"]
+[ext_resource type="AudioStream" uid="uid://dijswg5qbi040" path="res://games/5_pedals/assets/sound_effects/boing_1772439814205.wav" id="12_nj34y"]
+[ext_resource type="Texture2D" uid="uid://d4jollapw7npc" path="res://games/5_pedals/assets/5-export2.png" id="13_qjphu"]
+[ext_resource type="Texture2D" uid="uid://ck43pmsl1pqqg" path="res://games/5_pedals/assets/5-export3.png" id="14_uac87"]
 
-[node name="FivePetals" type="Control" unique_id=888367099]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_8usqf"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("3_7kiww")
+frame_1/texture = ExtResource("4_gf6w4")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_mk6bf")
+frame_2/duration = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tteel"]
+load_path = "res://.godot/imported/petal-export1.png-2b415b19b270e9c0773f2c2b194f4929.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cy0fn"]
+load_path = "res://.godot/imported/petal-export2.png-db5be7661ae6dbd67ad0ef1b9b6474bc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_py2to"]
+load_path = "res://.godot/imported/petal-export3.png-e75be6dad2c3eaf7a99e97f8149e40ca.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_nj34y"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = SubResource("CompressedTexture2D_tteel")
+frame_1/texture = SubResource("CompressedTexture2D_cy0fn")
+frame_1/duration = 1.0
+frame_2/texture = SubResource("CompressedTexture2D_py2to")
+frame_2/duration = 1.0
+
+[sub_resource type="Environment" id="Environment_6ro33"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.51
+glow_bloom = 0.11
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_uac87"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("6_py2to")
+frame_1/texture = ExtResource("7_nj34y")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_8usqf")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ugbvo"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("9_sugml")
+frame_1/texture = ExtResource("10_k74km")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("11_qjphu")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xgicl"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("12_k74km")
+frame_1/texture = ExtResource("13_qjphu")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("14_uac87")
+frame_2/duration = 1.0
+
+[node name="FivePetals" type="Control" unique_id=888367099 node_paths=PackedStringArray("red_button", "blue_button", "purple_button", "orange_button", "pink_button", "start_button", "you_win_rich_text_label", "color_sequence_h_box_container", "no_text_rich_text_label", "click_audio_stream_player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6ro33")
+red_button = NodePath("FlowerTextureRect/RedButton")
+blue_button = NodePath("FlowerTextureRect/BlueButton")
+purple_button = NodePath("FlowerTextureRect/PurpleButton")
+orange_button = NodePath("FlowerTextureRect/OrangeButton")
+pink_button = NodePath("FlowerTextureRect/PinkButton")
+start_button = NodePath("StartButton")
+you_win_rich_text_label = NodePath("YouWinRichTextLabel")
+color_sequence_h_box_container = NodePath("MarginContainer/VBoxContainer/ColorSequenceHBoxContainer")
+no_text_rich_text_label = NodePath("NoTextRichTextLabel")
+click_audio_stream_player = NodePath("ClickAudioStreamPlayer")
 
 [node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=1556715027]
 layout_mode = 1
@@ -44,11 +129,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="FlowerTextureRect" type="TextureRect" parent="." unique_id=453018529]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="StartButton" type="Button" parent="." unique_id=1561940378]
 layout_mode = 0
 offset_left = 32.0
@@ -56,3 +136,231 @@ offset_top = 590.0
 offset_right = 78.0
 offset_bottom = 621.0
 text = "Start"
+
+[node name="FlowerTextureRect" type="TextureRect" parent="." unique_id=453018529]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 83.0
+offset_right = 595.0
+offset_bottom = 344.0
+scale = Vector2(2, 2)
+texture = SubResource("AnimatedTexture_8usqf")
+
+[node name="RedButton" type="Button" parent="FlowerTextureRect" unique_id=408416753]
+modulate = Color(1, 1, 1, 0.49411765)
+show_behind_parent = true
+custom_minimum_size = Vector2(89.49, 85.92)
+layout_mode = 0
+offset_left = 47.0
+offset_top = 34.0
+offset_right = 136.48999
+offset_bottom = 119.92
+disabled = true
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="FlowerTextureRect/RedButton" unique_id=136480291]
+modulate = Color(1, 0.20999998, 0.24950016, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -40.0
+offset_top = -34.5
+offset_right = 315.0
+offset_bottom = 226.5
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_nj34y")
+
+[node name="BlueButton" type="Button" parent="FlowerTextureRect" unique_id=157818490]
+modulate = Color(1, 1, 1, 0.49411765)
+show_behind_parent = true
+custom_minimum_size = Vector2(89.49, 85.92)
+layout_mode = 0
+offset_left = 155.99997
+offset_top = -40.0
+offset_right = 245.48999
+offset_bottom = 45.92
+rotation = 1.1663394
+disabled = true
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="FlowerTextureRect/BlueButton" unique_id=1127567138]
+modulate = Color(0, 0.59607846, 0.8627451, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -40.0
+offset_top = -34.0
+offset_right = 315.0
+offset_bottom = 227.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_nj34y")
+
+[node name="PurpleButton" type="Button" parent="FlowerTextureRect" unique_id=684182948]
+modulate = Color(1, 1, 1, 0.49411765)
+show_behind_parent = true
+custom_minimum_size = Vector2(89.49, 85.92)
+layout_mode = 0
+offset_left = 269.99994
+offset_top = 40.99997
+offset_right = 359.48993
+offset_bottom = 126.91998
+rotation = 2.3810525
+disabled = true
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="FlowerTextureRect/PurpleButton" unique_id=1398361205]
+modulate = Color(0.5764706, 0.21960784, 0.56078434, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -40.46457
+offset_top = -34.360264
+offset_right = 314.53543
+offset_bottom = 226.63974
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_nj34y")
+
+[node name="OrangeButton" type="Button" parent="FlowerTextureRect" unique_id=1368589024]
+modulate = Color(1, 1, 1, 0.49411765)
+show_behind_parent = true
+custom_minimum_size = Vector2(89.49, 85.92)
+layout_mode = 0
+offset_left = 201.0
+offset_top = 179.0
+offset_right = 290.49
+offset_bottom = 264.91998
+rotation = -2.365327
+disabled = true
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="FlowerTextureRect/OrangeButton" unique_id=978985180]
+modulate = Color(1, 0.6862745, 0.11372549, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -40.0
+offset_top = -34.0
+offset_right = 315.0
+offset_bottom = 227.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_nj34y")
+
+[node name="PinkButton" type="Button" parent="FlowerTextureRect" unique_id=1406876246]
+modulate = Color(1, 1, 1, 0.49411765)
+show_behind_parent = true
+custom_minimum_size = Vector2(89.49, 85.92)
+layout_mode = 0
+offset_left = 69.0
+offset_top = 154.99997
+offset_right = 158.48999
+offset_bottom = 240.91998
+rotation = -1.1701729
+disabled = true
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="FlowerTextureRect/PinkButton" unique_id=1208216162]
+modulate = Color(0.9529412, 0.5372549, 0.9607843, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -40.0
+offset_top = -34.0
+offset_right = 315.0
+offset_bottom = 227.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_nj34y")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1746252558]
+environment = SubResource("Environment_6ro33")
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=1698053544]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.805
+offset_right = 297.615
+offset_bottom = 84.805
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GrassTextureRect" type="TextureRect" parent="." unique_id=301677939]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 355.0
+offset_right = 668.0
+offset_bottom = 616.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_uac87")
+
+[node name="SunTextureRect" type="TextureRect" parent="." unique_id=281526360]
+layout_mode = 0
+offset_left = 748.0
+offset_top = 20.0
+offset_right = 1103.0
+offset_bottom = 281.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_ugbvo")
+
+[node name="FiveTextureRect2" type="TextureRect" parent="." unique_id=867364205]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 23.0
+offset_right = 412.0
+offset_bottom = 284.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_xgicl")
+
+[node name="GrassTextureRect2" type="TextureRect" parent="." unique_id=1517399403]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 357.0
+offset_right = 455.0
+offset_bottom = 618.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_uac87")
+
+[node name="GrassTextureRect3" type="TextureRect" parent="." unique_id=976250301]
+layout_mode = 0
+offset_left = 531.0
+offset_top = 352.0
+offset_right = 886.0
+offset_bottom = 613.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_uac87")
+
+[node name="GrassTextureRect4" type="TextureRect" parent="." unique_id=1643842625]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 353.0
+offset_right = 1107.0
+offset_bottom = 614.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_uac87")
+
+[node name="NoTextRichTextLabel" type="RichTextLabel" parent="." unique_id=141215254]
+visible = false
+modulate = Color(0.91764706, 0.19607843, 0.23529412, 1)
+layout_mode = 0
+offset_left = 238.0
+offset_top = 94.0
+offset_right = 853.0
+offset_bottom = 312.0
+mouse_filter = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 123
+bbcode_enabled = true
+text = "[shake level=40]NO."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClickAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1818587898]
+stream = ExtResource("12_nj34y")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://inp1flwca5lw"]
+
+[ext_resource type="Script" uid="uid://bvyn8nyf6wro7" path="res://games/6_stars/scenes/star_button.gd" id="1_0mmse"]
+
+[node name="StarButton" type="Button" unique_id=1514253327]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_0mmse")
