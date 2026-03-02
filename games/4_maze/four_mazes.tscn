@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://brn8ql3nh8t60" path="res://games/4_maze/four_mazes.gd" id="1_lutqt"]
 [ext_resource type="Texture2D" uid="uid://b2tkfiu4hfgmu" path="res://games/4_maze/assets/ezmaze-export2.png" id="2_lutqt"]
 [ext_resource type="Texture2D" uid="uid://bbpupo4n1jp6" path="res://games/4_maze/assets/ezmaze-export3.png" id="3_nvxw6"]
+[ext_resource type="Texture2D" uid="uid://cdhvdyciq5wh8" path="res://games/4_maze/assets/beeeeee-export1.png" id="5_d2yc6"]
+[ext_resource type="Texture2D" uid="uid://b8ey616cw2ukg" path="res://games/4_maze/assets/beeeeee-export2.png" id="6_fgdib"]
+[ext_resource type="Texture2D" uid="uid://bg77hfdxbcvmr" path="res://games/4_maze/assets/beeeeee-export3.png" id="7_er71i"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="8_fgdib"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_51v2q"]
 frames = 3
@@ -14,12 +18,16 @@ frame_1/duration = 1.0
 frame_2/texture = ExtResource("3_nvxw6")
 frame_2/duration = 1.0
 
-[sub_resource type="Gradient" id="Gradient_d2yc6"]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_mhjo4"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("5_d2yc6")
+frame_1/texture = ExtResource("6_fgdib")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("7_er71i")
+frame_2/duration = 1.0
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fgdib"]
-gradient = SubResource("Gradient_d2yc6")
-
-[node name="FourMazes" type="Control" unique_id=951413511 node_paths=PackedStringArray("first_maze_texture_rect", "cursor_sprite_2d")]
+[node name="FourMazes" type="Control" unique_id=951413511 node_paths=PackedStringArray("first_maze_texture_rect", "cursor_sprite_2d", "banned_text_rich_text_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +37,7 @@ grow_vertical = 2
 script = ExtResource("1_lutqt")
 first_maze_texture_rect = NodePath("FirstMazeTextureRect")
 cursor_sprite_2d = NodePath("CursorSprite2D")
+banned_text_rich_text_label = NodePath("BannedTextRichTextLabel")
 
 [node name="FirstMazeTextureRect" type="TextureRect" parent="." unique_id=2076561883]
 layout_mode = 0
@@ -40,9 +49,10 @@ scale = Vector2(3, 3)
 texture = SubResource("AnimatedTexture_51v2q")
 
 [node name="CursorSprite2D" type="Sprite2D" parent="." unique_id=1572785817]
+visible = false
 position = Vector2(77, 126)
-scale = Vector2(0.275, 0.275)
-texture = SubResource("GradientTexture2D_fgdib")
+scale = Vector2(0.11138668, 0.11086687)
+texture = SubResource("AnimatedTexture_mhjo4")
 
 [node name="ResetButton" type="Button" parent="." unique_id=376614810]
 layout_mode = 0
@@ -52,4 +62,21 @@ offset_right = 99.0
 offset_bottom = 340.0
 text = "Reset"
 
+[node name="BannedTextRichTextLabel" type="RichTextLabel" parent="." unique_id=1143854905]
+modulate = Color(0.91764706, 0.19607843, 0.23529412, 1)
+layout_mode = 0
+offset_left = 238.0
+offset_top = 94.0
+offset_right = 853.0
+offset_bottom = 312.0
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 123
+bbcode_enabled = true
+text = "[shake level=40]Banned"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("8_fgdib")]
+
 [connection signal="gui_input" from="FirstMazeTextureRect" to="." method="_on_maze_texture_rect_gui_input"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
