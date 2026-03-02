@@ -1,5 +1,13 @@
 [gd_scene format=3 uid="uid://b184b6hv8m1pa"]
 
+[ext_resource type="FontFile" uid="uid://cdrf6hwsilhac" path="res://fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf" id="1_m0wjo"]
+[ext_resource type="Script" uid="uid://dcxpayu6ty7n0" path="res://games/1_toast/toast.gd" id="2_ppqhk"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="3_mrhtk"]
+
+[sub_resource type="Theme" id="Theme_hy1q5"]
+default_font = ExtResource("1_m0wjo")
+default_font_size = 49
+
 [node name="Toast" type="Control" unique_id=1207773897]
 layout_mode = 3
 anchors_preset = 15
@@ -7,25 +15,58 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_hy1q5")
+script = ExtResource("2_ppqhk")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1827972866]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 20.0
-offset_right = 1131.0
-offset_bottom = 47.0
+[node name="Background" type="ColorRect" parent="." unique_id=749783588]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3647059, 0.17254902, 0.15686275, 1)
 
-[node name="EjectButton" type="Button" parent="." unique_id=1848501659]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 51.0
-offset_right = 1132.0
-offset_bottom = 82.0
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=511923486]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1435444655]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1827972866]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1264560670]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonsMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=653245361]
+layout_mode = 2
+
+[node name="StartToastingButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsMarginContainer" unique_id=1698486679]
+layout_mode = 2
+text = "Start Toasting"
+
+[node name="EjectButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsMarginContainer" unique_id=1848501659]
+visible = false
+layout_mode = 2
 text = "Eject Da Toast"
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1264560670]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 86.0
-offset_right = 1132.0
-offset_bottom = 86.0
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("3_mrhtk")]
+position = Vector2(551.00006, 811.00024)
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsMarginContainer/StartToastingButton" to="." method="_on_start_toasting_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsMarginContainer/EjectButton" to="." method="_on_eject_button_pressed"]
