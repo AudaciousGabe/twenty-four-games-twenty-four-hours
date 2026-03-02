@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://b8q454fn8whfl"]
+
+[ext_resource type="PackedScene" uid="uid://lpq36tpnou0h" path="res://games/11_pongs/scenes/paddle_area_2d.tscn" id="1_gl7py"]
+[ext_resource type="Script" uid="uid://dbi88265wy0a3" path="res://games/11_pongs/eleven_pongs.gd" id="1_hobi2"]
+[ext_resource type="PackedScene" uid="uid://381pkkgmkhu2" path="res://games/11_pongs/scenes/ball_area_2d.tscn" id="2_ptvve"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gl7py"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ptvve"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hobi2"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c861w"]
+normal = Vector2(-1, 0)
+
+[node name="ElevenPongs" type="Node" unique_id=113901664 node_paths=PackedStringArray("ball_area_2d", "score_value_rich_text_label", "you_win_rich_text_label")]
+script = ExtResource("1_hobi2")
+ball_area_2d = NodePath("CanvasLayer/Node2D/BallsNode2D/BallArea2D")
+score_value_rich_text_label = NodePath("CanvasLayer2/Control/ScoreValueRichTextLabel")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1887765240]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=814081771]
+
+[node name="PaddleContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=194344001]
+
+[node name="PaddleArea2D" parent="CanvasLayer/Node2D/PaddleContainerNode2D" unique_id=807962350 instance=ExtResource("1_gl7py")]
+position = Vector2(67, 15)
+
+[node name="PaddleArea2D2" parent="CanvasLayer/Node2D/PaddleContainerNode2D" unique_id=1568812505 instance=ExtResource("1_gl7py")]
+position = Vector2(1075, 20)
+
+[node name="WorldBoundariesNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=2120300061]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldBoundariesNode2D" unique_id=1210335198]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldBoundariesNode2D/StaticBody2D" unique_id=1539432487]
+shape = SubResource("WorldBoundaryShape2D_gl7py")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldBoundariesNode2D" unique_id=156136665]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldBoundariesNode2D/StaticBody2D2" unique_id=1707334219]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_ptvve")
+
+[node name="BallsNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=919264248]
+
+[node name="BallArea2D" parent="CanvasLayer/Node2D/BallsNode2D" unique_id=1437186537 instance=ExtResource("2_ptvve")]
+position = Vector2(642, 341)
+
+[node name="BadAreaNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=1205226012]
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Node2D/BadAreaNode2D" unique_id=1001278162]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/BadAreaNode2D/Area2D" unique_id=1501551852]
+shape = SubResource("WorldBoundaryShape2D_hobi2")
+debug_color = Color(0.9936369, 0, 0.24149612, 0.41960785)
+
+[node name="Area2D2" type="Area2D" parent="CanvasLayer/Node2D/BadAreaNode2D" unique_id=1061357439]
+position = Vector2(1152, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/BadAreaNode2D/Area2D2" unique_id=643469496]
+shape = SubResource("WorldBoundaryShape2D_c861w")
+debug_color = Color(0.9936369, 0, 0.24149612, 0.41960785)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1367858764]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=738799056]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1848717807]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.805
+offset_right = 297.615
+offset_bottom = 84.805
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[tornado][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreValueRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=597798521]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.5
+offset_top = -109.0
+offset_right = 307.5
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 67
+bbcode_enabled = true
+text = "[shake level=40]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="dies" from="CanvasLayer/Node2D/BallsNode2D/BallArea2D" to="." method="_on_ball_area_2d_dies"]
+[connection signal="paddle_was_hit" from="CanvasLayer/Node2D/BallsNode2D/BallArea2D" to="." method="_on_ball_area_2d_paddle_was_hit"]

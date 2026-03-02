@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://lpq36tpnou0h"]
+
+[ext_resource type="Script" uid="uid://s57sq7lq5n2p" path="res://games/11_pongs/scenes/paddle_area_2d.gd" id="1_fh6l1"]
+
+[sub_resource type="Gradient" id="Gradient_bp4o5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fh6l1"]
+gradient = SubResource("Gradient_bp4o5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3ck7"]
+size = Vector2(20, 186)
+
+[node name="PaddleArea2D" type="Area2D" unique_id=807962350]
+script = ExtResource("1_fh6l1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1400323603]
+scale = Vector2(0.32089603, 2.9132528)
+texture = SubResource("GradientTexture2D_fh6l1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1650770853]
+scale = Vector2(1, 1.0066468)
+shape = SubResource("RectangleShape2D_p3ck7")

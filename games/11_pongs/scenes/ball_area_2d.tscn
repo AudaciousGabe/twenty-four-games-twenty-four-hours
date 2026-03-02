@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://381pkkgmkhu2"]
+
+[ext_resource type="Script" uid="uid://brguw8ryli1ho" path="res://games/11_pongs/scenes/ball_area_2d.gd" id="1_elnky"]
+
+[sub_resource type="Gradient" id="Gradient_jnfdy"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_elnky"]
+gradient = SubResource("Gradient_jnfdy")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r6fek"]
+
+[node name="BallArea2D" type="Area2D" unique_id=1437186537]
+script = ExtResource("1_elnky")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=237819756]
+scale = Vector2(0.31931657, 0.31931657)
+texture = SubResource("GradientTexture2D_elnky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=784013416]
+shape = SubResource("CircleShape2D_r6fek")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

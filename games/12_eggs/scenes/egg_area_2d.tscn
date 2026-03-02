@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bgt8al0q7oi8q"]
+
+[ext_resource type="Script" uid="uid://cq0ddvmh3m8e2" path="res://games/12_eggs/scenes/egg_area_2d.gd" id="1_jvv1n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dko35"]
+radius = 13.0
+
+[node name="EggArea2D" type="Area2D" unique_id=472281635]
+script = ExtResource("1_jvv1n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=128598065]
+shape = SubResource("CapsuleShape2D_dko35")

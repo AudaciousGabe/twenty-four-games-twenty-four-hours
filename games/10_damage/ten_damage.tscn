@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://bstauy8p23dx3"]
+
+[ext_resource type="Theme" uid="uid://d3vsato5b0xuq" path="res://themes/theme.tres" id="1_atbwy"]
+[ext_resource type="Script" uid="uid://ckf5agxye0t1c" path="res://games/10_damage/ten_damage.gd" id="2_j4c63"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="3_ckyck"]
+[ext_resource type="FontFile" uid="uid://cdrf6hwsilhac" path="res://fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf" id="3_j4c63"]
+
+[sub_resource type="Theme" id="Theme_ckyck"]
+default_font = ExtResource("3_j4c63")
+default_font_size = 17
+
+[node name="TenDamage" type="Control" unique_id=660885278 node_paths=PackedStringArray("enemy_health_value_rich_text_label", "start_button", "buttons_h_box_container", "crit_text_rich_text_label", "player_health_value_rich_text_label", "damage_received_text_rich_text_label", "player_shield_rich_text_label", "lost_text_rich_text_label", "you_win_rich_text_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_atbwy")
+script = ExtResource("2_j4c63")
+enemy_health_value_rich_text_label = NodePath("MarginContainer2/HBoxContainer/EnemyHealthValueRichTextLabel")
+start_button = NodePath("StartButton")
+buttons_h_box_container = NodePath("MarginContainer/VBoxContainer/ButtonsHBoxContainer")
+crit_text_rich_text_label = NodePath("CritTextRichTextLabel")
+player_health_value_rich_text_label = NodePath("MarginContainer3/HBoxContainer/PlayerHealthValueRichTextLabel")
+damage_received_text_rich_text_label = NodePath("DamageReceivedTextRichTextLabel")
+player_shield_rich_text_label = NodePath("PlayerShieldRichTextLabel")
+lost_text_rich_text_label = NodePath("LostTextRichTextLabel")
+you_win_rich_text_label = NodePath("YouWinRichTextLabel")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=588652824]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.047058824, 0.18039216, 0.26666668, 1)
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("3_ckyck")]
+position = Vector2(861, 794.00006)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1369553629]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1100951617]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1243502466]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonsHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1855579189]
+layout_mode = 2
+theme = SubResource("Theme_ckyck")
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1150278572]
+layout_mode = 0
+offset_left = 657.0
+offset_top = 4.0
+offset_right = 1458.0
+offset_bottom = 72.0
+
+[node name="StartButton" type="Button" parent="." unique_id=617382245]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 529.0
+offset_right = 166.0
+offset_bottom = 605.0
+text = "Start"
+
+[node name="CritTextRichTextLabel" type="RichTextLabel" parent="." unique_id=188882119]
+visible = false
+modulate = Color(1, 0.92156863, 0.34117648, 1)
+layout_mode = 0
+offset_left = 605.0
+offset_top = 2.0
+offset_right = 1220.0
+offset_bottom = 220.0
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 123
+bbcode_enabled = true
+text = "[shake level=40]Crit!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DamageReceivedTextRichTextLabel" type="RichTextLabel" parent="." unique_id=1425673174]
+visible = false
+modulate = Color(0.76862746, 0.14117648, 0.1882353, 1)
+layout_mode = 0
+offset_left = 106.0
+offset_top = 115.0
+offset_right = 721.0
+offset_bottom = 333.0
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 67
+bbcode_enabled = true
+text = "[shake level=40]Damage: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LostTextRichTextLabel" type="RichTextLabel" parent="." unique_id=341896303]
+visible = false
+modulate = Color(0.76862746, 0.14117648, 0.1882353, 1)
+layout_mode = 0
+offset_left = 602.0
+offset_top = 358.0
+offset_right = 1217.0
+offset_bottom = 576.0
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 123
+bbcode_enabled = true
+text = "[shake level=40]DED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=682284585]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 25.0
+offset_right = 446.0
+offset_bottom = 93.0
+
+[node name="Panel" type="Panel" parent="MarginContainer2" unique_id=309846371]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=293348988]
+layout_mode = 2
+alignment = 1
+
+[node name="EnemyHealthRichTextLabel" type="RichTextLabel" parent="MarginContainer2/HBoxContainer" unique_id=899675125]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[shake]Enemy Health: "
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="EnemyHealthValueRichTextLabel" type="RichTextLabel" parent="MarginContainer2/HBoxContainer" unique_id=1718074502]
+custom_minimum_size = Vector2(70.645, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "10"
+fit_content = true
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=1932479087]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 434.0
+offset_right = 448.0
+offset_bottom = 502.0
+
+[node name="Panel" type="Panel" parent="MarginContainer3" unique_id=856857622]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3" unique_id=405141994]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerHealthRichTextLabel" type="RichTextLabel" parent="MarginContainer3/HBoxContainer" unique_id=1328500454]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[wave]Player Health: "
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="PlayerHealthValueRichTextLabel" type="RichTextLabel" parent="MarginContainer3/HBoxContainer" unique_id=496934576]
+custom_minimum_size = Vector2(70.645, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "10"
+fit_content = true
+vertical_alignment = 1
+
+[node name="EnemyHealthRichTextLabel2" type="RichTextLabel" parent="." unique_id=1662555187]
+layout_mode = 0
+offset_left = 458.0
+offset_top = -45.0
+offset_right = 730.0
+offset_bottom = 159.0
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 29
+bbcode_enabled = true
+text = "[pulse]Always has 2 Shield"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="PlayerShieldRichTextLabel" type="RichTextLabel" parent="." unique_id=833901950]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 371.0
+offset_right = 727.0
+offset_bottom = 575.0
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 29
+bbcode_enabled = true
+text = "[pulse]0 Shield"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=1184870761]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = -21.0
+offset_right = 598.23
+offset_bottom = 148.60999
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
