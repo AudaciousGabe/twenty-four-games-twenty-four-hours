@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b3brncikbm1pr"]
+
+[ext_resource type="Texture2D" uid="uid://pqhyy5eax1mk" path="res://palettes/endesga-64-1x.png" id="1_aplqd"]
+
+[node name="PaletteSprite2D" type="Sprite2D" unique_id=556498429]
+position = Vector2(519, 850)
+scale = Vector2(30, 30)
+texture = ExtResource("1_aplqd")
