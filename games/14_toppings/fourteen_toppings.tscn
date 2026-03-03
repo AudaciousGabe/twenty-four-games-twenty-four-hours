@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://crkkctjml1b8u"]
+
+[ext_resource type="Script" uid="uid://c0js16ic4u6t8" path="res://games/14_toppings/fourteen_toppings.gd" id="1_sacrd"]
+[ext_resource type="PackedScene" uid="uid://vmvljnoi7hpu" path="res://games/14_toppings/scenes/topping_rigid_body_2d.tscn" id="2_plkm0"]
+[ext_resource type="Texture2D" uid="uid://dhkqc5u6opgda" path="res://games/14_toppings/giggle-export1.png" id="3_23ejo"]
+[ext_resource type="Texture2D" uid="uid://86mvoetymwsj" path="res://games/14_toppings/giggle-export2.png" id="4_gvh2c"]
+[ext_resource type="Texture2D" uid="uid://kred46fla48p" path="res://games/14_toppings/giggle-export3.png" id="5_7i5te"]
+[ext_resource type="Texture2D" uid="uid://cjskf36dq5tbt" path="res://games/14_toppings/14-export1.png" id="6_2mdne"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="6_gvh2c"]
+[ext_resource type="Texture2D" uid="uid://da1w5bt4mxy1i" path="res://games/14_toppings/14-export2.png" id="7_6iye7"]
+[ext_resource type="Texture2D" uid="uid://ir1omqcpdwlp" path="res://games/14_toppings/14-export3.png" id="8_d4wk7"]
+
+[sub_resource type="Curve2D" id="Curve2D_plkm0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 55, -86, 0, 0, 0, 0, 817, -89)
+}
+point_count = 2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_jx4ds"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("3_23ejo")
+frame_1/texture = ExtResource("4_gvh2c")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_7i5te")
+frame_2/duration = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23ejo"]
+size = Vector2(20, 79.72812)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xssux"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("6_2mdne")
+frame_1/texture = ExtResource("7_6iye7")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_d4wk7")
+frame_2/duration = 1.0
+
+[node name="FourteenToppings" type="Node" unique_id=1211476742 node_paths=PackedStringArray("recipe_v_box_container", "spawn_path_2d", "spawn_path_follow_2d", "ingredient_spawn_timer", "ingredients_container_node_2d", "toppings_area_2d", "you_win_rich_text_label", "score_text_rich_text_label")]
+script = ExtResource("1_sacrd")
+recipe_v_box_container = NodePath("CanvasLayer2/Control/PanelContainer/MarginContainer/RecipeVBoxContainer")
+topping_rigid_body_2d_scene = ExtResource("2_plkm0")
+spawn_path_2d = NodePath("CanvasLayer/Node2D/SpawnPath2D")
+spawn_path_follow_2d = NodePath("CanvasLayer/Node2D/SpawnPath2D/SpawnPathFollow2D")
+ingredient_spawn_timer = NodePath("IngredientSpawnTimer")
+ingredients_container_node_2d = NodePath("CanvasLayer/Node2D/IngredientsContainerNode2D")
+toppings_area_2d = NodePath("CanvasLayer/Node2D/ToppingsArea2D")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
+score_text_rich_text_label = NodePath("CanvasLayer2/Control/ScoreTextRichTextLabel")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=731911581]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=193649229]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=10171987]
+
+[node name="SpawnPath2D" type="Path2D" parent="CanvasLayer/Node2D" unique_id=1558714577]
+curve = SubResource("Curve2D_plkm0")
+
+[node name="SpawnPathFollow2D" type="PathFollow2D" parent="CanvasLayer/Node2D/SpawnPath2D" unique_id=1723914466]
+position = Vector2(55, -86)
+rotation = -0.0039369874
+
+[node name="ToppingsArea2D" type="Area2D" parent="CanvasLayer/Node2D" unique_id=699593356]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/ToppingsArea2D" unique_id=1406241537]
+position = Vector2(32, -32)
+texture = SubResource("AnimatedTexture_jx4ds")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/ToppingsArea2D" unique_id=308273049]
+position = Vector2(52.563957, -6.4250765)
+rotation = 1.3054117
+shape = SubResource("RectangleShape2D_23ejo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/Node2D/ToppingsArea2D" unique_id=616212758]
+position = Vector2(3.0000038, -2)
+rotation = 1.5869381
+shape = SubResource("RectangleShape2D_23ejo")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CanvasLayer/Node2D/ToppingsArea2D" unique_id=1964841094]
+position = Vector2(-46, -4.999999)
+rotation = 1.8435007
+shape = SubResource("RectangleShape2D_23ejo")
+
+[node name="IngredientsContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=1004929928]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1422951230]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1056085441]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2/Control" unique_id=1808018033]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/Control/PanelContainer" unique_id=801876813]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RecipeVBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Control/PanelContainer/MarginContainer" unique_id=1351160388]
+layout_mode = 2
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1734205987]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.805
+offset_right = 297.615
+offset_bottom = 84.805
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreTextRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1002392966]
+modulate = Color(0.92, 0.87154675, 0.19319998, 1)
+layout_mode = 0
+offset_left = -504.0
+offset_top = 468.0
+offset_right = 641.0
+offset_bottom = 686.0
+mouse_filter = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "[shake level=40]0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Control" unique_id=1087046744]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 33.0
+offset_right = 390.0
+offset_bottom = 294.0
+texture = SubResource("AnimatedTexture_xssux")
+
+[node name="IngredientSpawnTimer" type="Timer" parent="." unique_id=210627725]
+autostart = true
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("6_gvh2c")]
+
+[connection signal="area_entered" from="CanvasLayer/Node2D/ToppingsArea2D" to="." method="_on_toppings_area_2d_area_entered"]
+[connection signal="timeout" from="IngredientSpawnTimer" to="." method="_on_ingredient_spawn_timer_timeout"]

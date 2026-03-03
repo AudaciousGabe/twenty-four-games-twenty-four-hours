@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://7jt2avfeyw3r"]
+
+[ext_resource type="Texture2D" uid="uid://cc0e316j8vuxw" path="res://games/22_cents/assets/10(1)-export1.png" id="1_foy77"]
+[ext_resource type="Texture2D" uid="uid://beo4elkj8ueyx" path="res://games/22_cents/assets/10(1)-export2.png" id="2_npmqv"]
+[ext_resource type="Texture2D" uid="uid://brii764eli7xf" path="res://games/22_cents/assets/10(1)-export3.png" id="3_r8f6d"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ehbr4"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("1_foy77")
+frame_1/texture = ExtResource("2_npmqv")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_r8f6d")
+frame_2/duration = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmsi1"]
+radius = 57.21888
+
+[node name="QuarterRigidBody2D" type="RigidBody2D" unique_id=295035063]
+input_pickable = true
+can_sleep = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=26559646]
+position = Vector2(26, 6)
+scale = Vector2(1.1539242, 1.1626003)
+texture = SubResource("AnimatedTexture_ehbr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1946277147]
+shape = SubResource("CircleShape2D_lmsi1")
+
+[node name="Button" type="Button" parent="." unique_id=254426569]
+offset_left = -43.0
+offset_top = -52.0
+offset_right = 49.0
+offset_bottom = 50.0
+flat = true

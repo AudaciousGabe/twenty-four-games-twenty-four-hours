@@ -2,8 +2,39 @@
 
 [ext_resource type="Script" uid="uid://djuuhl2ccj4bp" path="res://games/13_balloons/thirdteen_balloons.gd" id="1_yy2h3"]
 [ext_resource type="PackedScene" uid="uid://bu432gcipoe5l" path="res://games/13_balloons/scenes/balloon_button.tscn" id="2_5bpi5"]
+[ext_resource type="Texture2D" uid="uid://dxyy2kj5mk254" path="res://games/13_balloons/assets/mount-export1.png" id="3_v8hoc"]
+[ext_resource type="Texture2D" uid="uid://bafr0p6bavopb" path="res://games/13_balloons/assets/mount-export2.png" id="4_bmiba"]
+[ext_resource type="Texture2D" uid="uid://chyjexdm37nqo" path="res://games/13_balloons/assets/mount-export3.png" id="5_rvtr4"]
+[ext_resource type="Texture2D" uid="uid://c4k35ufst2co0" path="res://games/13_balloons/assets/13-export1.png" id="6_x8mfg"]
+[ext_resource type="Texture2D" uid="uid://du4icy4d52qc4" path="res://games/13_balloons/assets/13-export2.png" id="7_p8l54"]
+[ext_resource type="Texture2D" uid="uid://bn25fucudcl8c" path="res://games/13_balloons/assets/13-export3.png" id="8_utv52"]
+[ext_resource type="AudioStream" uid="uid://bv0umuj5c6uxt" path="res://games/13_balloons/sound_effects/explosion_1772470564614.wav" id="9_bmiba"]
 
-[node name="ThirdteenBalloons" type="Control" unique_id=1722199301]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_l3ldh"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("3_v8hoc")
+frame_1/texture = ExtResource("4_bmiba")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_rvtr4")
+frame_2/duration = 1.0
+
+[sub_resource type="Curve2D" id="Curve2D_yy2h3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -87, 716, 0, 0, 0, 0, 1178, 716)
+}
+point_count = 2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_0j60h"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("6_x8mfg")
+frame_1/texture = ExtResource("7_p8l54")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_utv52")
+frame_2/duration = 1.0
+
+[node name="ThirdteenBalloons" type="Control" unique_id=1722199301 node_paths=PackedStringArray("spawn_path_2d", "spawn_path_follow_2d", "balloon_button_control", "timer", "you_win_rich_text_label", "score_text_rich_text_label", "audio_stream_player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,10 +42,86 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yy2h3")
+balloon_button_scene = ExtResource("2_5bpi5")
+spawn_path_2d = NodePath("SpawnPath2D")
+spawn_path_follow_2d = NodePath("SpawnPath2D/SpawnPathFollow2D")
+balloon_button_control = NodePath("BalloonButtonControl")
+timer = NodePath("Timer")
+you_win_rich_text_label = NodePath("YouWinRichTextLabel")
+score_text_rich_text_label = NodePath("ScoreTextRichTextLabel")
+audio_stream_player = NodePath("AudioStreamPlayer")
 
-[node name="BalloonButton" parent="." unique_id=56073403 instance=ExtResource("2_5bpi5")]
+[node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=593926892]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_l3ldh")
+
+[node name="SpawnPath2D" type="Path2D" parent="." unique_id=1397517681]
+position = Vector2(-94, 23)
+curve = SubResource("Curve2D_yy2h3")
+
+[node name="SpawnPathFollow2D" type="PathFollow2D" parent="SpawnPath2D" unique_id=962579118]
+position = Vector2(-87, 716)
+
+[node name="Timer" type="Timer" parent="." unique_id=179779462]
+wait_time = 0.3
+autostart = true
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=426656463]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.805
+offset_right = 297.615
+offset_bottom = 84.805
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreTextRichTextLabel" type="RichTextLabel" parent="." unique_id=1595495957]
+modulate = Color(0.92, 0.87154675, 0.19319998, 1)
 layout_mode = 0
-offset_left = 517.0
-offset_top = 570.0
-offset_right = 525.0
-offset_bottom = 578.0
+offset_left = -262.0
+offset_top = 468.0
+offset_right = 883.0
+offset_bottom = 686.0
+mouse_filter = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "[shake level=40]0 Yellow Balloons"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=772304701]
+layout_mode = 0
+offset_left = -41.0
+offset_top = -16.0
+offset_right = 314.0
+offset_bottom = 245.0
+texture = SubResource("AnimatedTexture_0j60h")
+
+[node name="BalloonButtonControl" type="Control" parent="." unique_id=569743842]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=564226715]
+stream = ExtResource("9_bmiba")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

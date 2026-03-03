@@ -1,5 +1,8 @@
 extends Control
 
+signal game_won
+
+
 enum PetalColor {
 	RED,
 	BLUE,
@@ -80,6 +83,7 @@ func win() -> void:
 	
 	you_win_rich_text_label.show()
 	print("You win!")
+	emit_signal("game_won")
 
 
 func lost() -> void:

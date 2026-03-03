@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://s3iufa5sabh6"]
+
+[ext_resource type="Script" uid="uid://d4b1mu7yx0a30" path="res://games/16_munchies/scenes/munchy_rigid_body_2d.gd" id="1_8ry6p"]
+[ext_resource type="Texture2D" uid="uid://balh4p2yse8j7" path="res://games/16_munchie/assets/blood-export1.png" id="2_syxvu"]
+[ext_resource type="Texture2D" uid="uid://flhgs5jpg307" path="res://games/16_munchie/assets/blood-export2.png" id="3_eqfmw"]
+[ext_resource type="Texture2D" uid="uid://ceatyxv17igco" path="res://games/16_munchie/assets/blood-export3.png" id="4_tqycn"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_hwei7"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("2_syxvu")
+frame_1/texture = ExtResource("3_eqfmw")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_tqycn")
+frame_2/duration = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gwhi"]
+radius = 42.82
+
+[node name="MunchyArea2D" type="Area2D" unique_id=44862011 node_paths=PackedStringArray("sprite_2d", "collision_shape_2d")]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_8ry6p")
+sprite_2d = NodePath("Sprite2D")
+collision_shape_2d = NodePath("CollisionShape2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=758170831]
+position = Vector2(0, -6)
+scale = Vector2(0.572383, 0.572383)
+texture = SubResource("AnimatedTexture_hwei7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1618812210]
+shape = SubResource("CircleShape2D_4gwhi")

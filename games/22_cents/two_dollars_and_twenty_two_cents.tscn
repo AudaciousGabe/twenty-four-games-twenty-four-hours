@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://cln7lk6k7j40k"]
+
+[ext_resource type="Script" uid="uid://bdkhq3ri3j5qo" path="res://games/22_cents/two_dollars_and_twenty_two_cents.gd" id="1_2802t"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="1_alrry"]
+[ext_resource type="PackedScene" uid="uid://u2sioifcsm3m" path="res://games/22_cents/scenes/quarter_rigid_body_2d.tscn" id="2_hpme3"]
+[ext_resource type="PackedScene" uid="uid://bbj10jharkl4q" path="res://games/22_cents/scenes/penny_rigid_body_2d.tscn" id="2_q6ohm"]
+[ext_resource type="PackedScene" uid="uid://coiy7v6wab4lw" path="res://games/22_cents/scenes/nickel_rigid_body_2d.tscn" id="3_8k8h3"]
+[ext_resource type="PackedScene" uid="uid://7jt2avfeyw3r" path="res://games/22_cents/scenes/dime_rigid_body_2d.tscn" id="4_n64cs"]
+[ext_resource type="FontFile" uid="uid://cdrf6hwsilhac" path="res://fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf" id="7_2802t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hpme3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mt8r6"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hafbl"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_gpe1k"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 93, -43, 0, 0, 0, 0, 1031, -53)
+}
+point_count = 2
+
+[sub_resource type="Theme" id="Theme_q6ohm"]
+default_font = ExtResource("7_2802t")
+default_font_size = 32
+
+[node name="TwoDollarsAndTwentyTwoCents" type="Node" unique_id=1716291780 node_paths=PackedStringArray("spawn_path_2d", "spawn_path_follow_2d", "coin_container_node_2d", "spawn_coins_button", "money_amount_rich_text_label", "you_win_rich_text_label")]
+script = ExtResource("1_2802t")
+penny_rigid_body_2d = ExtResource("2_q6ohm")
+nickel_rigid_body_2d = ExtResource("3_8k8h3")
+dime_rigid_body_2d = ExtResource("4_n64cs")
+quarter_rigid_body_2d = ExtResource("2_hpme3")
+spawn_path_2d = NodePath("CanvasLayer/Node2D/SpawnPath2D")
+spawn_path_follow_2d = NodePath("CanvasLayer/Node2D/SpawnPath2D/SpawnPathFollow2D")
+coin_container_node_2d = NodePath("CanvasLayer/Node2D/CoinContainerNode2D")
+spawn_coins_button = NodePath("CanvasLayer2/Control/SpawnCoinsButton")
+money_amount_rich_text_label = NodePath("CanvasLayer2/Control/MoneyAmountRichTextLabel")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1968995514]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.09803922, 0.19607843, 1)
+
+[node name="PaletteSprite2D" parent="ColorRect" unique_id=556498429 instance=ExtResource("1_alrry")]
+position = Vector2(722.00006, 717.00006)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1904003001]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1992880672]
+
+[node name="WorldCollisionsNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=997677242]
+
+[node name="BottomStaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=958380600]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/BottomStaticBody2D" unique_id=1733798521]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_hpme3")
+
+[node name="LeftStaticBody2D2" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=922963284]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/LeftStaticBody2D2" unique_id=68743528]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_mt8r6")
+
+[node name="RightStaticBody2D3" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=1697567269]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/RightStaticBody2D3" unique_id=45575686]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_hafbl")
+
+[node name="SpawnPath2D" type="Path2D" parent="CanvasLayer/Node2D" unique_id=664991399]
+curve = SubResource("Curve2D_gpe1k")
+
+[node name="SpawnPathFollow2D" type="PathFollow2D" parent="CanvasLayer/Node2D/SpawnPath2D" unique_id=1343734440]
+position = Vector2(93, -43)
+rotation = -0.010660578
+
+[node name="CoinContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=2107389474]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1390682634]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1681089243]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_q6ohm")
+
+[node name="MoneyAmountRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=593269121]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -190.5
+offset_right = 190.5
+offset_bottom = 96.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[wave]Money Amount: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpawnCoinsButton" type="Button" parent="CanvasLayer2/Control" unique_id=1933652017]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 575.0
+offset_right = 164.0
+offset_bottom = 609.0
+text = "Spawn Coins"
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=26634779]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.80499
+offset_right = 297.615
+offset_bottom = 84.80499
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer2/Control/SpawnCoinsButton" to="." method="_on_spawn_coins_button_pressed"]

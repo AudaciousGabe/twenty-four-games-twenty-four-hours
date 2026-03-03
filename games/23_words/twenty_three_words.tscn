@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://c16a34x8nk5al"]
+
+[ext_resource type="Script" uid="uid://dphu3yt8wkrqk" path="res://games/23_words/twenty_three_words.gd" id="1_wbnye"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="2_8pkd3"]
+[ext_resource type="PackedScene" uid="uid://di7rbqtsgdygx" path="res://games/23_words/scenes/typing_letter.tscn" id="2_afm7c"]
+
+[node name="TwentyThreeWords" type="Control" unique_id=266737607 node_paths=PackedStringArray("letters_h_box_container", "you_win_rich_text_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wbnye")
+letters_h_box_container = NodePath("MarginContainer/PanelContainer/MarginContainer/LettersHBoxContainer")
+typing_letter_scene = ExtResource("2_afm7c")
+you_win_rich_text_label = NodePath("YouWinRichTextLabel")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2200692]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.78039217, 0.8117647, 0.8666667, 1)
+
+[node name="PaletteSprite2D" parent="ColorRect" unique_id=556498429 instance=ExtResource("2_8pkd3")]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1803482712]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1571673775]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=130162142]
+layout_mode = 2
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="LettersHBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=376882304]
+layout_mode = 2
+alignment = 1
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=1258479310]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.80499
+offset_right = 297.615
+offset_bottom = 84.80499
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1

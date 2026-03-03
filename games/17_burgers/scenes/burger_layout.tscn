@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://dq4vwxhlt7wyy"]
+
+[ext_resource type="Theme" uid="uid://d3vsato5b0xuq" path="res://themes/theme.tres" id="1_45hu6"]
+[ext_resource type="Script" uid="uid://cq35ci0uuvr0b" path="res://games/17_burgers/scenes/burger_layout.gd" id="2_o8owb"]
+
+[node name="BurgerLayout" type="PanelContainer" unique_id=1313581864 node_paths=PackedStringArray("burger_timer_rich_text_label", "burger_cook_timer", "top_bun_button", "mayo_button", "ketchup_button", "pickles_button", "lettuce_button", "tomato_button", "cheese_button", "burger_button", "bottom_bun_button", "recipe_v_box_container")]
+custom_minimum_size = Vector2(210, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 210.0
+grow_vertical = 2
+theme = ExtResource("1_45hu6")
+script = ExtResource("2_o8owb")
+burger_cook_time = 5.0
+burger_timer_rich_text_label = NodePath("MarginContainer/BurgerTimerRichTextLabel")
+burger_cook_timer = NodePath("BurgerCookTimer")
+top_bun_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/TopBunButton")
+mayo_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/MayoButton")
+ketchup_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/KetchupButton")
+pickles_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PicklesButton")
+lettuce_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/LettuceButton")
+tomato_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/TomatoButton")
+cheese_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/CheeseButton")
+burger_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/BurgerButton")
+bottom_bun_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/BottomBunButton")
+recipe_v_box_container = NodePath("MarginContainer/VBoxContainer/RecipeVBoxContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1196125957]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BurgerTimerRichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=1737950194]
+custom_minimum_size = Vector2(29.255, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "0"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1166308417]
+layout_mode = 2
+
+[node name="RecipeVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=473331547]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2025943949]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="TopBunButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1275512441]
+visible = false
+layout_mode = 2
+disabled = true
+text = "Top Bun"
+
+[node name="MayoButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=373565532]
+visible = false
+layout_mode = 2
+disabled = true
+text = "Mayo"
+
+[node name="KetchupButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=795176544]
+visible = false
+layout_mode = 2
+disabled = true
+text = "Ketchup"
+
+[node name="PicklesButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1616664540]
+visible = false
+layout_mode = 2
+disabled = true
+text = "Pickles
+"
+
+[node name="TomatoButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1477405901]
+visible = false
+layout_mode = 2
+disabled = true
+text = "Tomato"
+
+[node name="LettuceButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1217499372]
+visible = false
+layout_mode = 2
+disabled = true
+text = "Lettuce"
+
+[node name="CheeseButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1880328280]
+visible = false
+layout_mode = 2
+disabled = true
+text = "Cheese"
+
+[node name="BurgerButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1585268993]
+visible = false
+layout_mode = 2
+disabled = true
+text = "Burger"
+
+[node name="BottomBunButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1305546263]
+visible = false
+layout_mode = 2
+text = "Bottom Bun"
+
+[node name="BurgerCookTimer" type="Timer" parent="." unique_id=1735749867]
+one_shot = true

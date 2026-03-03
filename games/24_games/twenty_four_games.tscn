@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://3im1d604ii7u"]
+
+[ext_resource type="Script" uid="uid://bwunss5008ogq" path="res://games/24_games/twenty_four_games.gd" id="1_pecwl"]
+[ext_resource type="PackedScene" uid="uid://b184b6hv8m1pa" path="res://games/1_toast/toast.tscn" id="2_6y8gu"]
+[ext_resource type="PackedScene" uid="uid://cll6pwn6m5vk7" path="res://games/2_slimes/two_slimes.tscn" id="3_dr55h"]
+[ext_resource type="PackedScene" uid="uid://b725wc7pym73k" path="res://games/3_pancakes/three_pancakes.tscn" id="4_dhvei"]
+[ext_resource type="PackedScene" uid="uid://bvfwabwgeafi7" path="res://games/4_maze/four_mazes.tscn" id="5_3wsnk"]
+[ext_resource type="PackedScene" uid="uid://bfduikdi6c8fe" path="res://games/5_pedals/five_petals.tscn" id="6_21wij"]
+[ext_resource type="PackedScene" uid="uid://bo6bj863by548" path="res://games/6_stars/six_stars.tscn" id="7_i2wnm"]
+[ext_resource type="PackedScene" uid="uid://bo5s3onk2kpka" path="res://games/7_clouds/seven_clouds.tscn" id="8_y2sap"]
+[ext_resource type="PackedScene" uid="uid://he6lfhkfxbeo" path="res://games/8_laps/eight_laps.tscn" id="9_5d113"]
+[ext_resource type="PackedScene" uid="uid://cn0p8qyysu3xt" path="res://games/9_whistles/nine_whistles.tscn" id="10_54kne"]
+[ext_resource type="PackedScene" uid="uid://bstauy8p23dx3" path="res://games/10_damage/ten_damage.tscn" id="11_56hll"]
+[ext_resource type="PackedScene" uid="uid://b8q454fn8whfl" path="res://games/11_pongs/eleven_pongs.tscn" id="12_1u1j3"]
+[ext_resource type="PackedScene" uid="uid://d0qrdptvn7txj" path="res://games/12_eggs/twelve_eggs.tscn" id="13_b6lge"]
+[ext_resource type="PackedScene" uid="uid://cf37l3dxxcl2j" path="res://games/13_balloons/thirdteen_balloons.tscn" id="14_m1itj"]
+[ext_resource type="PackedScene" uid="uid://crkkctjml1b8u" path="res://games/14_toppings/fourteen_toppings.tscn" id="15_6jxrg"]
+[ext_resource type="PackedScene" uid="uid://qnibdgkald4n" path="res://games/15_blocks/fifteen_blocks.tscn" id="16_ig8sh"]
+[ext_resource type="PackedScene" uid="uid://m03kcyashlea" path="res://games/17_burgers/seventeen_burgers.tscn" id="18_ge6yr"]
+[ext_resource type="PackedScene" uid="uid://7m0bk2uyx2f6" path="res://games/18_coconuts/eighteen_coconuts.tscn" id="19_0mi8m"]
+[ext_resource type="PackedScene" uid="uid://2a4xyl7r5r4h" path="res://games/19_wires/nineteen_wires.tscn" id="20_nr2tv"]
+[ext_resource type="PackedScene" uid="uid://cseqwtvx3mxbk" path="res://games/20_lambs/twenty_lambs.tscn" id="21_w4pm5"]
+[ext_resource type="PackedScene" uid="uid://b5ro73tak42ip" path="res://games/21_hoops/tweenty_one_hoops.tscn" id="22_kok4y"]
+[ext_resource type="PackedScene" uid="uid://cln7lk6k7j40k" path="res://games/22_cents/two_dollars_and_twenty_two_cents.tscn" id="23_ixnj6"]
+[ext_resource type="PackedScene" uid="uid://c16a34x8nk5al" path="res://games/23_words/twenty_three_words.tscn" id="24_wsb12"]
+[ext_resource type="PackedScene" uid="uid://dh0go34wone1" path="res://games/24_games/bonus_scene.tscn" id="25_1ssas"]
+
+[node name="TwentyFourGames" type="Node" unique_id=855151803 node_paths=PackedStringArray("scenes_node", "color_rect")]
+script = ExtResource("1_pecwl")
+scenes_node = NodePath("ScenesNode")
+color_rect = NodePath("ColorRect")
+toast_scene = ExtResource("2_6y8gu")
+two_slimes_scene = ExtResource("3_dr55h")
+three_pancakes_scene = ExtResource("4_dhvei")
+four_mazes_scene = ExtResource("5_3wsnk")
+five_petals_scene = ExtResource("6_21wij")
+six_stars_scene = ExtResource("7_i2wnm")
+seven_clouds_scene = ExtResource("8_y2sap")
+eight_laps_scene = ExtResource("9_5d113")
+nine_whistles_scene = ExtResource("10_54kne")
+ten_damage_scene = ExtResource("11_56hll")
+eleven_pongs_scene = ExtResource("12_1u1j3")
+twelve_eggs_scene = ExtResource("13_b6lge")
+thirdteen_balloons_scene = ExtResource("14_m1itj")
+fourteen_toppings_scene = ExtResource("15_6jxrg")
+fifteen_blocks_scene = ExtResource("16_ig8sh")
+seventeen_burgers_scene = ExtResource("18_ge6yr")
+eighteen_coconuts_scene = ExtResource("19_0mi8m")
+nineteen_wires_scene = ExtResource("20_nr2tv")
+twenty_lambs_scene = ExtResource("21_w4pm5")
+tweenty_one_hoops_scene = ExtResource("22_kok4y")
+two_dollars_and_twenty_two_cents_scene = ExtResource("23_ixnj6")
+twenty_three_words_scene = ExtResource("24_wsb12")
+bonus_scene_scene = ExtResource("25_1ssas")
+
+[node name="ScenesNode" type="Node" parent="." unique_id=261710530]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=480746095]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

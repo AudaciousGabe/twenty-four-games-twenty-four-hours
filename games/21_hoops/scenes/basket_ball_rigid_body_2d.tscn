@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://carrxwvprh4eu"]
+
+[ext_resource type="Texture2D" uid="uid://ls2wsa83j6s6" path="res://games/11_pong/BALL(1)-export1.png" id="1_pwhl0"]
+[ext_resource type="Script" uid="uid://dxscf8ewbksym" path="res://games/21_hoops/scenes/basket_ball_rigid_body_2d.gd" id="1_utirc"]
+[ext_resource type="Texture2D" uid="uid://dwq3vl1apdyfc" path="res://games/11_pong/BALL(1)-export2.png" id="2_utirc"]
+[ext_resource type="Texture2D" uid="uid://d2n10ddyljqdg" path="res://games/11_pong/BALL(1)-export3.png" id="3_sg4i5"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_fx5yf"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("1_pwhl0")
+frame_1/texture = ExtResource("2_utirc")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_sg4i5")
+frame_2/duration = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pys7k"]
+radius = 20.22375
+
+[node name="BasketBallRigidBody2D" type="RigidBody2D" unique_id=366233207]
+script = ExtResource("1_utirc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=382677908]
+position = Vector2(7, 4)
+scale = Vector2(0.36654034, 0.36654034)
+texture = SubResource("AnimatedTexture_fx5yf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1367821094]
+shape = SubResource("CircleShape2D_pys7k")

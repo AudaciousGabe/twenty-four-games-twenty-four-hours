@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c3ohca87180kc"]
+
+[ext_resource type="Script" uid="uid://dpip5buo4so3b" path="res://games/18_coconuts/scenes/coconut_rigid_body_2d.gd" id="1_8abxs"]
+[ext_resource type="Texture2D" uid="uid://37mjq06l5abr" path="res://games/18_coconuts/assets/coconut.png" id="1_fk0uw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8abxs"]
+atlas = ExtResource("1_fk0uw")
+region = Rect2(136.50426, 253.32796, 46.493484, 39.568924)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hloy8"]
+radius = 18.027756
+
+[node name="CoconutRigidBody2D" type="RigidBody2D" unique_id=1744868579]
+script = ExtResource("1_8abxs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=160842535]
+position = Vector2(1, -1)
+texture = SubResource("AtlasTexture_8abxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1121851380]
+shape = SubResource("CircleShape2D_hloy8")

@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dh0go34wone1"]
+
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="1_g72sx"]
+[ext_resource type="Texture2D" uid="uid://xjsve1mefvlm" path="res://games/6_stars/assets/sky-export1.png" id="2_22gtl"]
+[ext_resource type="Texture2D" uid="uid://dx3ywsnu3dwgp" path="res://games/6_stars/assets/sky-export2.png" id="3_vis0l"]
+[ext_resource type="Texture2D" uid="uid://c0p137lb7as4h" path="res://games/6_stars/assets/sky-export3.png" id="4_0ckja"]
+[ext_resource type="Texture2D" uid="uid://kqdfcdxfqykq" path="res://games/24_final/gabe-export1.png" id="5_colob"]
+[ext_resource type="Texture2D" uid="uid://cj6imk4tard15" path="res://games/24_final/gabe-export2.png" id="6_y2fyv"]
+[ext_resource type="Texture2D" uid="uid://dkifolnulmdj1" path="res://games/24_final/gabe-export3.png" id="7_i1auy"]
+[ext_resource type="Texture2D" uid="uid://bn3hqc24mdbf3" path="res://games/24_final/ravioliiiii-export1.png" id="8_vnu67"]
+[ext_resource type="Texture2D" uid="uid://cqktc36dp6ulx" path="res://games/24_final/ravioliiiii-export2.png" id="9_3o3vi"]
+[ext_resource type="Texture2D" uid="uid://lpo27s8a0fff" path="res://games/24_final/ravioliiiii-export3.png" id="10_2wrn3"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_q71q3"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("2_22gtl")
+frame_1/texture = ExtResource("3_vis0l")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_0ckja")
+frame_2/duration = 1.0
+
+[sub_resource type="Environment" id="Environment_1u5q3"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.73
+glow_bloom = 0.06
+glow_hdr_threshold = 0.23
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_fxhjd"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("5_colob")
+frame_1/texture = ExtResource("6_y2fyv")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("7_i1auy")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_jtik4"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("8_vnu67")
+frame_1/texture = ExtResource("9_3o3vi")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("10_2wrn3")
+frame_2/duration = 1.0
+
+[node name="BonusScene" type="Control" unique_id=939034184]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2128696799]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.09803922, 0.19607843, 1)
+
+[node name="PaletteSprite2D" parent="ColorRect" unique_id=556498429 instance=ExtResource("1_g72sx")]
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="ColorRect" unique_id=2106505220]
+modulate = Color(1.9790094, 1.9790094, 1.9790094, 0.07058824)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_q71q3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="ColorRect/BackgroundTextureRect" unique_id=613304897]
+environment = SubResource("Environment_1u5q3")
+
+[node name="GabeTextureRect" type="TextureRect" parent="." unique_id=233424963]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 328.0
+offset_right = 948.0
+offset_bottom = 589.0
+texture = SubResource("AnimatedTexture_fxhjd")
+
+[node name="RaviTextureRect" type="TextureRect" parent="." unique_id=758615372]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 315.0
+offset_right = 517.0
+offset_bottom = 576.0
+texture = SubResource("AnimatedTexture_jtik4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=978057776]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 1097.0
+offset_bottom = 284.0
+theme_override_font_sizes/normal_font_size = 58
+bbcode_enabled = true
+text = "[wave]thank you for your support!
+i love you ~ Raviiiiiioliiiiii"
+horizontal_alignment = 1
+vertical_alignment = 1

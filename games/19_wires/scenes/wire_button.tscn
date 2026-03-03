@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://8yakqc3eu6qx"]
+
+[ext_resource type="Script" uid="uid://dnde3xbibdyi5" path="res://games/19_wires/scenes/wire_button.gd" id="1_vwo18"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjxep"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="WireButton" type="Button" unique_id=1986423992 node_paths=PackedStringArray("color_rect")]
+custom_minimum_size = Vector2(45, 45)
+offset_right = 40.0
+offset_bottom = 40.0
+flat = true
+script = ExtResource("1_vwo18")
+color_rect = NodePath("MarginContainer/ColorRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1056353039]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1905186483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=1145528684]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1085481637]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wjxep")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

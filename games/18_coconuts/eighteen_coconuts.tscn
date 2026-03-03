@@ -1,0 +1,308 @@
+[gd_scene format=3 uid="uid://7m0bk2uyx2f6"]
+
+[ext_resource type="Texture2D" uid="uid://deugt3c3trmco" path="res://games/18_coconuts/assets/terrain.png" id="1_1kbhq"]
+[ext_resource type="Script" uid="uid://be4e38wyj8hnw" path="res://games/18_coconuts/character_body_2d.gd" id="1_li5nq"]
+[ext_resource type="Script" uid="uid://bobgv4kha7jh3" path="res://games/18_coconuts/eighteen_coconuts.gd" id="1_xdymy"]
+[ext_resource type="PackedScene" uid="uid://c3ohca87180kc" path="res://games/18_coconuts/scenes/coconut_rigid_body_2d.tscn" id="2_7if4t"]
+[ext_resource type="PackedScene" uid="uid://b78u5l6neonal" path="res://games/18_coconuts/scenes/bad_terrain_area_2d.tscn" id="2_xdymy"]
+[ext_resource type="PackedScene" uid="uid://yqb6q447pvcp" path="res://games/18_coconuts/scenes/bird_area_2d.tscn" id="3_dly4e"]
+[ext_resource type="Texture2D" uid="uid://bqnjto4nj5i8d" path="res://games/18_coconuts/assets/monkey.png" id="4_7if4t"]
+[ext_resource type="Texture2D" uid="uid://dcw1s63aoqdvq" path="res://games/18_coconuts/assets/18-export1.png" id="8_btoqd"]
+[ext_resource type="Texture2D" uid="uid://mwakbq4ve5we" path="res://games/18_coconuts/assets/18-export2.png" id="9_jysyr"]
+[ext_resource type="Texture2D" uid="uid://dp1snsq1pag8t" path="res://games/18_coconuts/assets/18-export3.png" id="10_7cg13"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w4k5u"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_li5nq"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oeshd"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dly4e"]
+size = Vector2(174, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbhq"]
+size = Vector2(49.214233, 334.7788)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7if4t"]
+size = Vector2(49.214233, 334.7788)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0tvn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mygkg"]
+atlas = ExtResource("4_7if4t")
+region = Rect2(0, 392.27002, 229.48001, 255.72998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdymy"]
+size = Vector2(63, 63)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7if4t"]
+radius = 48.09366
+
+[sub_resource type="Curve2D" id="Curve2D_dly4e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 10, 302, 0, 0, 0, 0, 256, 298)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_x0tvn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -125, 47, 0, 0, 0, 0, -124, 590)
+}
+point_count = 2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_tqcsg"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("8_btoqd")
+frame_1/texture = ExtResource("9_jysyr")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("10_7cg13")
+frame_2/duration = 1.0
+
+[node name="EighteenCoconuts" type="Node" unique_id=471529125 node_paths=PackedStringArray("character_body_2d", "coconut_spawn_path_2d", "coconut_spawn_path_follow_2d", "coconut_container_node_2d", "you_win_rich_text_label", "score_text_rich_text_label", "bird_spawn_path_2d", "bird_spawn_path_follow_2d", "bird_container_node_2d")]
+script = ExtResource("1_xdymy")
+character_body_2d = NodePath("CanvasLayer/Node2D/CharacterBody2D")
+coconut_spawn_path_2d = NodePath("CanvasLayer/Node2D/CoconutSpawnPath2D")
+coconut_spawn_path_follow_2d = NodePath("CanvasLayer/Node2D/CoconutSpawnPath2D/CoconutSpawnPathFollow2D")
+coconut_rigid_body_2d_scene = ExtResource("2_7if4t")
+coconut_container_node_2d = NodePath("CanvasLayer/Node2D/CoconutContainerNode2D")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
+score_text_rich_text_label = NodePath("CanvasLayer2/Control/ScoreTextRichTextLabel")
+bird_spawn_path_2d = NodePath("CanvasLayer/Node2D/BirdSpawnPath2D")
+bird_spawn_path_follow_2d = NodePath("CanvasLayer/Node2D/BirdSpawnPath2D/BirdSpawnPathFollow2D")
+bird_area_2d_scene = ExtResource("3_dly4e")
+bird_container_node_2d = NodePath("CanvasLayer/Node2D/BirdContainerNode2D")
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=203693071]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_1kbhq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=141507972]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=841036763]
+
+[node name="WorldCollisionsNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=1404795336]
+
+[node name="BottomStaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=358807744]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/BottomStaticBody2D" unique_id=471798220]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_w4k5u")
+
+[node name="LeftStaticBody2D2" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=604817063]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/LeftStaticBody2D2" unique_id=155808456]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_li5nq")
+
+[node name="RightStaticBody2D3" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=1920280291]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/RightStaticBody2D3" unique_id=150232515]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_oeshd")
+
+[node name="TerrainNode2D" type="Node2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=744284143]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D" unique_id=1861497177]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=1366051792]
+position = Vector2(388.99997, 621.00006)
+rotation = -0.8186565
+scale = Vector2(1.6305109, 1.3980886)
+shape = SubResource("RectangleShape2D_dly4e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=276778087]
+position = Vector2(537, 761.00006)
+rotation = -1.6081418
+scale = Vector2(1.6305109, 1.3980886)
+shape = SubResource("RectangleShape2D_dly4e")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=202772932]
+position = Vector2(817, 648)
+rotation = -1.6081418
+scale = Vector2(0.4515681, 0.38719898)
+shape = SubResource("RectangleShape2D_dly4e")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=885788440]
+position = Vector2(1102.8815, 636.033)
+rotation = -3.152107
+scale = Vector2(6.339819, 0.032936804)
+shape = SubResource("RectangleShape2D_1kbhq")
+one_way_collision = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=1418148366]
+position = Vector2(1095, 566.99994)
+rotation = -0.04188323
+scale = Vector2(2.2194333, 0.029329078)
+shape = SubResource("RectangleShape2D_1kbhq")
+one_way_collision = true
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=26148756]
+position = Vector2(1069, 449)
+rotation = 0.15980077
+scale = Vector2(2.2194245, 0.029329104)
+shape = SubResource("RectangleShape2D_1kbhq")
+one_way_collision = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=783075093]
+position = Vector2(1057, 331)
+rotation = 0.37345576
+scale = Vector2(3.0006857, 0.03254132)
+shape = SubResource("RectangleShape2D_1kbhq")
+one_way_collision = true
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=1605813863]
+position = Vector2(1046, 274)
+rotation = 0.12986565
+scale = Vector2(7.1593146, 0.0851241)
+shape = SubResource("RectangleShape2D_1kbhq")
+one_way_collision = true
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=1069759077]
+position = Vector2(678, 186.00002)
+rotation = -6.3178816
+scale = Vector2(7.4815497, 0.07985637)
+shape = SubResource("RectangleShape2D_1kbhq")
+one_way_collision = true
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=1019180867]
+position = Vector2(320, 92.00001)
+rotation = -6.3178816
+scale = Vector2(2.830446, 0.048970625)
+shape = SubResource("RectangleShape2D_7if4t")
+one_way_collision = true
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=740583520]
+position = Vector2(136, 250.00002)
+rotation = -6.252842
+scale = Vector2(4.9856186, 0.118665285)
+shape = SubResource("RectangleShape2D_7if4t")
+one_way_collision = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/StaticBody2D" unique_id=957057010]
+position = Vector2(999, 648)
+rotation = -1.6081418
+scale = Vector2(0.4515681, 0.38719898)
+shape = SubResource("RectangleShape2D_dly4e")
+
+[node name="CoconutArea2D" type="Area2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D" unique_id=1217183934]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/CoconutArea2D" unique_id=1456347698]
+position = Vector2(132.00002, 191)
+scale = Vector2(15.157195, 1.4662566)
+shape = SubResource("RectangleShape2D_x0tvn")
+debug_color = Color(0.6053346, 0.29588, 0, 0.41960785)
+
+[node name="BadTerrainNode2D" type="Node2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D" unique_id=708387146]
+
+[node name="BadTerrainArea2D" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/BadTerrainNode2D" unique_id=1426329461 instance=ExtResource("2_xdymy")]
+position = Vector2(728, 663)
+rotation = -1.5521467
+scale = Vector2(4.6646214, 4.6646214)
+
+[node name="BadTerrainArea2D2" parent="CanvasLayer/Node2D/WorldCollisionsNode2D/BadTerrainNode2D" unique_id=685699999 instance=ExtResource("2_xdymy")]
+position = Vector2(908.00006, 663.00006)
+rotation = -1.5521467
+scale = Vector2(4.6646214, 4.6646214)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="CanvasLayer/Node2D" unique_id=2141025650 node_paths=PackedStringArray("sprite_2d")]
+position = Vector2(106, 551)
+floor_max_angle = 1.2444198
+script = ExtResource("1_li5nq")
+sprite_2d = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/CharacterBody2D" unique_id=1026960379]
+scale = Vector2(0.30501965, 0.29934567)
+texture = SubResource("AtlasTexture_mygkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/CharacterBody2D" unique_id=1307242820]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_xdymy")
+
+[node name="CharacterArea2D" type="Area2D" parent="CanvasLayer/Node2D/CharacterBody2D" unique_id=1973618393]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/CharacterBody2D/CharacterArea2D" unique_id=1629235534]
+shape = SubResource("CircleShape2D_7if4t")
+
+[node name="CoconutSpawnPath2D" type="Path2D" parent="CanvasLayer/Node2D" unique_id=151966767]
+curve = SubResource("Curve2D_dly4e")
+
+[node name="CoconutSpawnPathFollow2D" type="PathFollow2D" parent="CanvasLayer/Node2D/CoconutSpawnPath2D" unique_id=305254364]
+position = Vector2(10, 302)
+rotation = -0.01625873
+
+[node name="CoconutContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=1059519611]
+
+[node name="BirdSpawnPath2D" type="Path2D" parent="CanvasLayer/Node2D" unique_id=646553444]
+curve = SubResource("Curve2D_x0tvn")
+
+[node name="BirdSpawnPathFollow2D" type="PathFollow2D" parent="CanvasLayer/Node2D/BirdSpawnPath2D" unique_id=1781306179]
+position = Vector2(-125, 47)
+rotation = 1.5689547
+
+[node name="BirdContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=467107979]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1399577403]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1022537147]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1154978540]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 410.0
+offset_top = 322.0
+offset_right = 1005.23
+offset_bottom = 491.61
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreTextRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=751261761]
+modulate = Color(1, 0.62357384, 0.3983979, 1)
+layout_mode = 0
+offset_left = -190.0
+offset_top = 464.0
+offset_right = 955.0
+offset_bottom = 682.0
+mouse_filter = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "[shake level=40]0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Control" unique_id=1907494471]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 192.0
+offset_right = 608.0
+offset_bottom = 453.0
+texture = SubResource("AnimatedTexture_tqcsg")
+
+[node name="BirdSpawnTimer" type="Timer" parent="." unique_id=8568429]
+autostart = true
+
+[connection signal="body_entered" from="CanvasLayer/Node2D/WorldCollisionsNode2D/TerrainNode2D/CoconutArea2D" to="." method="_on_coconut_area_2d_body_entered"]
+[connection signal="body_entered" from="CanvasLayer/Node2D/WorldCollisionsNode2D/BadTerrainNode2D/BadTerrainArea2D" to="." method="_on_bad_terrain_area_2d_body_entered"]
+[connection signal="body_entered" from="CanvasLayer/Node2D/WorldCollisionsNode2D/BadTerrainNode2D/BadTerrainArea2D2" to="." method="_on_bad_terrain_area_2d_2_body_entered"]
+[connection signal="body_entered" from="CanvasLayer/Node2D/CharacterBody2D/CharacterArea2D" to="." method="_on_character_area_2d_body_entered"]
+[connection signal="timeout" from="BirdSpawnTimer" to="." method="_on_bird_spawn_timer_timeout"]

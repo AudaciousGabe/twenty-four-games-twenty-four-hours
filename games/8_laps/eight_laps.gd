@@ -1,5 +1,8 @@
 extends Node
 
+signal game_won
+
+
 @export var laps_to_win: int = 9
 
 
@@ -40,6 +43,7 @@ func _process(delta: float) -> void:
 func win() -> void:
 	you_win_rich_text_label.show()
 	print("You win!")
+	emit_signal("game_won")
 
 
 

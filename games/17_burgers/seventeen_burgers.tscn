@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://m03kcyashlea"]
+
+[ext_resource type="Script" uid="uid://c7abloqdet23x" path="res://games/17_burgers/seventeen_burgers.gd" id="1_fdaqd"]
+[ext_resource type="PackedScene" uid="uid://dq4vwxhlt7wyy" path="res://games/17_burgers/scenes/burger_layout.tscn" id="2_b1xia"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="3_8ubai"]
+[ext_resource type="Texture2D" uid="uid://da8n280wwdg1o" path="res://games/17_burger/assets/17(1)-export1.png" id="4_qgdmo"]
+[ext_resource type="Texture2D" uid="uid://cwdok0uekspa6" path="res://games/17_burger/assets/17(1)-export2.png" id="5_arlho"]
+[ext_resource type="Texture2D" uid="uid://cuyyfm3dahpm6" path="res://games/17_burger/assets/17(1)-export3.png" id="6_d8eft"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_f7ggl"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("4_qgdmo")
+frame_1/texture = ExtResource("5_arlho")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("6_d8eft")
+frame_2/duration = 1.0
+
+[node name="SeventeenBurgers" type="Control" unique_id=1292722306 node_paths=PackedStringArray("burger_layout_h_box_container", "you_win_rich_text_label", "score_text_rich_text_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fdaqd")
+burger_layout_scene = ExtResource("2_b1xia")
+burger_layout_h_box_container = NodePath("MarginContainer/BurgerLayoutHBoxContainer")
+you_win_rich_text_label = NodePath("YouWinRichTextLabel")
+score_text_rich_text_label = NodePath("ScoreTextRichTextLabel")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=59465627]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16470589, 0.18431373, 0.30588236, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=755976052]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="BurgerLayoutHBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=565655632]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=685404012]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.80499
+offset_right = 297.615
+offset_bottom = 84.80499
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("3_8ubai")]
+
+[node name="ScoreTextRichTextLabel" type="RichTextLabel" parent="." unique_id=1096894981]
+modulate = Color(1, 0.62357384, 0.3983979, 1)
+layout_mode = 0
+offset_left = -436.0
+offset_top = 381.0
+offset_right = 709.0
+offset_bottom = 599.0
+mouse_filter = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "[shake level=40]0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2053752123]
+layout_mode = 0
+offset_left = -21.0
+offset_top = -9.0
+offset_right = 334.0
+offset_bottom = 252.0
+texture = SubResource("AnimatedTexture_f7ggl")

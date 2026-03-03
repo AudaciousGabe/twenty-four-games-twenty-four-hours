@@ -1,5 +1,8 @@
 extends Control
 
+signal game_won
+
+
 @export var spawn_delay: float = 0.3
 @export var star_speed: float = 3.0
 @export var stars_to_win: int = 6
@@ -10,6 +13,7 @@ extends Control
 @export var spawn_timer: Timer
 @export var score_number_rich_text_label: RichTextLabel
 @export var you_win_rich_text_label: RichTextLabel
+@export var audio_stream_player: AudioStreamPlayer
 
 var stars_pressed: int = 0
 
@@ -42,6 +46,7 @@ func spawn_star() -> void:
 
 func win() -> void:
 	you_win_rich_text_label.show()
+	emit_signal("game_won")
 
 
 func _star_button_pressed(star: Button) -> void:
@@ -52,6 +57,10 @@ func _star_button_pressed(star: Button) -> void:
 		win()
 	
 	score_number_rich_text_label.text = str(stars_pressed)
+	
+	audio_stream_player.play()
+	
+	
 
 
 func _on_spawn_timer_timeout() -> void:

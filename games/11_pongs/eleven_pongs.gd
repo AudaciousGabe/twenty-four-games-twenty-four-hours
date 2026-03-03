@@ -1,5 +1,7 @@
 extends Node
 
+signal game_won
+
 @export var ball_area_2d: PongBall
 @export var score_value_rich_text_label: RichTextLabel
 @export var you_win_rich_text_label: RichTextLabel
@@ -18,6 +20,7 @@ func win() -> void:
 	ball_area_2d.queue_free()
 	score_value_rich_text_label.hide()
 	you_win_rich_text_label.show()
+	emit_signal("game_won")
 
 
 func reset() -> void:

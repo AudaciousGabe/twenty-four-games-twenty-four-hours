@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://2a4xyl7r5r4h"]
+
+[ext_resource type="Script" uid="uid://cxnanguat0npf" path="res://games/19_wires/nineteen_wires.gd" id="1_vjlgk"]
+[ext_resource type="PackedScene" uid="uid://8yakqc3eu6qx" path="res://games/19_wires/scenes/wire_button.tscn" id="2_y3rjk"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="3_p1kro"]
+[ext_resource type="Texture2D" uid="uid://dja3unihijr42" path="res://games/19_wires/assets/19-export1.png" id="4_bt4ge"]
+[ext_resource type="Texture2D" uid="uid://dn08n6w5mdgw1" path="res://games/19_wires/assets/19-export2.png" id="5_f3se5"]
+[ext_resource type="Texture2D" uid="uid://bfwco04rlsi" path="res://games/19_wires/assets/19-export3.png" id="6_57cv6"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_cpd72"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("4_bt4ge")
+frame_1/texture = ExtResource("5_f3se5")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("6_57cv6")
+frame_2/duration = 1.0
+
+[node name="NineteenWires" type="Control" unique_id=1902756874 node_paths=PackedStringArray("wires_h_box_container", "wires_h_box_container_2", "you_win_rich_text_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjlgk")
+wires_h_box_container = NodePath("MarginContainer/VBoxContainer/WiresHBoxContainer")
+wires_h_box_container_2 = NodePath("MarginContainer/VBoxContainer/WiresHBoxContainer2")
+you_win_rich_text_label = NodePath("YouWinRichTextLabel")
+wire_button_scene = ExtResource("2_y3rjk")
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("3_p1kro")]
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=1478504866]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.57254905, 0.6313726, 0.7254902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=426577977]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1174078819]
+layout_mode = 2
+
+[node name="WiresHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1725603885]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1912828595]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WiresHBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=957574807]
+layout_mode = 2
+alignment = 1
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=1702252316]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.80499
+offset_right = 297.615
+offset_bottom = 84.80499
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=796404043]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 38.0
+offset_top = -130.5
+offset_right = 393.0
+offset_bottom = 130.5
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_cpd72")

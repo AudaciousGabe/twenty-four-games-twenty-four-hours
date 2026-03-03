@@ -1,6 +1,6 @@
 extends Control
 
-
+signal game_won
 
 @export var toast_insert_distance: float = 120.0
 
@@ -66,6 +66,7 @@ func eject_toast() -> void:
 func win() -> void:
 	print("We Win")
 	you_win_panel.show()
+	emit_signal("game_won")
 
 
 func _on_start_toasting_button_pressed() -> void:

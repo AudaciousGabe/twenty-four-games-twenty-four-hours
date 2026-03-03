@@ -1,5 +1,6 @@
 extends Control
 
+signal game_won
 
 
 @export var cursor_sprite_2d: Sprite2D
@@ -69,6 +70,7 @@ func check_if_bee_reached_hive() -> void:
 func win() -> void:
 	you_win_rich_text_label.show()
 	print("Win!")
+	emit_signal("game_won")
 
 
 func next_maze() -> void:

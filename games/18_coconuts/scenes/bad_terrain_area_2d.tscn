@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b78u5l6neonal"]
+
+[ext_resource type="Script" uid="uid://d0ace4scg5l6" path="res://games/18_coconuts/scenes/bad_terrain_area_2d.gd" id="1_t4kov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpys6"]
+
+[node name="BadArea2D" type="Area2D" unique_id=1426329461]
+script = ExtResource("1_t4kov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=224745152]
+shape = SubResource("RectangleShape2D_qpys6")
+debug_color = Color(0.9925228, 0, 0.25724825, 0.41960785)

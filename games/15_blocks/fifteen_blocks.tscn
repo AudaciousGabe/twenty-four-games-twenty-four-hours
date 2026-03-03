@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://qnibdgkald4n"]
+
+[ext_resource type="Script" uid="uid://bqjo0jl83aexr" path="res://games/15_blocks/world_boundary_static_body_2d.gd" id="1_5jgab"]
+[ext_resource type="Script" uid="uid://cwjua3x51278o" path="res://games/15_blocks/fifteen_blocks.gd" id="1_i6d13"]
+[ext_resource type="PackedScene" uid="uid://b17f1c3g2nnky" path="res://games/15_blocks/scenes/block_rigid_body_2d.tscn" id="2_dnl84"]
+[ext_resource type="Texture2D" uid="uid://co5w0g3yvacoo" path="res://games/15_blocks/blockie-export1.png" id="4_p0q06"]
+[ext_resource type="Texture2D" uid="uid://1s7gn8s111x7" path="res://games/15_blocks/blockie-export2.png" id="5_uhv1f"]
+[ext_resource type="Texture2D" uid="uid://cknkjveosc0w2" path="res://games/15_blocks/blockie-export3.png" id="6_yqe6e"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="7_uhv1f"]
+[ext_resource type="Texture2D" uid="uid://dwdxdx5bq5bns" path="res://games/15_blocks/15-export1.png" id="8_nxjcw"]
+[ext_resource type="Texture2D" uid="uid://dge4hu8g4qwli" path="res://games/15_blocks/15-export2.png" id="9_wva07"]
+[ext_resource type="Texture2D" uid="uid://cwj10w1y40de8" path="res://games/15_blocks/15-export3.png" id="10_ruq5v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c4d34"]
+
+[sub_resource type="Gradient" id="Gradient_dnl84"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j5dnk"]
+gradient = SubResource("Gradient_dnl84")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jgab"]
+size = Vector2(347.935, 148.225)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_c2prt"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("4_p0q06")
+frame_1/texture = ExtResource("5_uhv1f")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("6_yqe6e")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wuxcx"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("8_nxjcw")
+frame_1/texture = ExtResource("9_wva07")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("10_ruq5v")
+frame_2/duration = 1.0
+
+[node name="FifteenBlocks" type="Node" unique_id=1991655503 node_paths=PackedStringArray("block_container_node_2d", "preview_block_sprite_2d", "winning_timer", "you_win_rich_text_label", "score_text_rich_text_label", "winning_timer_text_rich_text_label")]
+script = ExtResource("1_i6d13")
+block_rigid_body_2d_scene = ExtResource("2_dnl84")
+block_container_node_2d = NodePath("CanvasLayer/Node2D/BlockContainerNode2D")
+preview_block_sprite_2d = NodePath("CanvasLayer/Node2D/PreviewBlockSprite2D")
+winning_timer = NodePath("WinningTimer")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
+score_text_rich_text_label = NodePath("CanvasLayer2/Control/ScoreTextRichTextLabel")
+winning_timer_text_rich_text_label = NodePath("CanvasLayer2/Control/WinningTimerTextRichTextLabel")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=735461033]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11764706, 0.43529412, 0.3137255, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=339196564]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=2137951496]
+
+[node name="BlockContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=869192180]
+
+[node name="WorldBoundariesNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=421609189]
+
+[node name="WorldBoundaryStaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldBoundariesNode2D" unique_id=333886114]
+script = ExtResource("1_5jgab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WorldBoundariesNode2D/WorldBoundaryStaticBody2D" unique_id=449069711]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_c4d34")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D" unique_id=992570281]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/StaticBody2D" unique_id=641223368]
+position = Vector2(579, 655)
+scale = Vector2(5.408174, 2.440119)
+texture = SubResource("GradientTexture2D_j5dnk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/StaticBody2D" unique_id=1146930102]
+position = Vector2(576, 648)
+shape = SubResource("RectangleShape2D_5jgab")
+
+[node name="PreviewBlockSprite2D" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=861312262]
+modulate = Color(1, 1, 1, 0.3019608)
+scale = Vector2(0.931, 0.931)
+texture = SubResource("AnimatedTexture_c2prt")
+
+[node name="WinningTimer" type="Timer" parent="." unique_id=708254548]
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("7_uhv1f")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1771312933]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1067090436]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1100249282]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 258.385
+offset_top = 219.195
+offset_right = 853.615
+offset_bottom = 388.805
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreTextRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=209268250]
+modulate = Color(0.73, 0.73, 0.73, 1)
+layout_mode = 0
+offset_left = -481.0
+offset_top = 453.0
+offset_right = 664.0
+offset_bottom = 671.0
+mouse_filter = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "[shake level=40]0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinningTimerTextRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=713182844]
+modulate = Color(0.73, 0.73, 0.73, 1)
+layout_mode = 0
+offset_left = 485.0
+offset_top = 444.0
+offset_right = 1630.0
+offset_bottom = 662.0
+mouse_filter = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "[shake level=40]0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Control" unique_id=1903471855]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 42.0
+offset_right = 352.0
+offset_bottom = 303.0
+texture = SubResource("AnimatedTexture_wuxcx")

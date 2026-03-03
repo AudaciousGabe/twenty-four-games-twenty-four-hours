@@ -189,6 +189,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1256587233]
+visible = false
 custom_minimum_size = Vector2(595.23, 169.61)
 layout_mode = 1
 anchors_preset = 8

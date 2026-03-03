@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="twenty_four_games_twenty_four_hours"
-run/main_scene="uid://cf37l3dxxcl2j"
+run/main_scene="uid://3im1d604ii7u"
 config/features=PackedStringArray("4.6", "Mobile")
 
 [debug]

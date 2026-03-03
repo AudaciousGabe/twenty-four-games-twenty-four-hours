@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://lpq36tpnou0h" path="res://games/11_pongs/scenes/paddle_area_2d.tscn" id="1_gl7py"]
 [ext_resource type="Script" uid="uid://dbi88265wy0a3" path="res://games/11_pongs/eleven_pongs.gd" id="1_hobi2"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="2_c861w"]
 [ext_resource type="PackedScene" uid="uid://381pkkgmkhu2" path="res://games/11_pongs/scenes/ball_area_2d.tscn" id="2_ptvve"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gl7py"]
@@ -21,6 +22,16 @@ ball_area_2d = NodePath("CanvasLayer/Node2D/BallsNode2D/BallArea2D")
 score_value_rich_text_label = NodePath("CanvasLayer2/Control/ScoreValueRichTextLabel")
 you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
 
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("2_c861w")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=419786463]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.011764706, 0.09803922, 0.24705882, 1)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1887765240]
 
 [node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=814081771]
@@ -34,6 +45,7 @@ position = Vector2(67, 15)
 position = Vector2(1075, 20)
 
 [node name="WorldBoundariesNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=2120300061]
+scale = Vector2(1.0058928, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D/WorldBoundariesNode2D" unique_id=1210335198]
 

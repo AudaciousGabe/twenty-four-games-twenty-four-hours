@@ -1,5 +1,6 @@
 extends Node
 
+signal game_won
 
 @export var time_to_collect_all_eggs: float = 31.0
 @export var amount_of_eggs: int = 12
@@ -103,6 +104,7 @@ func start() -> void:
 func win() -> void:
 	print("You Win")
 	you_win_rich_text_label.show()
+	emit_signal("game_won")
 
 
 func lose() -> void:

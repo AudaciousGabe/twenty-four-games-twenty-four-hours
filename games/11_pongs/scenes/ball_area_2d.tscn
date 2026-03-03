@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://381pkkgmkhu2"]
 
 [ext_resource type="Script" uid="uid://brguw8ryli1ho" path="res://games/11_pongs/scenes/ball_area_2d.gd" id="1_elnky"]
+[ext_resource type="Texture2D" uid="uid://ls2wsa83j6s6" path="res://games/11_pong/BALL(1)-export1.png" id="2_73ugo"]
+[ext_resource type="Texture2D" uid="uid://dwq3vl1apdyfc" path="res://games/11_pong/BALL(1)-export2.png" id="3_4qg7r"]
+[ext_resource type="Texture2D" uid="uid://d2n10ddyljqdg" path="res://games/11_pong/BALL(1)-export3.png" id="4_s3lui"]
 
-[sub_resource type="Gradient" id="Gradient_jnfdy"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_elnky"]
-gradient = SubResource("Gradient_jnfdy")
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6tu42"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("2_73ugo")
+frame_1/texture = ExtResource("3_4qg7r")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_s3lui")
+frame_2/duration = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r6fek"]
 
@@ -13,8 +20,9 @@ gradient = SubResource("Gradient_jnfdy")
 script = ExtResource("1_elnky")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=237819756]
-scale = Vector2(0.31931657, 0.31931657)
-texture = SubResource("GradientTexture2D_elnky")
+position = Vector2(3, 2)
+scale = Vector2(0.18437652, 0.18437652)
+texture = SubResource("AnimatedTexture_6tu42")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=784013416]
 shape = SubResource("CircleShape2D_r6fek")

@@ -1,0 +1,213 @@
+[gd_scene format=3 uid="uid://b5ro73tak42ip"]
+
+[ext_resource type="PackedScene" uid="uid://carrxwvprh4eu" path="res://games/21_hoops/scenes/basket_ball_rigid_body_2d.tscn" id="1_7rsny"]
+[ext_resource type="Script" uid="uid://djvyqqd7751lx" path="res://games/21_hoops/twenty_hoops.gd" id="1_k61rn"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="1_s48ao"]
+[ext_resource type="Texture2D" uid="uid://gj0xy4bfl2h4" path="res://games/21_hoops/assets/hoop-export1.png" id="3_rlie7"]
+[ext_resource type="Texture2D" uid="uid://bu31vtvc32rus" path="res://games/21_hoops/assets/hoop-export2.png" id="4_10cgd"]
+[ext_resource type="Texture2D" uid="uid://5pg65bvm8lqf" path="res://games/21_hoops/assets/hoop-export3.png" id="5_fh7rd"]
+[ext_resource type="Texture2D" uid="uid://ls2wsa83j6s6" path="res://games/11_pong/BALL(1)-export1.png" id="6_5yhms"]
+[ext_resource type="Texture2D" uid="uid://dwq3vl1apdyfc" path="res://games/11_pong/BALL(1)-export2.png" id="7_ird3e"]
+[ext_resource type="Texture2D" uid="uid://d2n10ddyljqdg" path="res://games/11_pong/BALL(1)-export3.png" id="8_egp6p"]
+
+[sub_resource type="Gradient" id="Gradient_k61rn"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j14dq"]
+gradient = SubResource("Gradient_k61rn")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s48ao"]
+size = Vector2(20, 69.69832)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rsny"]
+size = Vector2(107, 126.5)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_5yhms"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("3_rlie7")
+frame_1/texture = ExtResource("4_10cgd")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_fh7rd")
+frame_2/duration = 1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k61rn"]
+bounce = 1.0
+
+[sub_resource type="Gradient" id="Gradient_fpkrc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a7clk"]
+gradient = SubResource("Gradient_fpkrc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j14dq"]
+size = Vector2(62, 62)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1aduu"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("6_5yhms")
+frame_1/texture = ExtResource("7_ird3e")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_egp6p")
+frame_2/duration = 1.0
+
+[node name="TwentyHoops" type="Node" unique_id=1510275486 node_paths=PackedStringArray("preview_ball_sprite_2d", "ball_container_node_2d", "animatable_body_2d", "hoop_container_node_2d", "score_text_rich_text_label", "you_win_rich_text_label")]
+script = ExtResource("1_k61rn")
+preview_ball_sprite_2d = NodePath("CanvasLayer/Node2D/PreviewBallSprite2D")
+basket_ball_rigid_body_2d_scene = ExtResource("1_7rsny")
+ball_container_node_2d = NodePath("CanvasLayer/Node2D/BallContainerNode2D")
+animatable_body_2d = NodePath("CanvasLayer/Node2D/HoopContainerNode2D/AnimatableBody2D")
+hoop_container_node_2d = NodePath("CanvasLayer/Node2D/HoopContainerNode2D")
+score_text_rich_text_label = NodePath("CanvasLayer2/Control/ScoreTextRichTextLabel")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=1292582890]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16470589, 0.18431373, 0.30588236, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1664913014]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1037199344]
+
+[node name="HoopContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=1282353252]
+position = Vector2(0, -1)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="CanvasLayer/Node2D/HoopContainerNode2D" unique_id=742365007]
+position = Vector2(266, 100)
+sync_to_physics = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/HoopContainerNode2D/AnimatableBody2D" unique_id=707752935]
+visible = false
+position = Vector2(1.0000002, 107)
+scale = Vector2(0.3392006, 3.5967095)
+texture = SubResource("GradientTexture2D_j14dq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Node2D/HoopContainerNode2D/AnimatableBody2D" unique_id=1937717436]
+visible = false
+position = Vector2(92.99999, 281)
+rotation = 0.8415313
+scale = Vector2(0.31919038, 3.3710258)
+texture = SubResource("GradientTexture2D_j14dq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/HoopContainerNode2D/AnimatableBody2D" unique_id=1822114052]
+position = Vector2(0, 105.5)
+shape = SubResource("RectangleShape2D_s48ao")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/Node2D/HoopContainerNode2D/AnimatableBody2D" unique_id=1766440778]
+position = Vector2(196, 211)
+rotation = 0.8417894
+scale = Vector2(0.9556194, 0.9474572)
+shape = SubResource("RectangleShape2D_s48ao")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CanvasLayer/Node2D/HoopContainerNode2D/AnimatableBody2D" unique_id=309992810]
+position = Vector2(27.999992, 168)
+rotation = 1.5707964
+scale = Vector2(1.20233, 0.36802113)
+shape = SubResource("RectangleShape2D_s48ao")
+
+[node name="HoopArea2D" type="Area2D" parent="CanvasLayer/Node2D/HoopContainerNode2D/AnimatableBody2D" unique_id=1268519146]
+position = Vector2(92, 164.00002)
+scale = Vector2(1.469138, 0.2269498)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/HoopContainerNode2D/AnimatableBody2D/HoopArea2D" unique_id=1246924875]
+position = Vector2(-10, 275)
+shape = SubResource("RectangleShape2D_7rsny")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Node2D/HoopContainerNode2D/AnimatableBody2D" unique_id=2129587441]
+position = Vector2(305, 175)
+scale = Vector2(3, 3)
+texture = SubResource("AnimatedTexture_5yhms")
+
+[node name="WallContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=1372911018]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/Node2D/WallContainerNode2D" unique_id=728256337]
+position = Vector2(862.99994, 450.00003)
+rotation = 1.049371
+scale = Vector2(0.45322278, 12.984432)
+physics_material_override = SubResource("PhysicsMaterial_k61rn")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/WallContainerNode2D/StaticBody2D" unique_id=139029989]
+texture = SubResource("GradientTexture2D_a7clk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WallContainerNode2D/StaticBody2D" unique_id=575513237]
+shape = SubResource("RectangleShape2D_j14dq")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="CanvasLayer/Node2D/WallContainerNode2D" unique_id=1825255806]
+position = Vector2(737, -259.9999)
+rotation = -0.07295668
+scale = Vector2(0.45322278, 12.984432)
+physics_material_override = SubResource("PhysicsMaterial_k61rn")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/WallContainerNode2D/StaticBody2D2" unique_id=1095850028]
+texture = SubResource("GradientTexture2D_a7clk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/WallContainerNode2D/StaticBody2D2" unique_id=1877920034]
+shape = SubResource("RectangleShape2D_j14dq")
+
+[node name="PreviewBallSprite2D" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=50165572]
+position = Vector2(7, 3)
+scale = Vector2(0.36654034, 0.36654034)
+texture = SubResource("AnimatedTexture_1aduu")
+
+[node name="BallContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=2071225574]
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("1_s48ao")]
+
+[node name="BurstTimer" type="Timer" parent="." unique_id=632621167]
+wait_time = 3.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1904464481]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=427959785]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1315076356]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.0039042, 1.0065112)
+
+[node name="ScoreTextRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1413297677]
+modulate = Color(1, 0.62357384, 0.3983979, 1)
+layout_mode = 0
+offset_left = -474.0
+offset_top = 441.0
+offset_right = 671.0
+offset_bottom = 659.0
+mouse_filter = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "[shake level=40]0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=1432801262]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 457.0
+offset_top = 161.0
+offset_right = 1052.23
+offset_bottom = 330.61
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="CanvasLayer/Node2D/HoopContainerNode2D/AnimatableBody2D/HoopArea2D" to="." method="_on_hoop_area_2d_body_entered"]

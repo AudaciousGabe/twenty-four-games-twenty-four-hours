@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://yqb6q447pvcp"]
+
+[ext_resource type="Script" uid="uid://cfnudhkpone3g" path="res://games/18_coconuts/scenes/bird_area_2d.gd" id="1_nvaoy"]
+[ext_resource type="Texture2D" uid="uid://bgbjoa7cqvhch" path="res://games/18_coconuts/assets/bord.png" id="1_ugaar"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvaoy"]
+atlas = ExtResource("1_ugaar")
+region = Rect2(255.639, 205.46356, 214.49524, 90.72958)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hl7k0"]
+radius = 4.0
+height = 122.799484
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujf7x"]
+radius = 16.44246
+height = 80.50506
+
+[node name="BirdArea2D" type="Area2D" unique_id=1489343601]
+script = ExtResource("1_nvaoy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1210932299]
+scale = Vector2(0.62527084, 0.62527084)
+texture = SubResource("AtlasTexture_nvaoy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1799796350]
+position = Vector2(2, -3)
+rotation = 1.8430774
+scale = Vector2(1.0732105, 1.0732105)
+shape = SubResource("CapsuleShape2D_hl7k0")
+debug_color = Color(0.9966337, 0, 0.19181937, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1728609227]
+position = Vector2(-22, 10)
+rotation = 1.5893443
+scale = Vector2(1.1227111, 1.0039409)
+shape = SubResource("CapsuleShape2D_ujf7x")
+debug_color = Color(0.9966337, 0, 0.19181937, 0.41960785)

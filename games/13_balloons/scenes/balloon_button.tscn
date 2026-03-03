@@ -1,20 +1,39 @@
 [gd_scene format=3 uid="uid://bu432gcipoe5l"]
 
 [ext_resource type="Script" uid="uid://wiji4chtj0o6" path="res://games/13_balloons/scenes/balloon_button.gd" id="1_5aaft"]
+[ext_resource type="Texture2D" uid="uid://13b7nseebrme" path="res://games/13_balloons/assets/balloon-export1.png" id="2_jif1c"]
+[ext_resource type="Texture2D" uid="uid://b3xxcmdsnuhoc" path="res://games/13_balloons/assets/balloon-export2.png" id="3_o2wau"]
+[ext_resource type="Texture2D" uid="uid://iahmyuww5l17" path="res://games/13_balloons/assets/balloon-export3.png" id="4_4jfka"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_7klot"]
 frames = 3
 speed_scale = 3.0
+frame_0/texture = ExtResource("2_jif1c")
+frame_1/texture = ExtResource("3_o2wau")
 frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_4jfka")
 frame_2/duration = 1.0
 
 [node name="BalloonButton" type="Button" unique_id=56073403]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 177.0
+offset_top = 719.0
+offset_right = 326.0
+offset_bottom = 868.0
+flat = true
 script = ExtResource("1_5aaft")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1918314842]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -129.0
+offset_top = -44.0
+offset_right = 226.0
+offset_bottom = 217.0
+mouse_filter = 2
 texture = SubResource("AnimatedTexture_7klot")
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="." unique_id=1373117936]
+autostart = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

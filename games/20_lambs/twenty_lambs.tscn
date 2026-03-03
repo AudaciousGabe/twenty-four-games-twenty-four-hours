@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://cseqwtvx3mxbk"]
+
+[ext_resource type="Script" uid="uid://bujyxdvudjnu0" path="res://games/20_lambs/twenty_lambs.gd" id="1_5oys6"]
+[ext_resource type="Script" uid="uid://b7vdtmkych3bo" path="res://games/20_lambs/character_body_2d.gd" id="1_e5jqj"]
+[ext_resource type="Texture2D" uid="uid://ddebfjtpkjx5s" path="res://games/20_lambs/assets/lamb-export1.png" id="3_x64tf"]
+[ext_resource type="Texture2D" uid="uid://bapcs3c7dmyw" path="res://games/20_lambs/assets/lamb-export2.png" id="4_37kj1"]
+[ext_resource type="Texture2D" uid="uid://cgcqmfklk1w6k" path="res://games/20_lambs/assets/lamb-export3.png" id="5_74y3t"]
+[ext_resource type="PackedScene" uid="uid://kxxvi7vpf588" path="res://games/20_lambs/scenes/lamp_wall_animatable_body_2d.tscn" id="6_0gvyj"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="7_x64tf"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_h4ddm"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("3_x64tf")
+frame_1/texture = ExtResource("4_37kj1")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_74y3t")
+frame_2/duration = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ueujg"]
+radius = 26.0
+height = 52.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_74y3t"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x64tf"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_37kj1"]
+
+[node name="TwentyLambs" type="Node" unique_id=148245662 node_paths=PackedStringArray("character_body_2d", "lamp_wall_animatable_body_2d", "score_text_rich_text_label", "you_win_rich_text_label")]
+script = ExtResource("1_5oys6")
+character_body_2d = NodePath("Node2D/CharacterBody2D")
+lamp_wall_animatable_body_2d = NodePath("LampWallAnimatableBody2D")
+score_text_rich_text_label = NodePath("ScoreTextRichTextLabel")
+you_win_rich_text_label = NodePath("YouWinRichTextLabel")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1659951463]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.99215686, 0.8235294, 0.92941177, 1)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=893687031]
+position = Vector2(314, 359)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Node2D" unique_id=2099171474]
+script = ExtResource("1_e5jqj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/CharacterBody2D" unique_id=1554198845]
+scale = Vector2(0.4200309, 0.4200309)
+texture = SubResource("AnimatedTexture_h4ddm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/CharacterBody2D" unique_id=1653358784]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_ueujg")
+
+[node name="DeathArea2D" type="Area2D" parent="Node2D" unique_id=1424056260]
+position = Vector2(-411, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/DeathArea2D" unique_id=1816923292]
+shape = SubResource("WorldBoundaryShape2D_74y3t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/DeathArea2D" unique_id=300303098]
+position = Vector2(297, -425)
+shape = SubResource("WorldBoundaryShape2D_x64tf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/DeathArea2D" unique_id=1287685733]
+position = Vector2(305, 368)
+shape = SubResource("WorldBoundaryShape2D_37kj1")
+
+[node name="LampWallAnimatableBody2D" parent="." unique_id=339958742 instance=ExtResource("6_0gvyj")]
+position = Vector2(1171, 2)
+sync_to_physics = false
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("7_x64tf")]
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="." unique_id=414151467]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.80499
+offset_right = 297.615
+offset_bottom = 84.80499
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreTextRichTextLabel" type="RichTextLabel" parent="." unique_id=1274135367]
+modulate = Color(0.73, 0.73, 0.73, 1)
+offset_left = -481.0
+offset_top = 453.0
+offset_right = 664.0
+offset_bottom = 671.0
+mouse_filter = 2
+theme_override_constants/outline_size = 45
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "[shake level=40]0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Node2D/DeathArea2D" to="." method="_on_death_area_2d_body_entered"]
+[connection signal="middle_passed" from="LampWallAnimatableBody2D" to="." method="_on_lamp_wall_animatable_body_2d_middle_passed"]

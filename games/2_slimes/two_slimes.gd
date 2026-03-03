@@ -1,7 +1,8 @@
 extends Control
 
+signal game_won
 
-@export var time_to_win: float = 21.0
+@export var time_to_win: float = 26.0
 @export var move_distance: float = 15.0
 
 @export var left_slime_margin_container: MarginContainer
@@ -21,10 +22,11 @@ var original_right_slime_position: Vector2
 
 var game_started: bool = false
 
+var won: bool = false
 
 func _ready() -> void:
 	original_left_slime_position = left_slime_margin_container.position
-
+	original_right_slime_position = right_slime_margin_container.position
 
 func _process(_delta: float) -> void:
 	timer_label.text = str(int(floor(timer.time_left)))
@@ -47,10 +49,16 @@ func start() -> void:
 
 
 func win() -> void:
+	if not won:
+		won = true
+	else:
+		return
 	timer.stop()
 	timer_label.hide()
 	you_win_rich_text_label.show()
 	print("You Win!")
+	emit_signal("game_won")
+
 
 
 func lose() -> void:

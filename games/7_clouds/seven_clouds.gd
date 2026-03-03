@@ -1,5 +1,6 @@
 extends Node
 
+signal game_won
 
 @export var cloud_path_2d: Path2D
 @export var cloud_path_2d_2: Path2D
@@ -58,6 +59,7 @@ func setup_paths() -> void:
 
 func win() -> void:
 	you_win_rich_text_label.show()
+	emit_signal("game_won")
 
 
 func _on_lolipop_area_2d_body_entered(body: Node2D) -> void:

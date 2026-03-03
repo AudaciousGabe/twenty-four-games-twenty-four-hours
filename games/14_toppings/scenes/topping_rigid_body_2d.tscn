@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://vmvljnoi7hpu"]
+
+[ext_resource type="Script" uid="uid://b3b2o3khnl0wn" path="res://games/14_toppings/scenes/topping_rigid_body_2d.gd" id="1_dr7jc"]
+[ext_resource type="Texture2D" uid="uid://c1iw6jnh17wq3" path="res://games/14_toppings/cherry-export1.png" id="2_4fcg5"]
+[ext_resource type="Texture2D" uid="uid://c5wbgot2iqmov" path="res://games/14_toppings/cherry-export2.png" id="3_0enso"]
+[ext_resource type="Texture2D" uid="uid://c7lvsku7f388y" path="res://games/14_toppings/cherry-export3.png" id="4_848bq"]
+[ext_resource type="Texture2D" uid="uid://e6x058f3bkpk" path="res://games/14_toppings/bananna-export1.png" id="5_cxs47"]
+[ext_resource type="Texture2D" uid="uid://d34f1ar5775jr" path="res://games/14_toppings/bananna-export2.png" id="6_1mq0u"]
+[ext_resource type="Texture2D" uid="uid://btc3sgpp83qoo" path="res://games/14_toppings/bananna-export3.png" id="7_0rv48"]
+[ext_resource type="Texture2D" uid="uid://bjquh80elqbaq" path="res://games/14_toppings/chocolate-export1.png" id="8_y3ixr"]
+[ext_resource type="Texture2D" uid="uid://ddftd7ni2o32w" path="res://games/14_toppings/chocolate-export2.png" id="9_snpnl"]
+[ext_resource type="Texture2D" uid="uid://cuje1y806ut6r" path="res://games/14_toppings/chocolate-export3.png" id="10_pvnh1"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_46ir0"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("2_4fcg5")
+frame_1/texture = ExtResource("3_0enso")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_848bq")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ivytj"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("5_cxs47")
+frame_1/texture = ExtResource("6_1mq0u")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("7_0rv48")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_3mkr6"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("8_y3ixr")
+frame_1/texture = ExtResource("9_snpnl")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("10_pvnh1")
+frame_2/duration = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ic0sq"]
+radius = 105.0
+height = 210.0
+
+[node name="ToppingRigidBody2D" type="Area2D" unique_id=355956882 node_paths=PackedStringArray("cherry_sprite_2d", "banana_sprite_2d", "chocolate_sprite_2d")]
+script = ExtResource("1_dr7jc")
+cherry_sprite_2d = NodePath("CherrySprite2D")
+banana_sprite_2d = NodePath("BananaSprite2D")
+chocolate_sprite_2d = NodePath("ChocolateSprite2D")
+
+[node name="CherrySprite2D" type="Sprite2D" parent="." unique_id=1994931503]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = SubResource("AnimatedTexture_46ir0")
+
+[node name="BananaSprite2D" type="Sprite2D" parent="." unique_id=1740000736]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = SubResource("AnimatedTexture_ivytj")
+
+[node name="ChocolateSprite2D" type="Sprite2D" parent="." unique_id=2024407530]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = SubResource("AnimatedTexture_3mkr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1813423543]
+position = Vector2(2, 6)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CapsuleShape2D_ic0sq")

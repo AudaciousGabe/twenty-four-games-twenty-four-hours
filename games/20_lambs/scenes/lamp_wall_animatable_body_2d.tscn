@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://kxxvi7vpf588"]
+
+[ext_resource type="Script" uid="uid://ca7ji5l4dx27b" path="res://games/20_Lambs/scenes/lamp_wall_animatable_body_2d.gd" id="1_bv1vr"]
+[ext_resource type="Texture2D" uid="uid://co5w0g3yvacoo" path="res://games/15_blocks/blockie-export1.png" id="2_u6h5b"]
+[ext_resource type="Texture2D" uid="uid://1s7gn8s111x7" path="res://games/15_blocks/blockie-export2.png" id="3_cvwdx"]
+[ext_resource type="Texture2D" uid="uid://cknkjveosc0w2" path="res://games/15_blocks/blockie-export3.png" id="4_i006w"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_g6yk0"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("2_u6h5b")
+frame_1/texture = ExtResource("3_cvwdx")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_i006w")
+frame_2/duration = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv5ds"]
+size = Vector2(200, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bv1vr"]
+size = Vector2(240, 241.505)
+
+[node name="LampWallAnimatableBody2D" type="AnimatableBody2D" unique_id=339958742]
+script = ExtResource("1_bv1vr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=312965610]
+position = Vector2(-8, -43.000004)
+scale = Vector2(2.0240645, 2.0240645)
+texture = SubResource("AnimatedTexture_g6yk0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1162324790]
+position = Vector2(-4, 606)
+scale = Vector2(2.0240645, 2.0240645)
+texture = SubResource("AnimatedTexture_g6yk0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488460522]
+shape = SubResource("RectangleShape2D_lv5ds")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1522554662]
+position = Vector2(0, 648)
+shape = SubResource("RectangleShape2D_lv5ds")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1683250853]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1134165033]
+position = Vector2(-3, 322)
+shape = SubResource("RectangleShape2D_bv1vr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

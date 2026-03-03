@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://ccuk1g1ex66y2"]
+
+[ext_resource type="Script" uid="uid://btok3pc3263fb" path="res://games/16_munchies/sixteen_munchies.gd" id="1_mu0gs"]
+[ext_resource type="PackedScene" uid="uid://s3iufa5sabh6" path="res://games/16_munchies/scenes/munchy_rigid_body_2d.tscn" id="2_oh2y3"]
+[ext_resource type="Texture2D" uid="uid://cu0j1djw6y2m" path="res://games/16_munchie/assets/batty-export1.png" id="3_0ox1j"]
+[ext_resource type="PackedScene" uid="uid://b3brncikbm1pr" path="res://scenes/palette_sprite_2d.tscn" id="3_6hocg"]
+[ext_resource type="Texture2D" uid="uid://bqif73qwut1gg" path="res://games/16_munchie/assets/batty-export2.png" id="4_mkbea"]
+[ext_resource type="Texture2D" uid="uid://n2pyn1ujwtoh" path="res://games/16_munchie/assets/batty-export3.png" id="5_bsu5e"]
+[ext_resource type="Texture2D" uid="uid://d08fjj8swuem5" path="res://games/16_munchie/assets/16-export1.png" id="6_e0kp0"]
+[ext_resource type="Texture2D" uid="uid://bah1c8ffmgy7q" path="res://games/16_munchie/assets/16-export2.png" id="7_m3ire"]
+[ext_resource type="Texture2D" uid="uid://blbitfiuru33a" path="res://games/16_munchie/assets/16-export3.png" id="8_8l152"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_e0kp0"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("3_0ox1j")
+frame_1/texture = ExtResource("4_mkbea")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_bsu5e")
+frame_2/duration = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qqiyb"]
+radius = 31.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hocg"]
+radius = 39.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_4no7m"]
+frames = 3
+speed_scale = 3.0
+frame_0/texture = ExtResource("6_e0kp0")
+frame_1/texture = ExtResource("7_m3ire")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_8l152")
+frame_2/duration = 1.0
+
+[node name="SixteenMunchies" type="Node" unique_id=1488177304 node_paths=PackedStringArray("monster_animatable_body_2d", "spawn_reference_rect", "spawn_reference_rect_2", "munchy_container_node_2d", "you_win_rich_text_label")]
+script = ExtResource("1_mu0gs")
+monster_animatable_body_2d = NodePath("CanvasLayer/Node2D/MonsterAnimatableBody2D")
+spawn_reference_rect = NodePath("CanvasLayer2/Control/MarginContainer/HBoxContainer/SpawnReferenceRect")
+spawn_reference_rect_2 = NodePath("CanvasLayer2/Control/MarginContainer/HBoxContainer/SpawnReferenceRect2")
+munchy_rigid_body_2d_scene = ExtResource("2_oh2y3")
+munchy_container_node_2d = NodePath("CanvasLayer/Node2D/MunchyContainerNode2D")
+you_win_rich_text_label = NodePath("CanvasLayer2/Control/YouWinRichTextLabel")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=1608740530]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5568628, 0.14509805, 0.11372549, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1779621602]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1841836672]
+
+[node name="MunchyContainerNode2D" type="Node2D" parent="CanvasLayer/Node2D" unique_id=310284217]
+
+[node name="MonsterAnimatableBody2D" type="AnimatableBody2D" parent="CanvasLayer/Node2D" unique_id=505500659]
+scale = Vector2(0.2, 0.2)
+sync_to_physics = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D/MonsterAnimatableBody2D" unique_id=114995110]
+scale = Vector2(0.45824116, 0.45824116)
+texture = SubResource("AnimatedTexture_e0kp0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/MonsterAnimatableBody2D" unique_id=307225648]
+shape = SubResource("CircleShape2D_qqiyb")
+
+[node name="MonsterArea2D" type="Area2D" parent="CanvasLayer/Node2D/MonsterAnimatableBody2D" unique_id=918271719]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/MonsterAnimatableBody2D/MonsterArea2D" unique_id=1233824266]
+shape = SubResource("CircleShape2D_6hocg")
+debug_color = Color(0.5966135, 0.5453798, 0, 0.41960785)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=910980180]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=293492027]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/Control" unique_id=1634115328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Control/MarginContainer" unique_id=566350516]
+layout_mode = 2
+
+[node name="SpawnReferenceRect" type="ReferenceRect" parent="CanvasLayer2/Control/MarginContainer/HBoxContainer" unique_id=930917490]
+layout_mode = 2
+size_flags_horizontal = 3
+border_width = 14.0
+
+[node name="Control" type="Control" parent="CanvasLayer2/Control/MarginContainer/HBoxContainer" unique_id=82896731]
+custom_minimum_size = Vector2(129.335, 0)
+layout_mode = 2
+
+[node name="SpawnReferenceRect2" type="ReferenceRect" parent="CanvasLayer2/Control/MarginContainer/HBoxContainer" unique_id=105006460]
+layout_mode = 2
+size_flags_horizontal = 3
+border_width = 14.0
+
+[node name="YouWinRichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control" unique_id=415927052]
+visible = false
+custom_minimum_size = Vector2(595.23, 169.61)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.615
+offset_top = -84.80499
+offset_right = 297.615
+offset_bottom = 84.80499
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[wave][rainbow]YOU WIN!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Control" unique_id=1747808438]
+layout_mode = 0
+offset_right = 355.0
+offset_bottom = 261.0
+texture = SubResource("AnimatedTexture_4no7m")
+
+[node name="PaletteSprite2D" parent="." unique_id=556498429 instance=ExtResource("3_6hocg")]
+
+[connection signal="area_entered" from="CanvasLayer/Node2D/MonsterAnimatableBody2D/MonsterArea2D" to="." method="_on_monster_area_2d_area_entered"]

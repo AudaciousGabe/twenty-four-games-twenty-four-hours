@@ -1,5 +1,6 @@
 extends Node
 
+signal game_won
 
 @export var position_x_delta: float = 5.0
 @export var amount_pancakes_to_spawn: int = 3
@@ -68,6 +69,8 @@ func check_if_pancakes_are_stacked() -> bool:
 func win() -> void:
 	you_win_rich_text_label.show()
 	print("You Win!")
+	emit_signal("game_won")
+
 
 
 func _on_start_button_pressed() -> void:

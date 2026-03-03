@@ -1,5 +1,7 @@
 extends Control
 
+signal game_won
+
 
 enum Type {
 	DAMAGE,
@@ -67,6 +69,7 @@ func win() -> void:
 	print("You Win")
 	won = true
 	you_win_rich_text_label.show()
+	emit_signal("game_won")
 
 
 func damage_enemy(damage_amount: int) -> void:
@@ -96,9 +99,9 @@ func start() -> void:
 	player_health = 10
 	player_shield = 0
 	start_button.hide()
+	remove_abilities()
 	draw_abilities()
 	lost_text_rich_text_label.hide()
-	remove_abilities()
 
 
 

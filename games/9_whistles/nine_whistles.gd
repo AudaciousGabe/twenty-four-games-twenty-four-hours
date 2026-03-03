@@ -1,5 +1,6 @@
 extends Control
 
+signal game_won
 
 @export var timing_delta: float = 0.07
 @export var score_to_win: int = 9
@@ -50,6 +51,7 @@ func _input(event: InputEvent) -> void:
 func win() -> void:
 	you_win_rich_text_label.show()
 	reset_song_timer.stop()
+	emit_signal("game_won")
 
 
 func good_timing() -> void:
